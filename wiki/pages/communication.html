@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename = 'education.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+    <title>ASU iGEM 2022</title>
+    <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+    .modal {
+    background:rgba(55,55,55,.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+    </g>
+    </svg>
+  </div>
+
+
+   <div class="container-fluid top-notch">
+        <div class="content">
+            <div class="row">
+                <div class="col-12 collaborations">
+                    <p>Education and Communication</p>
+                </div>
+            </div>
+
+            <!-- First Heading -->
+            <div class="row">
+                  <div class="tittle_one">
+                    <p style="text-shadow: 2px 2px 2px black;">Introduction</p>
+                  </div>
+                  <div class = "description_one">
+                    <p>Heavy metal contamination is not an uncommon occurrence in rural areas of the Southwestern United States. Even as recently as 2017, data suggests that almost 20% of wells in the region had arsenic levels above the acceptable limit set by the EPA [1]. Seeing as this issue is so widespread across our home state, we were determined to ensure that we contributed to educating people on not only the persistence of these water quality issues across the US, but also of the technologies that are being developed to mitigate their devastating effects.
+                    </p>
+                  </div>
+
+             <!-- Second Heading -->
+              <div class = "description_one">
+                <p>In Arizona, much of the heavy metal contamination in water is seen in areas with historic mining activity, which also happens to be where many indigenous communities like the Navajo Nation reside. Our team was unfortunately unable to communicate directly with this portion of our target population due to existing institutional restrictions on who can interface with indigenous groups. Because we could not speak to those who live in the communities impacted by water contamination, we decided to create a podcast where we could discuss the science behind bioremediation for a larger public audience to educate them on water quality issues.</p>
+                </p>
+              </div>
+
+                <!-- Thrird Heading -->
+              <div class = "description_one">
+                <p>
+Sharing this type of information through a podcast is ideal because it allows for us to share our conversations with professionals without them feeling like a lecture. Having different episodes at 30 minutes each makes them easy to listen to while still including the details and background information needed to understand the topics being discussed.</p>
+                </p>
+              </div>
+
+              <!-- Fourth Heading -->
+              <div class="tittle_one">
+                <p style="text-shadow: 2px 2px 2px black;">H2bio: A 4-Episode Learning Experience</p>
+              </div>
+              <div class = "description_one">
+                <p>The interviews conducted with Dr. Brown, Dr. Varman, Dr. Rosy, and Dr. Sundaram were compiled and organized into a series of episodes that discuss a myriad of topics, ranging from how organisms are engineered to the bioethics of bioremediation and everything in between.
+                </p>
+              </div>
+              <div class = "description_one">
+                <p>The episodes each provide a unique perspective into a different aspect of water bioremediation, allowing listeners to fully understand how synbio can be used as a powerful means of solving water quality issues.
+                </p>
+              </div>
+              <div class = "image_selection_one" style="text-align: center;">
+                <img src="https://static.igem.wiki/teams/4455/wiki/h2bioasuigempodcast.png" alt="iGEM" width="600" />
+              </div>
+
+              <!-- <div class="lower_part">
+                <p>Listen to the episodes <a href="{{ url_for('pages', page='partnership') }}" style="color: wheat !important;   font-size: 23px;">here</a>.</p>
+              </div> -->
+
+              <div class="tittle_one">
+                <p style="text-shadow: 2px 2px 2px black;">Episode 1: Dr. Brown</p>
+              </div>
+              <div class = "description_one">
+                <p>Episode 1 of the ASU x QGEM podcast H2bio, where we have discussions with various professionals in the fields of water decontamination, synthetic biology, and bioethics speak to us about the different considerations that need to be made when solving water quality issues with bioremediation.</p>
+              </div>
+              <div class="col-12 center-block theVideo">
+                <iframe title="H2bio Podcast Episode 1 with Dr. Brown" style="width: 100% !important; height: 70px !important; border-radius: 15px;" src="https://video.igem.org/videos/embed/65acfca0-4601-47af-a4f5-f74a64158f0d" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+              </div>
+              <div class="tittle_one">
+                <p style="text-shadow: 2px 2px 2px black;">Episode 2: Dr. Varman</p>
+              </div>
+              <div class = "description_one">
+                <p>Episode 2 of the ASU x QGEM podcast H2bio, where we have discussions with various professionals in the fields of water decontamination, synthetic biology, and bioethics speak to us about the different considerations that need to be made when solving water quality issues with bioremediation.</p>
+              </div>
+              <div class="col-12 center-block theVideo">
+                <iframe title="H2bio Podcast Episode 2 with Dr. Varman" style="width: 100% !important; height: 70px !important; border-radius: 15px;" src="https://video.igem.org/videos/embed/28034d9a-9ded-496a-9841-beb66ad0f4d6" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+              </div>
+              <div class="tittle_one">
+                <p style="text-shadow: 2px 2px 2px black;">Episode 3: Dr. Rosy</p>
+              </div>
+              <div class = "description_one">
+                <p>Episode 3 of the ASU x QGEM podcast H2bio, where we have discussions with various professionals in the fields of water decontamination, synthetic biology, and bioethics speak to us about the different considerations that need to be made when solving water quality issues with bioremediation.</p>
+              </div>
+              <div class="col-12 center-block theVideo">
+                <iframe title="H2bio Podcast Episode 3 with Dr. Rosy" style="width: 100% !important; height: 70px !important; border-radius: 15px;" src="https://video.igem.org/videos/embed/930f595d-9d9d-4a30-bc29-2114d9df6221" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+              </div>
+              <div class="tittle_one">
+                <p style="text-shadow: 2px 2px 2px black;">Episode 4: Dr. Sundaram</p>
+              </div>
+              <div class = "description_one">
+                <p>Episode 4 of the ASU x QGEM podcast H2bio, where we have discussions with various professionals in the fields of water decontamination, synthetic biology, and bioethics speak to us about the different considerations that need to be made when solving water quality issues with bioremediation.</p>
+              </div>
+              <div class="col-12 center-block theVideo">
+                <iframe title="H2bio Podcast Episode 4 with Dr. Sundaram" style="width: 100% !important; height: 70px !important; border-radius: 15px;" src="https://video.igem.org/videos/embed/73fe231a-487a-4fdf-a5b9-ce97d6b49542" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+              </div>
+              <div class="tittle_one">
+                <p style="text-shadow: 2px 2px 2px black;">Contribution</p>
+              </div>
+              <div class = "description_one">
+                <p>Our goal with this initiative was to create a self-contained introduction to the promising intersection of water purification and synthetic biology, and we believe that this podcast has accomplished that goal. We hope that listeners are able to gain some insight into the ways in which we perceive, assess, and combat water quality issues, and how that approach has slowly evolved over time. We also hope that the conversations we’ve hosted through this series will demystify the inner workings of GMOs and open people’s minds to the powerful possibilities bioremediation holds to change our future.</p>
+              </div>
+
+              <p style="margin-bottom: 3% !important;
+        font-size: 35px;
+        text-shadow: 2px 2px 2px black;">References</p>
+
+              <div class="col-12" style="margin-bottom: 3% !important;
+                font-size: 18px; color: wheat !important;">
+                <p><a href="https://wrrc.arizona.edu/arsenic-groundwater-poses-challenge" style="color: wheat !important;"> [1] “Arsenic in groundwater poses ongoing challenge,” wrrc.arizona.edu, 18-Jan-2017. [Online]. Available: https://wrrc.arizona.edu/arsenic-groundwater-poses-challenge. [Accessed: 11-Oct-2022].</a></p>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
+         </div>
+
+         {% include "footer.html" %}
+     </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+</html>

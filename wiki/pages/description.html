@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'description.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 titleofpage">
+          <p>Project Description</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 why-arsenic">
+          <p><em>Chlamydomon[As]: Clean water inspired by nature</em></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 the-sub-sections">
+          <p>Background</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 another-description">
+          <p>Water is a basic need that people in our state of Arizona still struggle to access due to the state’s long
+            history of water scarcity and contamination. Heavy metal contaminants, notably arsenic, pervade the
+            groundwater supply in Arizona due to decades-long unregulated mining activity. A study conducted by the US.
+            Geological Survey in the main aquifers in the southwestern United States found that about 19% of the
+            drinking water wells sampled exceeded the maximum contaminant level for arsenic of ten micrograms per liter
+            established by the US Environmental Protection Agency <sup>[1, 2]</sup>. Arsenic contamination in water
+            threatens the health and well-being of rural Arizonans who rely on these water sources.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 the-sub-sections">
+          <p>The Solution: Chlamydomon[As]</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 another-description">
+          <p>ASU iGEM decided to tackle this problem by creating Chlamydomon[As], an engineered microalgae capable of
+            bioremediating arsenic from contaminated water. <i> Chlamydomonas reinhardtii </i> has the ability to
+            naturally uptake arsenic on its own by binding arsenite (As(III)) that enters the cell to metal binding
+            peptides called phytochelatins, which bind to the arsenite and sequester it in the vacuole of <i> C.
+              reinhardtii </i>. We are taking advantage of this existing biological pathway by introducing the genes
+            encoding for the enzymes arsenate reductase (ACR2p) and phytochelatin synthase (PCS) into <i> C. reinhardtii
+            </i>. Arsenate reductase reduces incoming arsenic into the cell into arsenite, the kind that can bind to
+            phytochelatins. Phytochelatin synthase is the rate-limiting enzyme involved in the production of
+            phytochelatins, and by increasing its expression, we can increase phytochelatin synthesis in <i> C.
+              reinhardtii </i>, thereby enhancing its ability to bind and sequester arsenite in the vacuole.
+            Chlamydomon[As] has the potential to revolutionize bioremediation technologies to help Arizona and regions
+            around the world solve the issue of arsenic contamination in water.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 another-description-image">
+          <img src="https://static.igem.wiki/teams/4455/wiki/projectdescriptionimageone.png" width="800px" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 the-sub-sections">
+          <p>Challenges</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 another-description">
+          <p>A project like Chlamydomon[As] requires many moving parts to come together to forge a unique and innovative
+            solution, but also presents formidable challenges.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 another-description">
+          <p>At the cellular level, nuclear expression of transgenes in <i> C. reinhardtii </i>poses a number of
+            obstacles that must be taken into account in order to achieve success. Firstly, transgenes are inserted
+            randomly into the nuclear genome, meaning that strong expression of genes of interest is not guaranteed.
+            Second, exogenous DNA is often not integrated fully or as intended into the nucleus, meaning that further
+            regulation is required in order to maintain the construct’s integrity <sup>[3]</sup>. In an attempt to
+            mitigate some of these challenges, we chose to develop a tricistronic expression vector that would allow us
+            to express our two genes of interest (ACR2p, PCS) and an antibiotic selection marker gene in the <i> C.
+              reinhardtii </i> nucleus, all under the control of a single promoter using viral 2A peptide sequences
+            <sup>[4]</sup>.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 another-description">
+          <p>More information about our novel multicistronic expression vector is below.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 another-description-image">
+          <img src="https://static.igem.wiki/teams/4455/wiki/newgifdescription.gif" width="800px" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 another-description">
+          <p>Implementation also presents itself as a challenge. Although <i> C. reinhardtii </i> has long been
+            well-characterized and considered a model organism for laboratory work, this means that the specific
+            conditions that allow it to thrive in the laboratory must be replicated in order for it to survive outside
+            of the lab as well. Our water filter design was designed to account for temperature regulation, growth
+            times, and heavy metal uptake rates of the algae.</p>
+          <p>Learn exactly how we overcame these design constraints on our <strong><a class="important-links"
+                href="{{ url_for('pages', page='implementation') }}">implementation</a></strong> page.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 the-sub-sections">
+          <p>Multicistronic Expression in <i> C. reinhardtii </i> with 2A peptides</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 another-description">
+          <p>In order to overcome the challenges presented by transgene expression in the <i> C. reinhardtii </i> nucleus, we chose to develop a tricistronic expression vector that would allow us to express our two genes of interest (ACR2p, PCS) and an antibiotic selection marker gene (paromomycin) in the <i> C. reinhardtii </i> nucleus, all under the control of a single promoter.</p>
+          <p>This system is significant because engineering the <i> C. reinhardtii </i>  nucleus was previously considered to be limited to 2 genes of interest [4]. Our system, however, introduces the opportunity to add an additional gene of interest to the plasmid, which greatly increases the possibilities of engineering in <i> C. reinhardtii </i>. We conducted preliminary testing a total of 6 2A peptides to determine which had the highest cleaving efficiency. Future efforts can use the most efficient 2A peptide to construct a more efficient version of Chlamydomon[As].</p>
+          <p>This data can also be used to construct a template plasmid that can accommodate up to three genes of interest using this 2A peptide system. Parts like these will enable future iGEM teams working with <i> C. reinhardtii </i> the ability to more accessibly develop ambitious genetic constructs.</p>
+          <p>View our contributions to the iGEM Parts registry <strong><a class="important-links"
+                href="{{ url_for('pages', page='parts') }}">here</a></strong>.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 the-sub-sections">
+          <p>Future Thinking</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 another-description">
+          <p>Chlamydomon[As] represents a small portion of the efforts being made to combat water quality issues with
+            bioremediation. We are proud to not only have contributed to research in methods of bioremediation, but also
+            have advanced research in engineering <i> C. reinhardtii </i> itself. Though there is still a long way to go
+            until bioremediation technologies are normalized for public or commercial use, we hope that our project
+            sheds light on how important these solutions are and broadens the horizons of what was previously thought to
+            be possible in the field of water bioremediation.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 the-sub-sections">
+          <p>References</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12" style="margin-bottom: 3% !important;
+    font-size: 18px; color: wheat !important;">
+          <p>[1] “Drinking Water Requirements for States and Public Water Systems: Chemical Contaminant Rules,” EPA.
+            [Online]. Available:
+            https://www.epa.gov/dwreginfo/chemical-contaminant-rules#:~:text=EPA%20set%20the%20arsenic%20standard,term%2C%20chronic%20exposure%20to%20arsenic.
+            [Accessed: 11-Oct-2022].</p>
+          <p>[2]“Arsenic in groundwater poses ongoing challenge,” wrrc.arizona.edu, 18-Jan-2017. [Online]. Available:
+            https://wrrc.arizona.edu/arsenic-groundwater-poses-challenge. [Accessed: 11-Oct-2022]. </p>
+          <p>[3]T. M. Plucinak, K. M. Horken, W. Jiang, J. Fostvedt, S. T. Nguyen, and D. P. Weeks, “Improved and
+            versatile viral 2 a platforms for dependable and inducible high‐level expression of dicistronic nuclear
+            genes in chlamydomonas Reinhardtii ,” The Plant Journal, vol. 82, no. 4, pp. 717–729, 2015.</p>
+          <p>[4] T. M. Plucinak, "Making Chlamydomonas Reinhardtii a Better Model Organism: Tackling the Inefficiency of Nuclear Transgene Expression and Improving Methods for the Generation and Characterization of Insertional Mutant Libraries." Order No. 3604635, The University of Nebraska - Lincoln, Ann Arbor, 2013.</p>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

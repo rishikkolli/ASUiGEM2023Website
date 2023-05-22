@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'proofOfConcept.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 collaborations">
+          <p>Proof of Concept</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="container">
+            <div class="accordion" id="accordionExample">
+              <div class="item">
+                <div class="item-header" id="headingOne">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link proofTitleOne" type="button" data-toggle="collapse"
+                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Introduction
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                  data-parent="#accordionExample">
+                  <div class="t-p">
+                    <p>Our project involved two main thrusts: engineering C. reinhardtii to sequester arsenic from
+                      contaminated groundwater and designing a water filtration system to accompany the algae and
+                      complete the filtration process. </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed proofOfTitleTwo" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Genetic Confirmation of Transformants
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="t-p">
+                    <p>After obtaining colonies of CC-400 C. reinhardtii cells transformed with the A2 plasmid, we
+                      performed a colony PCR to confirm the presence of our plasmid in the cells. Due to the manner in
+                      which gene integration occurs in the C. reinhardtii nuclear genome, transgene expression is often
+                      hard to predict. As a result, many of the colonies we screened did not show positive results. We
+                      did, however, obtain 3 strains of mutant C. reinhardtii that contained our transgenic plasmid: T1,
+                      T2, and T3.</p>
+                    <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/conc1.png" width="250px">
+                    </div>
+                    <p style="text-align: center; "><em>Figure 1. Round 1 of colony PCR demonstrates that strains T1 and
+                        T2 contain the plasmid introduced via transformation.</em></p>
+                    <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/conc2.png" width="250px">
+                    </div>
+                    <p style="text-align: center; "><em>Figure 2. Round 2 of colony PCR demonstrates that strain T3
+                        contains the plasmid introduced via transformation.</em></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingThree">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed proofOfTitleThree" type="button" data-toggle="collapse"
+                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Confirmation of Protein Production via Western Blotting
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="t-p">
+                    <p> After confirming the presence of our plasmid in three algae transformants (T1, T2, T3) via
+                      colony PCR, we performed a western blot on those three transformants to confirm that the proteins
+                      corresponding to our genes of interest were being produced in the cell.</p>
+                    <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/conc3.png" width="400px">
+                    </div>
+                    <p style="text-align: center; "><em>Figure 3. Western blot attempt 1, 4 minute exposure. FLAG (gene:
+                        PCS), HA (gene: ACR2p), β-actin (control), H3 (control) blot results shown.</em></p>
+                    <p>Our initial western blot results indicated that the protein extraction and western blotting
+                      protocol worked as a strong band was present on the H3 membrane. It was assumed that the lack of
+                      bands on the FLAG and HA membranes could possibly be due to the lack of production of the proteins
+                      of interest by the T1 transformant.</p>
+                    <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/conc4.png" width="400px">
+                    </div>
+                    <p style="text-align: center; "><em>Figure 4. Western blot attempt 2, 10 minute exposure. Both FLAG
+                        (gene: PCS) and HA (gene: ACR2p) blot results shown.</em></p>
+                    <p>The second trial of western blotting was performed with all three of the transformants which were
+                      validated by colony PCR. The FLAG membrane displayed a band pattern which was hypothesized to be
+                      attributed to background or the successful production of proteins of interest. However, a
+                      conclusion was unable to be made as faint bands consistent with those obtained in the three
+                      transformant lanes were apparent in the C. reinhardtii wild type lane. While these faint bands
+                      could have been attributed to spillover from the transformant lanes, an additional trial in which
+                      the C. reinhardtii wild type lane was clear was necessary in order to support this claim.</p>
+                    <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/conc5.png" width="250px">
+                    </div>
+                    <p style="text-align: center; "><em>Figure 5. Western blot attempt 3, 30 second exposure (FLAG) and
+                        10 minute exposure (HA). FLAG (gene: PCS) and HA (gene: ACR2p) blot results shown.</em></p>
+                    <p>In the third trial of western blotting, we aimed to investigate whether the bands obtained on the
+                      FLAG membrane of the previous western blot were due to background or expression of the proteins of
+                      interest. A spacer well was included between the C. reinhardtii wild type and transformant lanes
+                      to prevent cross contamination between these lanes. In addition, a control samples tagged with
+                      FLAG and HA were included on their respective blots to confirm the functionality of the antibodies
+                      used. However, the FLAG membrane was clear and did not show the same banding pattern as it had in
+                      previous western blot experiments, so it was reprobed.</p>
+                    <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/conc6.png" width="250px">
+                    </div>
+                    <p style="text-align: center; "><em>Figure 6. Reprobing of western blot attempt 3 FLAG membrane.
+                        FLAG (gene: PCS) blot results shown.</em></p>
+                    <p>The FLAG membrane of the western blot was reprobed in order to determine whether a similar
+                      banding pattern as that observed previously could be obtained. Reprobing of the FLAG membrane
+                      yielded the same banding pattern as observed in the previous western blot trial. Additionally, the
+                      C. reinhardtii wild type lane exhibited this same banding pattern, indicating the results obtained
+                      on this as well as the prior FLAG membranes were due to background activity rather than expression
+                      of the proteins of interest.</p>
+                    <p>Overall, the outcomes of our assays suggest that though our transgenes were successfully
+                      transformed into three of our C. reinhardtii transformants, protein expression may not have
+                      occurred. </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingFour">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed proofOfTitleFour" type="button" data-toggle="collapse"
+                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      Measuring Arsenic Uptake
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                  <div class="t-p">
+                    <p>We are currently performing arsenic uptake experiments on the three mutant strains to further
+                      quantify their ability to sequester arsenic as compared to the unengineered CC-400 strain in case
+                      errors were made that prevented us from seeing expected results on the western blot.</p>
+
+                    <p>To do this, we are measuring the ability of engineered strains T1, T2, and T3 (alongside CC-400
+                      as a negative control) to take up three different concentrations of arsenic at 4 different time
+                      intervals. We chose to test our algae’s ability to uptake arsenic at 50 ppb, 250 ppb, and 500 ppb.
+                      Though 250 and 500 ppb are significantly higher than allowable arsenic levels for human and animal
+                      consumption, we wanted to give our engineered strains the ability to demonstrate any improved
+                      heavy metal binding abilities, as we were not able to screen for the highest-expressing
+                      transformants by growing them on serially-concentrated plates containing our antibiotic selection
+                      marker paromomycin. We took 10 mL aliquots of each of the samples listed below at t = 0 hours
+                      (negative control), t = 24 hours, t = 48 hours, and t = 72 hours.</p>
+                    </p>
+
+                    <div>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td style="color: white;">CC-400 (50 ppb)</td>
+                            <td style="color: white;">CC-400 (250 ppb)</td>
+                            <td style="color: white;">CC-400 (500 ppb)</td>
+                          </tr>
+                          <tr>
+                            <td style="color: white;">T1 (50 ppb)</td>
+                            <td style="color: white;">T1 (250 ppb)</td>
+                            <td style="color: white;">T1 (500 ppb)</td>
+                          </tr>
+                          <tr>
+                            <td style="color: white;">T2 (50 ppb)</td>
+                            <td style="color: white;">T2 (250 ppb)</td>
+                            <td style="color: white;">T2 (500 ppb)</td>
+                          </tr>
+                          <tr>
+                            <td style="color: white;">T3 (50 ppb)</td>
+                            <td style="color: white;">T3 (250 ppb)</td>
+                            <td style="color: white;">T3 (500 ppb)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <p>We then spun the culture down, filtered the supernatant, and saved it for testing to determine arsenic concentration via inductively coupled plasma mass spectrometry (ICP-MS). At this time, ICP-MS is still being run on our samples. Expected results would show that arsenic concentration decreased over time as the algae was agitated in arsenic-contaminated water. </p>
+
+                    <p>Further details and a protocol of our arsenic experimentation and ICP-MS sample preparation is available on our <a href={{ url_for('pages', page='experiments' ) }} style="color: wheat !important;">Experiments page</a>.</p>
+                        <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-12-12-at-2-41-00-pm.png" width="500px">
+                    </div>
+                    <p style="text-align: center; "><em>Figure 1. Comparison of T=0 and T=1 supernatant arsenic concentrations of transgenic strains T1, T2, and T3 as compared to wildtype in 500 ppb arsenic, normalized to cell density. Strains T1 and T2 show preliminary positive results.</em></p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="item-header" id="headingFive">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed proofOfTitleFive" type="button" data-toggle="collapse"
+                      data-target="#collapseFive" aria-expanded="false" aria-controls="collapseOne">
+                      Filter Prototyping Design
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                  <div class="t-p">
+                    <p>Our team also developed two water filtration systems to serve two different populations
+                      in an attempt to combat the risks associated with arsenic consumption. The first, a
+                      “high-tech” filter, consists of a growth tank, photobioreactor, carbon cartridge,
+                      greenhouse, and centrifuge that all work together to grow the algae, sequester arsenic
+                      from the contaminated water, separate the algae from filtered water, and maintain ideal
+                      algal growth conditions. Though this approach is technically impressive and is
+                      theoretically able to significantly improve water quality, our estimates show that it
+                      would cost tens of thousands of dollars to implement, which is not the most feasible
+                      approach to take if this technology is to be implemented in many communities across rural
+                      Arizona.</p>
+                    <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/conc7.png" width="500px">
+                    </div>
+                    <p><em>Figure 7. An initial schematic of the proposed filtration system designed by our
+                        team, consisting of a growth tank, gravity-based filters, and carbon cartridges.</em>
+                    </p>
+                    <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/conc8.png" width="500px">
+                    </div>
+                    <p><em>Figure 8. Another drafted schematic of our high tech filter design that more closely
+                        resembles the final product. </em></p>
+                    <div class="row">
+                      <div style="text-align: center;" class="col-6">
+                        <img src="https://static.igem.wiki/teams/4455/wiki/conc9.png" width="500px">
+                      </div>
+                      <div style="text-align: center;" class="col-6">
+                        <img src="https://static.igem.wiki/teams/4455/wiki/yteubsdf-adobeexpress.gif"
+                          width="400px">
+                      </div>
+                    </div>
+                    <p><em>Figure 9. A 3D CAD model of our final high tech filtration system.</p></em>
+
+                    <p>After discussing our project and high tech filter design with academic, civic, and
+                      industrial stakeholders and mentors, we chose to integrate their feedback into our project by offering an alternative solution that would be more cost-effective while still contributing to minimizing the effects of arsenic contamination on human health. Brainstorming and research efforts proved that it would be difficult to decrease the complexity of the filter design without compromising the quality of water coming out of the filter. As a result, we shifted our focus to creating a water filtration system for livestock to use.</p>
+                    <p>Decreasing the amount of contaminants ingested by livestock means that there is less room
+                      for biological magnification of those contaminants when animal products are consumed by
+                      humans and thus still aligns with the goals of our project. This design takes advantage of
+                      sedimentation based filtration systems and results in water that is adequately filtered
+                      for animal consumption.</p>
+
+                    <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/conc10.png" width="500px">
+                    </div>
+
+                    <p><em>Figure 10. An initial mockup of our low-tech filter design.</em></p>
+
+                    <div style="text-align: center;">
+                      <img src="https://static.igem.wiki/teams/4455/wiki/conc11.png" width="500px">
+                    </div>
+
+                    <p><em>Figure 11. A 3D CAD model of our final low-tech filtration system.</em></p>
+                    <p><em>Learn more about both of our filter designs on our <a
+                          href="{{ url_for('pages', page='implementation') }}"
+                          style="color: wheat !important;">Proposed Implementation page.</a></em></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>
+

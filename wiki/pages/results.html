@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'results.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 collaborations">
+          <p>Results</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="description_one">
+          <p>Below are the results we obtained during the cloning, transformation, and assays performed in the wet lab
+            to engineer <i>C. reinhardtii</i> to uptake arsenic from contaminated water sources.</p>
+        </div>
+      </div>
+
+      <!-- First Heading -->
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p style="text-shadow: 2px 2px 2px black;">Golden Gate Cloning and Transformation in <i>E. coli</i></p>
+        </div>
+        <div class="description_one">
+          <p>Because we planned to test a number of 2A peptides during this project, we designed our base plasmid to
+            contain a sequence that we could easily switch out with different 2A peptides. We decided to use the
+            fluorescent protein mScarlet to act as our “spacer” sequence so it could dually act as a visible selection
+            marker to confirm that our plasmid had been transformed into <i>E. coli</i>. An <i>E. coli</i> promoter,
+            terminator, and ribosome binding site were added to the mScarlet sequence to ensure bacterial expression of
+            the fluorescent protein. A 7-fragment golden gate assembly was performed to construct the plasmid using the
+            PICH47742 backbone and was then transformed into NEB 10-beta competent cells. Successful transformants were
+            expected to appear red after a 24-hour incubation period.</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/r1.png" alt="sequence" width="900">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 1. A schematic diagram of the construct containing the mScarlet spacer sequence.</em></p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/r2.png" alt="GGGG" width="500">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 2. An agar plate of <i>E. coli</i> transformants containing the mScarlet spacer plasmid
+              described above. Positive colonies are seen in pink/red.</em></p>
+        </div>
+        <div class="description_one">
+          <p>Upon successful transformation of the spacer sequence, we then switched out the spacer sequence for the TaV
+            2A peptide. Because the resulting plasmid no longer contained the mScarlet spacer sequence, transformants
+            were expected to appear white. This construct was named A2 and was subsequently prepared for transformation
+            into <i>C. reinhardtii.</i>
+          </p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/r3.png" alt="UTR" width="900">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 3. A schematic diagram of the A2 construct.</em></p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/r4.png" alt="New" width="510">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 4. An agar plate of <i>E. coli</i> transformants containing the A2 plasmid described above.
+              Positive colonies are seen in white.</em></p>
+        </div>
+      </div>
+
+      <!-- Second Heading -->
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p style="text-shadow: 2px 2px 2px black;">Glass Bead Transformation in <i>C. reinhardtii</i> </p>
+        </div>
+        <div class="description_one">
+          <p>After successfully constructing our plasmid of interest in <i>E. coli</i>, we used the glass bead
+            transformation protocol detailed by Pei-Hsun Kao and I-Son Ng (2017) to transform our plasmid into <i>C.
+              reinhardtii</i> [1]. The glass bead transformation method was chosen because of its previously cited
+            success in nuclear transformation, and also because our team did not have access to the proper resources to
+            be able to follow electroporation protocols for <i>C. reinhardtii</i> cells. To improve transformation
+            efficiency, polyethylene glycol (PEG) was added to the glass bead tube before vortexing, and linearized DNA
+            was used in the transformation. A detailed version of our transformation protocol is on our Experiments
+            page.</p>
+        </div>
+        <div class="description_one">
+          <p>After roughly 2 weeks, transformants were visible on the selective TAP + paromomycin plates.</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/r5.png" alt="hand" width="510">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 5. Transformants visible two weeks after following Kao and Ng protocol (with the addition of
+              PEG) to transform <i>C. reinhardtii</i> CC-400 cells.</em></p>
+        </div>
+        <div class="description_one">
+          <p>View our transformation troubleshooting process on our Contribution <a
+              href="https://2022.igem.wiki/asu/contribution"
+              style=" color: wheat !important; font-size: 23px;">page</a>.</p>
+        </div>
+      </div>
+
+      <!-- Third Heading -->
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p style="text-shadow: 2px 2px 2px black;">Colony PCR</p>
+        </div>
+        <div class="description_one">
+          <p>After obtaining colonies of CC-400 <i>C. reinhardtii</i> cells transformed with the A2 plasmid, we
+            performed a colony PCR to confirm the presence of our plasmid in the cells. As a control, we used primers
+            that localized on the phosphoglycerate kinase (PGK) gene that is native to all <i>C. reinhardtii</i> cells.
+            Primers for the colony PCR were designed as outlined in Nouemssi et al. (2020) [2].</p>
+        </div>
+        <div class="description_one">
+          <p>Due to the manner in which gene integration occurs in the <i>C. reinhardtii</i> nuclear genome, transgene
+            expression is often hard to predict. As a result, many of the colonies we screened did not show positive
+            results. We did, however, obtain 3 strains of mutant <i>C. reinhardtii</i> that contained our transgenic
+            plasmid: 8622.1.1, 8622.1.2, and 8622.3.10.</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/r6.png" alt="Part 1" width="510">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 6. Round 1 of colony PCR demonstrates that strains 8622.1.1 and 8622.1.2 contain the plasmid
+              introduced via transformation.</em></p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/r7.png" alt="Part 2" width="510">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 7. Round 2 of colony PCR demonstrates that strain 8622.3.10 contains the plasmid introduced via
+              transformation.</em></p>
+        </div>
+        <div class="description_one">
+          <p>View the <i>C. reinhardtii</i> colony PCR protocol on our Experiments <a
+              href="https://2022.igem.wiki/asu/experiments" style=" color: wheat !important; font-size: 23px;">page</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fourth Heading -->
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p style="text-shadow: 2px 2px 2px black;">Western Blot</p>
+        </div>
+        <div class="description_one">
+          <p>When designing our constructs <em>in silico</em>, we decided to tag our two main genes of interest (PCS, ACR2p) to be able to detect them via a western blot. PCS was tagged with a FLAG tag, and ACR2p was tagged with an HA tag. After confirming the presence of our plasmid in three algae transformants (T1, T2, T3) via colony PCR, we performed a western blot on those three transformants to confirm that the proteins corresponding to our genes of interest were being produced in the cell.
+          </p>
+        </div>
+        <div class="description_one">
+          <p>Extraction of protein lysates from <em>C. reinhardtii</em> cells was performed as outlined in Yildirim (2022) [3]. Western blots were performed a total of three times by our wet lab team with the assistance of Tom Hartley McDermott, Santiago Ochoa, and Bruno La Rosa. The results of our western blot analysis are as follows:</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/r8.png" alt="Part 3" width="510">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 8. Western blot attempt 1, 4 minute exposure. FLAG (gene: PCS), HA (gene: ACR2p), β-actin (control), H3 (control) blot results shown.</em></p>
+        </div>
+        <div class="description_one">
+          <p>The prepared protein lysates of wild type <em>C. reinhardtii</em> and our T1 transformant were prepared for western blotting and loaded into the gel in triplicate, enabling the membrane to be tested for the presence of PCS, ACR2p, and control proteins without stripping and re-tagging. The western blot indicated the presence of bands for the H3 control, indicating that the protein extraction and western blotting procedure was successful. It was hypothesized that the absence of bands indicating expression of PCS and ACR2p in the western blot indicated that the T1 transformant, while containing the genes of interest, did not express the proteins of interest.</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/r9.png" alt="Part 4" width="510">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 9. Western blot attempt 2, 10 minute exposure. Both FLAG (gene: PCS) and HA (gene: ACR2p) blot results shown.</em></p>
+        </div>
+        <div class="description_one">
+          <p>The second attempt at the western blot was performed with all three of the <em>C. reinhardtii</em> transformants which were confirmed by colony PCR. A primary FLAG antibody which was not HRP-linked was used in this trial, as opposed to the HRP-linked FLAG antibody used in the initial western blot. The membrane tagged with FLAG exhibited bands in each of the transformant lanes. It was hypothesized that the bands in the transformant lanes were due to background activity. However, the lack of a similar band pattern in the wild type lane suggested that these bands were indicative of the production of proteins of interest. Additionally, the three bands apparent on the membrane approximately corresponded to the three different molecular weights resulting from the possible cleaving activity of the 2A peptides in our tricistronic system. Still, a conclusion on the latter hypothesis was unable to be reached unless a wild type lane which was completely free of this banding pattern was obtained.</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/r10.png" alt="Part 5" width="510">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 10. Western blot attempt 3, 30 second exposure (FLAG) and 10 minute exposure (HA). FLAG (gene: PCS) and HA (gene: ACR2p) blot results shown.</em></p>
+        </div>
+        <div class="description_one">
+          <p>In order to confirm whether the banding pattern obtained from the FLAG membrane on the second round of western blots was due to background or indicative of protein expression, an improved western blot using the same protein lysates was performed. In this blot, an empty lane was maintained between the <em>C. reinhardtii</em> wild type and transformant lanes. Separation of the wild type and transformant lanes served to prevent possible spillover of sample from the transformant lanes, and this would allow the determination of whether the faint banding pattern observed in the previous trial of western blotting could be attributed to spillover from the transformant lanes. In addition, control samples tagged with FLAG and HA were included on each membrane respectively in order to confirm the functionality of the antibodies used. While the HA membrane was clear as before, the FLAG membrane did not exhibit the same banding pattern it had before and was entirely blank.</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-10-13-at-7-40-49-pm.png" alt="Part 5" width="510">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 11. Reprobing of western blot attempt 3 FLAG membrane. FLAG (gene: PCS) blot results shown.</em></p>
+        </div>
+        <div class="description_one">
+          <p>The FLAG membrane of the western blot was reprobed in order to determine whether a similar banding pattern as that observed previously could be obtained. Reprobing of the FLAG membrane not only yielded the same banding pattern observed in the second western blot attempt, but it also indicated the presence of the same banding pattern in the wild type lanes. This result suggests that the banding pattern obtained in the transformant lanes for the second FLAG western blot was indeed due to background as the wild type lane possesses the same banding pattern. Further western blots should be performed in the future in order to parse out definitively the expression of the proteins of interest in the <em>C. reinhardtii</em> transformants.</p>
+        </div>
+      </div>
+
+            <!-- Four and a quarter Heading -->
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p style="text-shadow: 2px 2px 2px black;">Arsenic Uptake Experimentation</p>
+        </div>
+        <div class="description_one">
+          <p>After results from the Western blot were received, the three transgenic strains (T1, T2, T3) were subjected to arsenic experimentation to determine if our algae was capable of decreasing the arsenic levels in its environment. Experiments were conducted using 50 ppb, 250 ppb, and 500 ppb arsenic, and samples of culture supernatants were taken over the course of 72 hours. Results from ICP-MS testing preliminarily show that our T1 and T2 strains were able to lower arsenic concentrations over the course of 24 hours. 
+</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-12-12-at-2-41-00-pm.png" alt="Part 1" width="510">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 12. Comparison of T=0 and T=1 supernatant arsenic concentrations of transgenic strains T1, T2, and T3 as compared to wildtype in 500 ppb arsenic, normalized to cell density. Strains T1 and T2 show preliminary positive results.</em></p>
+        </div>
+      </div>
+
+      <!-- Fourth and a half heading -->
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p style="text-shadow: 2px 2px 2px black;">Testing 2A Peptides with FRET</p>
+        </div>
+        <div class="description_one">
+          <p>2A peptides are an important tool in synthetic biology which enables the independent expression of multiple proteins in the same transcriptional unit. During translation, ribosomes which encounter 2A peptides will undergo a "ribosomal skipping event," in which a peptide bond fails to be made. This causes a "cleavage" event to take place between the two polyproteins between the 2A peptide sequence, creating two independent polyproteins [4].</p>
+        </div>
+        <div class="description_one">
+          <p>While 2A peptides have been widely used in synthetic biology in other chassis, there currently exists a limited number of 2A peptides which have been well characterized and demonstrated to function in <em>C. reinhardtii</em> [5]. This relative lack of 2A peptides is highlighted by the inclusion of only one 2A peptide, the FMDV 2A peptide, in the Chlamydomonas MoClo Toolkit. The dearth of 2A peptides currently available for use in engineering of <em>C. reinhardtii</em> limits the usage of polycistronic gene expression systems in this chassis. This is disadvantageous as it thus requires that transgenes integrated into <em>C. reinhardtii</em> possess separate promoters and terminators, enlarging the size of constructs considerably [6]. In addition, the usage of the same promoters and terminators can cause homologous recombination and gene loss, while the usage of different promoters and terminators can result in differential expression of key genes [6].</p>
+        </div>
+        <div class="description_one">
+          <p>In an effort to expand the number of 2A peptides available for use in the engineering of <em>C. reinhardtii</em>, we devised an experiment to test the cleaving activity of five novel 2A peptides in <em>C. reinhardtii</em> using Förster resonance energy transfer (FRET). In order to perform this experiment, we created five different constructs each containing mCerulean, mVenus, and a paromomycin resistance gene. In each construct, a different experimental 2A peptide was inserted between mCerulean and mVenus, and the well-characterized FMDV 2A peptide included in the Chlamydomonas MoClo Toolkit was placed between the mVenus and paromomycin resistance genes.</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-10-13-at-7-40-55-pm.png" alt="Part 5" width="510">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 13. A schematic diagram of the 2A peptide testing construct.</em></p>
+        </div>
+        <div class="description_one">
+          <p>The mCerulean-mVenus FRET pair allowed the cleavage efficiency of the experimental 2A peptides included in each of the five constructs. If FRET occurs, mCerulean, the donor, will undergo a radiationless transfer of energy to mVenus, the acceptor, when excited [7]. However, the efficiency of this transfer is highly sensitive to the distance between the two fluorophores, making FRET a valuable tool for examining the cleavage efficiency of 2A peptides. If a 2A peptide fails to cleave during translation, the mCerulean and mVenus proteins will be fused, leading to FRET occurrence as a result of their close proximity. If a 2A peptide successfully cleaves during translation, independent mCerulean and mVenus proteins will be produced, and due to the spacing between the fluorophores, FRET will not occur.</p>
+        </div>
+        <div class="description_one">
+          <p>In order to perform this experiment, we transformed <em>C. reinhardtii</em> independently with the five constructs containing the experimental 2A peptides and performed FRET analysis on our successful transformants. We performed this analysis by screening the successful transformants for mCerulean, mVenus, and FRET activity respectively in 96 well plates using a plate reader. Given that whole cells were used in the analysis, the autofluorescence of untransformed <em>C. reinhardtii</em> was accounted for in our analysis. After performing a Z-test on the collected data and devising a metric with which to score the data and distinguish autofluorescence, it was found that at least one representative transformant from each of the 2A peptides tested exhibited a lack of FRET activity, indicating cleavage activity of the 2A peptide. While this experiment does suggest that the five novel 2A peptides are functional in <em>C. reinhardtii</em> further testing is necessary to parse the relative cleaving efficiencies of each of these 2A peptides in <em>C. reinhardtii</em>.</p>
+        </div>
+      </div>
+
+      <!-- Fifth Heading -->
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p style="text-shadow: 2px 2px 2px black;">Conclusions</p>
+        </div>
+        <div class="description_one">
+          <p>The outcomes of our assays suggest that though our transgenes were successfully transformed into three of
+            our <i>C. reinhardtii</i> transformants, protein expression may not have occurred. We are currently
+            performing arsenic uptake experiments on the three mutant strains to further quantify their ability to
+            sequester arsenic as compared to the unengineered CC-400 strain in case errors were made that prevented us
+            from seeing expected results on the western blot.
+          </p>
+        </div>
+        <p style="margin-bottom: 3% !important; font-size: 35px; text-shadow: 2px 2px 2px black;">References</p>
+        <div class="col-12" style="margin-bottom: 3% !important; font-size: 18px; color: wheat !important;">
+          <p>[1] P.-H. Kao and I.-S. Ng, “CRISPRI mediated phosphoenolpyruvate carboxylase regulation to enhance the
+            production of lipid in <i>Chlamydomonas reinhardtii,</i> ” Bioresource Technology, vol. 245, pp. 1527–1537,
+            2017.</p>
+            <p>[2] S. B. Nouemssi, M. Ghribi, R. Beauchemin, F. Meddeb-Mouelhi, H. Germain, and I. Desgagné-Penix, “Rapid
+            and efficient colony-PCR for high throughput screening of genetically transformed <i>Chlamydomonas
+              reinhardtii</i>,” Life, vol. 10, no. 9, p. 186, 2020.</p>
+            <p>[3] A. YILDIRIM, “Fine-tuning of protein extraction from wall-deficient <i>Chlamydomonas reinhardtii</i>
+            using liquid nitrogen and sonication-assisted cell disruption,” Marine Science and Technology Bulletin,
+            2022.</p>
+            <p>[4] A. Szymczak, “Development of 2A peptide-based strategies in the design of multicistronic vectors,” <em>Ashley Publications</em>, 2005.</p>
+            <p>[5]  T. Plucinak, “Making <em>Chlamydomonas Reinhardtii</em> a Better Model Organism: Tackling the Inefficiency of Nuclear Transgene Expression and Improving Methods for the Generation and Characterization of Insertional Mutant Libraries,” <em>University of Nebraska</em>, 2013.</p>
+            <p>[6] T. Souza-Moreira, “Screening of 2A Peptides for Polycistronic Gene Expression in Yeast,” <em>Fems Yeast Research</em>, 2018.</p>
+            <p>[7] “FRET Microscopy with Spectral Imaging,” <em>Zeiss</em>, n.d.</p>
+        </div>
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

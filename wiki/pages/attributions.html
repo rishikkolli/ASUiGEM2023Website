@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename = 'attributions.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <title>ASU iGEM 2022</title>
+    <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css" />
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+    .modal {
+        background: rgba(55, 55, 55, .6);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+            <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50"
+                width="50">
+        </a>
+        <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Team
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Project
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+                        <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering
+                            Success</a>
+                        <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of
+                            Concept</a>
+                        <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+                        <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed
+                            Implementation</a>
+                        <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+                        <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown lab">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Lab
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+                        <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+                        <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown human-practices">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Engagement
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human
+                            Practices</a>
+                        <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+                        <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown human-practices">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Partnership
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero-image">
+        <div class="hero-text">
+        </div>
+    </div>
+
+    <div class="section-two">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+            </g>
+        </svg>
+    </div>
+
+    <div class="container-fluid top-notch">
+        <div class="content">
+            <div class="row">
+                <div class="col-12 contributions">
+                    <p>Attributions</p>
+                </div>
+            </div>
+
+            <div class="row row-one-images">
+                <!-- Empty 2 part Column -->
+                <div class="col-2"></div>
+
+                <!-- Priyati Secion Begins-->
+                <div class="col-4 attribute-one">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#priyati"><img
+                            id="frog-one" src="https://static.igem.wiki/teams/4455/wiki/priyatisquare.jpeg"
+                            width="150px"></button>
+
+                    <div class="modal fade" id="priyati" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Priyati Sharma</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/priyaticircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>I am a third-year bioengineering student dedicated to combating
+                                                    environmental challenges with synthetic biology. Alongside iGEM, my
+                                                    research involves investigating the intersection of synthetic and
+                                                    systems biology and developing novel cellular regulatory networks.
+                                                    I’m grateful for all of the skills I’ve gained as part of the ASU
+                                                    iGEM team, and look forward to contributing to the iGEM community in
+                                                    the future!</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="team-captain">Team Captain</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="wet-lab">Wet Lab</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Construct Design and Validation</li>
+                                                            <li>Protocol Development</li>
+                                                            <li>Wet Lab Work, <em><i>E. Coli</i></em></li>
+                                                            <li>Wet Lab Work, <em><i>C. reinhardtii</i></em></li>
+                                                            <li>Assays</li>
+                                                            <li>Data Analysis</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="human-practices-lit">Human Practices</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Collaborations and Partnerships</li>
+                                                            <li>Phototroph Community</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <p class="dry-lab">Dry Lab and Implementation</p>
+                                                    </div>
+                                                    <div class="col-4"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Biological Modeling</li>
+                                                            <li>Filter Prototyping</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="wiki">Wiki</p>
+                                                    </div>
+                                                    <div class="col-8"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Wiki Development</li>
+                                                            <li>Video Filming and Editing</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name">Priyati Sharma</p>
+
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <p class="team-captain">Team Captain</p>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="human-practices-lit">Human Practices</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="filter-prototyping">Filter Prototyping</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-4">
+                            <p class="dry-lab">Dry Lab</p>
+                        </div>
+                        <div class="col-4">
+                            <p class="wet-lab">Wet Lab</p>
+                        </div>
+                        <div class="coll-2"></div>
+                    </div>
+                </div>
+                <!-- Priyati Secion Ends -->
+
+                <!-- Gabby Section Begins -->
+                <div class="col-4 attribute-two">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#gabby"><img
+                            id="frog-two" src="https://static.igem.wiki/teams/4455/wiki/gabbysquare.jpeg"
+                            width="150px"></button>
+
+                    <div class="modal fade" id="gabby" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Gabriella Cerna</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/gabbycircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>As an aspiring research scientist and science communicator, my
+                                                    experience in iGEM has provided me with the skills I need to pursue
+                                                    a career in science. In addition to the technical lab skills I have
+                                                    gained, I have learned how to organize a research project and lead a
+                                                    team. I am excited to see where my next adventures in synthetic
+                                                    biology research will take me!</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="team-captain">Team Captain</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="wet-lab">Wet Lab</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Construct Design and Validation</li>
+                                                            <li>Protocol Development</li>
+                                                            <li>Wet Lab Work, <em><i>E. Coli</i></em></li>
+                                                            <li>Wet Lab Work, <em><i>C. reinhardtii</i></em></li>
+                                                            <li>Assays</li>
+                                                            <li>Data Analysis</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="human-practices-lit">Human Practices</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Collaborations and Partnerships</li>
+                                                            <li>Phototroph Community</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <p class="dry-lab">Dry Lab and Implementation</p>
+                                                    </div>
+                                                    <div class="col-4"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Filter Prototyping</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="wiki">Wiki</p>
+                                                    </div>
+                                                    <div class="col-8"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Video Filming and Editing</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name">Gabriella Cerna</p>
+
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <p class="team-captain">Team Captain</p>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="human-practices-lit">Human Practices</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="filter-prototyping">Filter Prototyping</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-4">
+                            <p class="dry-lab">Dry Lab</p>
+                        </div>
+                        <div class="col-4">
+                            <p class="wet-lab">Wet Lab</p>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                </div>
+                <!-- Gabby Section Ends -->
+
+                <!-- Empty 2 Part Column-->
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row row-two-images">
+                <!-- Jorja Section Begins -->
+                <div class="col-4 attribute-one">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#jorja"><img
+                            id="frog-three" src="https://static.igem.wiki/teams/4455/wiki/jorjasquare.jpeg"
+                            width="150px"></button>
+                    <div class="modal fade" id="jorja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Jorja Overbey</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/jorjacircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Jorja Overbey is a 4th year undergraduate studying applied
+                                                    mathematics with a double minor in Violin Performance and chemistry.
+                                                    Currently she is working on updating a mathematical model of a
+                                                    wastewater treatment plant to measure nitrous oxide emissions as
+                                                    well as utilizing mass spectrometry to diagnose IBS. When shes not
+                                                    studying you can find me running, singing or practicing violin!</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <p class="dry-lab">Dry Lab and Implementation</p>
+                                                    </div>
+                                                    <div class="col-4"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Biological Modeling</li>
+                                                            <li>Filter Prototyping</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name">Jorja Overbey</p>
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-2">
+                            </div>
+                            <div class="col-8">
+                                <p class="filter-prototyping-lead">Filter Prototyping Lead</p>
+                            </div>
+                            <div class="col-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Jorja Section Ends -->
+
+                <!-- Sonakshi Section Begins-->
+                <div class="col-4 attribute-two">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#sonakshi"><img
+                            id="frog-one" src="https://static.igem.wiki/teams/4455/wiki/sonakshisquare.jpeg"
+                            width="150px"></button>
+
+                    <div class="modal fade" id="sonakshi" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Sonakshi Sharma</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/sonakshicircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Sonakshi is a senior double majoring in biology and astrobiology. She
+                                                    is currently developing an assembly algorithm for mineral complexity
+                                                    as her undergraduate thesis. She hopes to be an ER physician in five
+                                                    years. When she’s not reading a stack overflow thread, Sonakshi
+                                                    listens to Maggie Rogers and stress bakes.</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="wet-lab">Wet Lab</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Construct Design and Validation</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="human-practices-lit">Human Practices</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Stakeholder Interviews</li>
+                                                            <li>Collaborations and Partnerships</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name">Sonakshi Sharma</p>
+
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <p class="human-practices-lead">Human Practices Lead</p>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <p class="dry-lab">Dry Lab</p>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
+                </div>
+                <!-- Sonakshi Section Ends -->
+
+                <!-- Reuven White Section Begins -->
+                <div class="col-4 attribute-two">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#rueven"><img
+                            id="frog-one" src="https://static.igem.wiki/teams/4455/wiki/reuvensquare.jpeg"
+                            width="150px"></button>
+
+                    <div class="modal fade" id="rueven" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Reuven White</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/reuvencircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Reuven White is a student studying the origins of life, evolution,
+                                                    and the possibility of living on other planets (as well as improving
+                                                    our own) through synthetic biology. When not looking at
+                                                    microorganisms, he enjoys the macro-, having worked at Zoos,
+                                                    Breeding Centers, and Wildlife Rehabilitation Centers. Majoring in
+                                                    Earth and Space Exploration with a focus on Astrobiology. Avid film
+                                                    critic/hater. Dreams of doing anything even tangentially space
+                                                    related.</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="wet-lab">Wet Lab</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Wet Lab Work, <em><i>E. Coli</i></em></li>
+                                                            <li>Wet Lab Work, <em><i>C. reinhardtii</i></em></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="wiki">Wiki</p>
+                                                    </div>
+                                                    <div class="col-8"></div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Wiki Development</li>
+                                                            <li>Video Filming and Editing</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name" style="font-size: 20px;">Reuven White</p>
+
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-5">
+                            <p class="wiki-lead">Wiki Lead</p>
+                        </div>
+                        <div class="col-5">
+                            <p class="wet-lab">Wet Lab</p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+                <!-- Reuven White Section Ends -->
+            </div>
+
+
+            <div class="row row-two-images">
+                <!-- Tohma Taniguchi Section Begins -->
+                <div class="col-4 attribute-one">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#tohma"><img
+                            id="frog-three" src="https://static.igem.wiki/teams/4455/wiki/tohmasquare.jpeg"
+                            width="150px"></button>
+                    <div class="modal fade" id="tohma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Tohma Taniguchi</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/tohmacircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>I am a 4th year undergraduate here at Arizona State University and
+                                                    under Barrett, The Honors College. I am studying biochemistry here
+                                                    and am looking into getting my PhD in biomedical engineering to
+                                                    study antiviral scaffolds and DNA nanotechnology. This is my second
+                                                    year in being in ASU’s IGEM team, and I am glad to have been of
+                                                    service for the laboratory work!</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="wet-lab">Wet Lab</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Protocol Development</li>
+                                                            <li>Wet Lab Work, <em><i>E. Coli</i></em></li>
+                                                            <li>Wet Lab Work, <em><i>C. reinhardtii</i></em></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="human-practices-lit">Human Practices</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Phototroph Community</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name">Tohma Taniguchi</p>
+
+                    <div class="Tohma">
+                        <div class="row">
+                            <div class="col-3">
+                            </div>
+
+                            <div class="col-6">
+                                <p class="wet-lab">Wet Lab</p>
+                            </div>
+
+                            <div class="col-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tohma Taniguchi Section Ends -->
+
+                <!-- Rishabh Guttal Section Begins-->
+                <div class="col-4 attribute-two">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#rishabh"><img
+                            id="frog-one" src="https://static.igem.wiki/teams/4455/wiki/rishabhsquare.jpeg"
+                            width="150px"></button>
+
+                    <div class="modal fade" id="rishabh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Rishabh Guttal</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/rishabhcircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Rishabh Guttal is a sophomore at ASU in the Barrett Honors College,
+                                                    majoring in genetics, cell, and developmental biology. Rishabh’s
+                                                    research interests lie in systems biology, where his current
+                                                    research is focused on understanding cancer metastasis under a
+                                                    systems biology lens. Rishabh hopes to attend medical school and
+                                                    pursue a career as a physician-leader. He is a FC Barcelona fan and
+                                                    follows soccer and Formula 1 in his free time."</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="wet-lab">Wet Lab</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Construction Design and Validation</li>
+                                                            <li>Protocol Development</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <p class="dry-lab">Dry Lab and Implementation</p>
+                                                    </div>
+                                                    <div class="col-4"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Biological Modeling</li>
+                                                            <li>Filter Prototyping</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name">Rishabh Guttal</p>
+
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-5">
+                            <p class="filter-prototyping">Filter Prototyping</p>
+                        </div>
+                        <div class="col-5">
+                            <p class="dry-lab">Dry Lab</p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+                <!-- Rishabh Guttal Section Ends -->
+
+                <!-- Carol Lu Section Begins -->
+                <div class="col-4 attribute-three">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#carol-lu"><img
+                            id="frog-two" src="https://static.igem.wiki/teams/4455/wiki/carolsquare.jpeg"
+                            width="150px"></button>
+
+                    <div class="modal fade" id="carol-lu" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Carol Lu</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/carolcircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Carol Lu is studying Biomedical Engineering and Statistics at ASU.
+                                                    Her interest in designing solutions for human health problems drives
+                                                    her to research magnetically actuated robots at Mayo Clinic,
+                                                    improving water quality for shrimp aquaculture in Vietnam, and
+                                                    working towards arsenic bioremediation with iGEM. As part of the
+                                                    human practices team, she hopes to bring in both interdisciplinary
+                                                    and international perspectives to collaborate together and teach one
+                                                    another.</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="wet-lab">Wet Lab</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Protocol Development</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="human-practices-lit">Human Practices</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Stakeholder Interviews</li>
+                                                            <li>Collaborations and Partnerships</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name">Carol Lu</p>
+
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-5">
+                            <p class="human-practices-lit">Human Practices</p>
+                        </div>
+                        <div class="col-5">
+                            <p class="dry-lab">Dry Lab</p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+                <!-- Carol Lu Section Ends -->
+            </div>
+
+
+            <div class="row row-two-images">
+                <!-- Bruno La Rosa Section Begins -->
+                <div class="col-4 attribute-one">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#bruno"><img
+                            id="frog-three" src="https://static.igem.wiki/teams/4455/wiki/brunosquare.jpeg"
+                            width="150px"></button>
+                    <div class="modal fade" id="bruno" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Bruno La Rosa</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/brunocircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Bruno La Rosa is a master’s student in the Li lab in the Biodesign
+                                                    Center for Immunotherapy, Vaccines and Virotherapy at ASU. With a
+                                                    passion for scientific research and healthcare, he hopes to pursue a
+                                                    career in the future which will combine these two fields.
+                                                    Participating in ASU iGEM has allowed him to pursue a project
+                                                    aligned with these interests by solving a local problem through
+                                                    synthetic biology research.</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="wet-lab">Wet Lab</p>
+                                                    </div>
+                                                    <div class="col-6"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Construct Design and Validation</li>
+                                                            <li>Protocol Development</li>
+                                                            <li>Wet Lab Work, <em><i>E. Coli</i></em></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name">Bruno La Rosa</p>
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-1">
+                            </div>
+
+                            <div class="col-5">
+                                <p class="wet-lab">Wet Lab</p>
+                            </div>
+
+                            <div class="col-5">
+                                <p class="dry-lab">Dry Lab</p>
+                            </div>
+
+                            <div class="col-1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bruno La Rosa Section Ends -->
+
+                <!-- Katie Pascavis Section Begins-->
+                <div class="col-4 attribute-two">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#katie"><img
+                            id="frog-one" src="https://static.igem.wiki/teams/4455/wiki/katiesquare.jpeg"
+                            width="150px"></button>
+
+                    <div class="modal fade" id="katie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Katie Pascavis</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/katiecircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Katie Pascavis is a senior dual-majoring in mechanical engineering
+                                                    and global health with a minor in sustainability. Her passion is
+                                                    improving access to clean water. She enjoys dog training and
+                                                    ballroom dancing in her free time.</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <p class="dry-lab">Dry Lab and Implementation</p>
+                                                    </div>
+                                                    <div class="col-4"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Biological Modeling</li>
+                                                            <li>Filter Prototyping</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name">Katie Pascavis</p>
+
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <p class="filter-prototyping">Filter Prototyping</p>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
+                </div>
+                <!-- Katie Pascavis Section Ends -->
+
+                <!-- Rishik Kolli Section Begins -->
+                <div class="col-4 attribute-three">
+                    <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#rishik"><img
+                            id="frog-two" src="https://static.igem.wiki/teams/4455/wiki/rishiksquare.png"
+                            width="150px"></button>
+
+                    <div class="modal fade" id="rishik" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-0 no-border">
+                                    <p class="modal-title w-100">Rishik Kolli</p>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center">
+                                            <div class="col-5 parent-div">
+                                                <div class="inside-parent-div">
+                                                    <img class="center-block patras-image"
+                                                        src="https://static.igem.wiki/teams/4455/wiki/rishikcircle.png"
+                                                        width="250px">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <p>Rishik Kolli is a junior majoring in computer science with a minor in
+                                                    data science, business data analytics, and civic and economic
+                                                    thought and leadership. During his free time, Rishik enjoys watching
+                                                    sports, reading personal development books, and going on runs. After
+                                                    graduation, Rishik wants to become a technical or management
+                                                    consultant at a banking firm.</p>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <p class="dry-lab">Dry Lab and Implementation</p>
+                                                    </div>
+                                                    <div class="col-4"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Biological Modeling</li>
+                                                            <li>Filter Prototyping</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <p class="wiki">Wiki</p>
+                                                    </div>
+                                                    <div class="col-8"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-10">
+                                                        <ul style="text-align: left;">
+                                                            <li>Wiki Development</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="name">Rishik Kolli</p>
+
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-5">
+                            <p class="wiki">Wiki</p>
+                        </div>
+                        <div class="col-5">
+                            <p class="filter-prototyping">Filter Prototyping</p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+                <!-- Rishik Kolli Section Ends -->
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 2% !important;
+  font-size: 45px;
+  text-shadow: 2px 2px 2px black; margin-top: 5% !important;">
+                    <p>Primary Investigators (PIs)</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-top: 2% !important;">
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Benjamin Bartelle, Arizona State University (ASU)</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Christopher Plaisier, ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Kevin Redding, ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Taylor Weiss, ASU</p>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <p style="font-size: 20px;"><q><em>Thank you all for your time, advice, and guidance
+                                        throughout this project. Your willingness to support us at each and every step
+                                        of the research process was invaluable to us, and this project would not have
+                                        been possible without your help. We’re lucky to have PIs who are as dedicated as
+                                        you. Thank you so much!</em></q></p>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 2% !important;
+  font-size: 45px;
+  text-shadow: 2px 2px 2px black; margin-top: 3% !important;">
+                    <p>Advisors</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">René Inckemann, Max Planck Institute for Terrestrial Microbiology (MPI Marburg)</p>
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <p style="font-size: 20px;"><q><em>For being an incredibly dedicated advisor who always
+                                        knows what to do when things don’t go as planned. Our project truly would not
+                                        have been possible without all of your guidance. It’s a privilege to have a
+                                        mentor like you - thank you René!</em></q></p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Emma Lieberman, ASU</p>
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <p style="font-size: 20px;"><q><em>For being willing to consistently hold us accountable and
+                                        making sure we accomplished our goals with this project to the best of our
+                                        ability. Thank you Emma!</em></q></p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Margaret Cook, University of Washington (UW)</p>
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <p style="font-size: 20px;"><q><em>For always being willing to answer our questions, talk
+                                        through ideas, and troubleshoot - thank you Maggie!</em></q></p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Emma Frow, ASU</p>
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <p style="font-size: 20px;"><q><em>For her consistent guidance throughout our Human
+                                        Practices efforts. Thank you for all of the time you spent working with our HP
+                                        team to review IRB applications, discuss ideas, and ensure that our project is
+                                        as well thought out as possible. We would not have been able to do this without
+                                        your help!</em></q></p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 2% !important;
+  font-size: 45px;
+  text-shadow: 2px 2px 2px black; margin-top: 3% !important;">
+                    <p>Phototroph Community</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 another-description">
+                    <p>UBCO iGEM - Josh, Gustavo, Ryan, Robin, & Alyssa</p>
+                    <p>Dr. Everett Eustance, ASU</p>
+                    <p>Dr. Henrik Toft Simonsen, Technical University of Denmark (DTU)</p>
+                    <p>Dr. Jake Wintermute, Ginkgo Bioworks</p>
+                    <p>Dr. Luis De Stefano, Universidad Peruana Cayetano Heredia (UPCH)</p>
+                    <p>Dr. Mitra Tabatabaee, University of British Columbia - Okanagan Campus (UBCO)</p>
+                    <p>Dr. Moritz Koch, BASF</p>
+                    <p>Hannah Press, California State University Channel Islands</p>
+                    <p>Cedric Brinkmann and Michael Burgis</strong></p>
+                    <p>Santiago Ochoa, ASU</strong></p>
+                    <p>iGEM Thessaly, HKU iGEM, UIncheon iGEM, University of Lethbridge iGEM, UBC iGEM, iGEM SUNY
+                        Oneonta, iGEM Concordia, Hopkins iGEM, iGEM FAFU-CHINA, iGEM Worldshaper-Shanghai</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 2% !important;
+  font-size: 45px;
+  text-shadow: 2px 2px 2px black; margin-top: 3% !important;">
+                    <p>Bioremediation Conferences</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 another-description">
+                    <p>iGEM Tec CEM - Liz and Avery</p>
+                    <p>Arooj Khan, Balochistan University of Information Technology</p>
+                    <p>Dr. Martín Esteban González López (Tecnológico de Monterrey)</p>
+                    <p>Kelly Hermanson, Arizona Department of Environmental Quality (ADEQ)</p>
+                    <p>Itzany De la Cruz Salazar (Chemical Engineering and Extractive Industries of the National
+                        Polytechnic Institute (IPN))</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 2% !important;
+  font-size: 45px;
+  text-shadow: 2px 2px 2px black; margin-top: 3% !important;">
+                    <p>H<sub>2</sub>bio Podcast</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 another-description">
+                    <p>QGEM - Avery and Kristen</p>
+                    <p>Dr. Arul Varman, ASU</p>
+                    <p>Dr. Lalitha Sundaram, Cambridge University</p>
+                    <p>Dr. Rosa Krajmalnik-Brown, ASU</p>
+                    <p>Dr. Stephen Brown, Queen's University</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 2% !important;
+  font-size: 45px;
+  text-shadow: 2px 2px 2px black; margin-top: 3% !important;">
+                    <p>ASU iGEM Synthetic Biology Art Journal</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 another-description">
+                    <p>ABOA iGEM</p>
+                    <p>iGEM Estonia TUIT</p>
+                    <p>iGEM IISER Mohali</p>
+                    <p>iGEM Patras Medicine</p>
+                    <p>iGEM-RUM</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 2% !important;
+  font-size: 45px;
+  text-shadow: 2px 2px 2px black; margin-top: 3% !important;">
+                    <p>ASU Wiki Support and Mentorship</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 another-description">
+                    <p>Kartik Aggarwal, ASU Computer Science</p>
+                    <p>Evelyn Brannen, ASU Computer Science</p>
+                    <p>David Ellis, ASU Computer Science</p>
+                    <p>Jonathon Zhao, ASU Computer Systems Engineering</p>
+                    <p>Jacob Watson, ASU Computer Science</p>
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <p style="font-size: 20px;"><q><em>Thank you so much Jacob for helping us navigate and learn how to use GitLab. Your mentorship and guidance meant a lot in delivering this awesome final product to showcase all the hard work the team has put in. From the bottom of our heart, thank you and good luck in grad school!</em></q></p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 2% !important;
+  font-size: 45px;
+  text-shadow: 2px 2px 2px black; margin-top: 3% !important;">
+                    <p>Other Support</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 another-description">
+                    <p>Chlamydomonas Resource Center, University of Minnesota (UMN)</p>
+                    <p>Dr. Andrew Marcus, ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Arati Sridharan, ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Bruce Rittmann, ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Dirk Wallschläger, Wilfrid Laurier University (WLU)</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Karen Watanabe, ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Michael Schroda, TU Kaiserslautern</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Michelle Young, ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Dr. Miyeko Mana, ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Jared Lee-Kin, ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Kyle Reep, ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Mariana Marcos-Hernández and the Westerhoff Lab at ASU</p>
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <p style="font-size: 20px;"><q><em>for helping us run ICP-MS on our samples under such short
+                                        notice and being flexible and understanding of our ever-changing lab timeline.
+                                        We are incredibly grateful!</em></q></p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Patricia Baker and the Redding Lab at ASU</p>
+                    <div class=" row">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <p style="font-size: 20px;"><q><em>for offering immensely useful advice and guidance on how
+                                        to
+                                        work with C. reinhardtii </em></q></p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Shelli Wright, ASU</p>
+                    <div class=" row">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <p style="font-size: 20px;"><q><em>for being incredibly patient and responsive with our team
+                                        as we
+                                        dealt with finances and administrative tasks. Your support is invaluable to
+                                        us!</em></q>
+                            </p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">The Bartelle Lab at ASU</p>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Tom Hartley McDermott and the Mana Lab at ASU</p>
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <p style="font-size: 20px;"><q><em>for helping us run western blots on our samples.</em></q>
+                            </p>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Zerrin Uzum and the ASU Regenerative Medicine Center</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-bottom: 2% !important;
+font-size: 45px;
+text-shadow: 2px 2px 2px black; margin-top: 3% !important;">
+                    <p>Other iGEM Teams</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 another-description">
+                    <p>SBU iGEM</p>
+                    <p>iGEM Worldshaper-HZ</p>
+                </div>
+            </div>
+        </div>
+        {% include "footer.html" %}
+    </div>
+</body>
+
+            <!-- <div class="row">
+        <div class="col-12" style="margin-bottom: 2% !important;
+  font-size: 45px;
+  text-shadow: 2px 2px 2px black; margin-top: 3% !important;">
+            <p>Other iGEM Teams</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 another-description">
+            <ul style="text-align: left;">
+                <p>SBU iGEM</p>
+                <p>iGEM Worldshaper-HZ</p>
+        </div>
+    </div> -->
+
+            <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+            <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+            <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+            <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

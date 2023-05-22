@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'engineeringSuccess.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 collaborations">
+          <p>Engineering Success</p>
+        </div>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 35px;
+  text-shadow: 2px 2px 2px black;"><u>Introduction</u></p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">The construction of our transgenic vector for transformation into <em>C. reinhardtii</em> involved
+          the use of 2A “self-cleaving” peptide sequences, the vast majority of which have not been characterized for
+          use in <em>C. reinhardtii</em>. Our team decided to test five different 2A peptide sequences to determine
+          which one had the highest cleaving efficiency and would therefore be best to use in a multicistronic
+          expression vector.</p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 35px;
+  text-shadow: 2px 2px 2px black;"><u>Design: Initial Design of Multicistronic Vector</u></p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">The genes we planned to insert into the <em>C. reinhardtii</em> nuclear genome were genes encoding
+          for phytochelatin synthase (PCS), arsenate reductase (ACR2p), and paromomycin resistance (ParoR).</p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Several strategies were undertaken to increase the nuclear transgene expression of the PCS and
+          ACR2p genes to be integrated into our construct. Altering factors such as promoters, introns, codon usage, or
+          terminators has been shown to have the potential to improve nuclear transgene expression in <em>C.
+            reinhardtii</em> <sup>[1]</sup>. The PCS and ACR2p genes to be used were codon optimized in accordance with
+          the codon bias for <em>C. reinhardtii</em>. This codon optimization step is crucial for high transgene
+          expression as transcripts with improper codon usage are not only less translated, but also, they are more
+          likely to be degraded <sup>[1]</sup>. Additionally, introns were inserted into the codon-optimized PCS and
+          ACR2p genes in order to further increase transgene expression. This increase in transgene expression results
+          from enhancer sequences in intron sequences as well as the increase in transcript levels via intron mediated
+          enhancement <sup>[1]</sup>. The ParoR gene was a component taken from the Chlamydomonas MoClo Toolkit and thus
+          was already codon optimized for use in <em>C. reinhardtii</em> and contained introns.</p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">To the PCS, ACR2p, and ParoR genes which were optimized for nuclear transgene expression in <em>C.
+            reinhardtii</em>, further elements were added which would aid in cloning and analysis of the transformants.
+          FLAG and HA tags added to PCS and ACR2p respectively served to enable protein production to be detected via
+          western blotting. In addition, Golden Gate restriction enzyme sites containing overhangs compatible with the
+          Chlamydomonas MoClo Toolkit were added to PCS and ACR2p in order to aid plasmid construction. Restriction
+          enzyme sites were not added to ParoR as it was included in the Chlamydomonas MoClo Toolkit and already
+          possessed these.</p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">In our project, we not only planned to design a construct containing our genes of interest, but
+          also, we aimed to expand the number of 2A peptides available for genetically engineering in <em>C.
+            reinhardtii</em> by testing them via Förster resonance energy transfer (FRET). To do this, we designed a
+          construct containing mCerulean, mVenus, and ParoR from the Chlamydomonas MoClo Toolkit. In this construct,
+          mCerulean and mVenus would be separated by an experimental 2A peptide not well characterized in <em>C.
+            reinhardtii</em>, and mVenus and ParoR would be separated by FMDV, a 2A peptide demonstrated to be
+          functional in <em>C. reinhardtii</em> and included in the <em>C. reinhardtii</em> MoClo Toolkit. </p>
+
+<div class="row">
+<div class="col-12 another-description-image">
+<img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-12-12-at-2-31-26-pm.png" width="800px" />
+ </div>
+      </div>
+
+              <p style="margin-bottom: 3% !important;
+  font-size: 22px;"><em>Figure 1. The 2A peptide mechanism produces independent polypeptides under the control of a single promoter.</em></p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">The multiple different iterations of plasmids used in our FRET testing all possessed the same
+          structure aside from the experimental 2A peptide which was varied between each plasmid. In order to avoid
+          building the same construct multiple times, we created a modular plasmid containing all of the parts which
+          would remain consistent throughout each plasmid as well as a mScarlet reporter in the place of the
+          experimental 2A peptide. This mScarlet reporter, a visual selection marker which caused successful <em>E.
+            coli</em> colonies to fluoresce red, not only enabled us to detect the successful assembly of this modular
+          plasmid, but it also allowed us to easily switch it out with different experimental 2A peptides, as it was
+          designed to be flanked by Golden Gate restriction enzyme sites. All of the 2A peptides which were used in this
+          project were designed to be flanked with compatible Golden Gate restriction enzyme sites. A similar modular
+          design was employed in the plasmid containing our genes of interest to enable us to easily insert a new
+          experimental 2A peptide into our construct after determining the most effective 2A peptide via FRET testing.
+        </p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 35px;
+  text-shadow: 2px 2px 2px black;"><u>Build: Golden Gate Assembly</u></p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Prior to constructing the final constructs for our genes of interest as well as our 2A peptide FRET
+          testing, the modular constructs containing the mScarlet reporter were constructed for each. To build the
+          modular construct for the genes of interest, a five-fragment Golden Gate assembly was performed with PCS, the
+          mScarlet reporter, ACR2p, FMDV, and ParoR. The modular construct for FRET testing was constructed by
+          assembling the following parts: mCerulean, the mScarlet reporter, mVenus, FMDV, and ParoR.</p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">After the modular constructs for our genes of interest and our 2A peptide FRET testing were
+          constructed, various 2A peptides were inserted via one-fragment Golden Gate assemblies. The TaV 2A peptide was
+          inserted into the genes of interest modular construct. The TaV, TME-GD7, DrosC, HuRV, and IFV 2A peptides were
+          inserted into the FRET testing modular construct respectively.</p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 35px;
+  text-shadow: 2px 2px 2px black;"><u>Test: FRET Assay:</u></p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Once <em>C. reinhardtii</em> transformants which successfully integrated the plasmids containing
+          the fluorophore FRET pair as well as experimental 2A peptides were obtained, they were subjected to FRET
+          analysis in order to determine the cleaving behavior of the 2A peptides contained therein. The successful
+          transformants for each of the five FRET plasmids as well as wild type C. reinhardtii were screened in 96 well
+          plates in a plate reader. Autofluorescence of <em>C. reinhardtii</em> was obtained using untransformed, wild
+          type <em>C. reinhardtii</em>. The values of autofluorescence were used to correct the readings obtained from
+          the FRET plasmid transformants. After performing a Z-test and scoring the data accordingly, it was concluded
+          that at least one representative transformant from each of the 2A peptides tested exhibited a lack of FRET
+          activity, indicating cleavage activity of the 2A peptide. While this result is promising, further FRET testing
+          trials are needed in order to determine the precise cleaving efficiencies of each of the 2A peptides under study.</p>
+
+<div class="row">
+<div class="col-12 another-description-image">
+<img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-12-12-at-2-36-56-pm.png" width="800px" />
+ </div>
+      </div>
+
+              <p style="margin-bottom: 3% !important;
+  font-size: 22px;"><em>Figure 2. Successful cleavage of proteins with a 2A peptide results in no detectable FRET.</em></p>
+
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 35px;
+  text-shadow: 2px 2px 2px black;"><u>Learn: Multicistronic Vector 2.0</u></p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">While this initial FRET assay provided evidence of successful cleavage activity exhibited in all
+          five of the tested 2A peptides, we plan to conduct further improved FRET experiments which will enable us to
+          parse the precise cleaving efficiencies of each of the 2A peptides under investigation. With this data, we
+          hope to not only improve the number and characterization of 2A peptides available for use in <em>C.
+            reinhardtii</em> engineering, but we also hope to improve the construct containing our genes of interest
+          used in our own project. After obtaining the relative cleaving efficiencies of each of the 2A peptides under
+          study, we plan to integrate the most effective 2A peptide into our modular construct, thus producing a
+          construct containing 2A peptides with the highest cleavage efficiencies in <em>C. reinhardtii</em>. Higher cleaving efficiency means that this construct will allow for an increased production of our proteins of interest. Thus, we expect it to result in a measurable improvement in <em>C. reinhardtii’s</em> arsenic sequestration rate.</p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 35px;
+  text-shadow: 2px 2px 2px black;">References</p>
+
+        <div class="col-12" style="margin-bottom: 3% !important;
+          font-size: 18px; color: wheat !important;">
+          <p>[1] M. Schroda, “Good News for Nuclear Transgene Expression in Chlamydomonas,” Cells, 2019.</p>
+        </div>
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

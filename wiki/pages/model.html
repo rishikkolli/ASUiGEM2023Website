@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'modeling.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 collaborations">
+          <p>Modeling</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p style="font-size: 22px;
+  text-shadow: 2px 2px 2px black;
+  margin-bottom: 3% !important;
+  margin-top: 3% !important;"><u>Introduction</u></p>
+          <p>As part of our goal to engineer the microalgae C. <em>reinhardtii</em> to sequester toxic arsenic from
+            groundwater sources, we chose to introduce a phytochelatin synthase gene(PCS) into the organism’s nuclear
+            genome. This gene is derived from <em>Arabidopsis thaliana</em>, a small flowering plant and long-standing
+            model organism for laboratory work <sup>[1]</sup>. However, there are many steps involved in the synthesis
+            of phytochelatins, and even though phytochelatin synthase is the rate-limiting enzyme in the production of
+            phytochelatins, we wanted to get a deeper understanding of the kinetics of this pathway in order to better
+            inform our approach towards optimizing <em>C. reinhardtii’s</em> heavy metal uptake abilities.</p>
+
+          <p>To further investigate the kinetics of <em>C. reinhardtii’s</em> phytochelatin synthesis pathway, we
+            constructed a mathematical model that utilizes Michaelis-Menten kinetics to account for seven of the
+            molecules and enzymes implicated in the production of phytochelatins. Details of the construction of the
+            model and its findings are below.</p>
+
+          <p style="font-size: 22px;
+  text-shadow: 2px 2px 2px black;
+  margin-bottom: 3% !important;
+  margin-top: 3% !important;"><u>Modeling Arsenic Uptake in C. reinhardtii</u></p>
+          <p>All heavy metal toxins are taken up by plants via phytochelatins, and one of the most heavily studied heavy
+            metals is Cadmium, especially in its relationship to plants [2]. We used the Cd-PCS model detailed by
+            Mendoza-Cózatl and Moreno-Sánchez (2005) as a template to build our own As-PCS model off of [3].</p>
+
+          <div style="text-align: center;">
+            <img src="https://static.igem.wiki/teams/4455/wiki/model1.png" width="600px">
+          </div>
+
+          <p><em>Figure 1. Schematic representations of GSH metabolism under various metabolic conditions
+              <sup>[3]</sup>.</em></p>
+          <p>According to Mendoza-Cózatl and Moreno-Sánchez, the main metabolites that needed to be included in the
+            model were Glu (glutathione), Cys (cysteine), Gly (glycine), Xe (Xenobiotic), GS-Xe (glutathione
+            synthetase-xenobiotic), GSH (reduced glutathione), and γ-ECS (γ-glutamylcysteine synthetase). These are
+            precursor compounds that most directly impact phytochelatin synthesis. We used MATLAB’s SimBiology toolkit
+            to establish many of the initial parameters of these species as defined by Mendoza-Cózatl and
+            Moreno-Sánchez.</p>
+
+          <p style="font-size: 22px;
+  text-shadow: 2px 2px 2px black;
+  margin-bottom: 3% !important;
+  margin-top: 3% !important;"><u>Findings and Implications</u></p>
+          <p>In our version of this model, the molar concentrations of each of the compounds involved in phytochelatin synthesis can be adjusted to simulate how phytochelatin synthesis is impacted by the abundance or scarcity of these molecules. We simulated the steady states to verify that levels of all of the molecules implicated in the PCS pathway do not induce harmful resource competition within the cell. Once our model verified these results, we began our transformations in the wet lab.</p>
+          <p>This model can also be expanded to provide more specific information regarding the rate of arsenic uptake if the concentration of environmental arsenic and its uptake rate are known. With this information, assumptions can be made as to how long it would take for <i>C. reinhardtii </i> to uptake a given amount of arsenic in a body of water, which can then be used to further inform the proposed water filter design.</p>
+          <div style="text-align: center;">
+            <img src="https://static.igem.wiki/teams/4455/wiki/model2.png" width="600px">
+          </div>
+
+          <p>Figure 2. Output from the model demonstrating relative concentrations of each of the compounds involved in
+            phytochelatin synthesis under normal conditions.</p>
+          <p>View the model <a href="https://static.igem.wiki/teams/4455/wiki/ascode.pdf "
+              style="color: wheat !important;">here.</a></p>
+
+          <div <p style="margin-bottom: 3% !important;
+font-size: 35px;
+text-shadow: 2px 2px 2px black;">References</p>
+          </div>
+          <div class="col-12" style="margin-bottom: 3% !important; font-size: 18px; color: wheat !important;">
+            <p>[1] U. Krämer, “Planting molecular functions in an ecological context with Arabidopsis thaliana,” eLife,
+              vol. 4, 2015.</p>
+            <p>[2] C. S. Cobbett, “Phytochelatins and their roles in heavy metal detoxification,” Plant Physiology, vol.
+              123, no. 3, pp. 825–832, 2000.</p>
+            <p>[3] D. G. Mendoza-Cózatl and R. Moreno-Sánchez, “Control of glutathione and phytochelatin synthesis under
+              cadmium stress. pathway modeling for plants,” Journal of Theoretical Biology, vol. 238, no. 4, pp.
+              919–936, 2006.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

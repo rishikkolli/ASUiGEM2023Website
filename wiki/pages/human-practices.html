@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'integratedHumanPractices.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 collaborations">
+          <p>Human Practices</p>
+        </div>
+      </div>
+      <div class="main_tittle_one">
+        <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+          <p>Arsenic contamination in the southwest</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/hpimageone.png" alt="Map" width="500">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 1. A map of arsenic contamination levels in Arizona in parts per billion (ppb) (7)</em></p>
+        </div>
+        <div class="description_one">
+          <p>About half of the United States’ population relies on ground sources for their water consumption (3). In
+            the Colorado Plateau aquifers, arsenic is the most abundant trace element, found at concentrations as high
+            as 14%. Roughly 43% of all Colorado Plateau aquifers have high or moderate concentrations of inorganic
+            contaminants that pose a threat to human health (4). The current maximum contaminant level for arsenic set
+            by the EPA is 10 µg/L, but concentrations as high as 3,000 µg/L have been found in American water sources
+            (6). High arsenic groundwater contamination is due to a combination of the FeS-rich mineralogy, agricultural
+            history, and historically active mining industry of the Southwestern United States, particularly in Arizona
+            (5). Arsenic contamination is of special concern to rural and native communities in Arizona because they
+            rely on water sourced from private, unregulated wells (7). Our filter design team decided to also develop a
+            cheaper solution to the original filter design because we wanted to account for implementation feasibility
+            in rural areas.
+          </p>
+        </div>
+
+        <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+          <p>Impact of arsenic contamination on human bodies</p>
+        </div>
+        <div class="description_one">
+          <p>Initial arsenic exposure results in nausea, abdominal pain, and diarrhea. Chronic arsenic exposure causes
+            arsenic to accumulate in the major organs - the lungs, kidneys, heart, and liver. The gastrointestinal
+            tract, spleen, nervous systems, and the muscles also receive smaller deposits. Arsenic is a well-established
+            carcinogen and can thus result in cancers in the major organ systems to which it is deposited (10).
+          </p>
+        </div>
+        <div class="description_one">
+          <p>Arizona’s arsenic levels pose significant health risks - About 17% of the 1,346 Arizonan water source sites
+            tested in a 2008 study had arsenic levels above 10µg/L (9). Furthermore, a study in Clinical Toxicology
+            found that a community in Arizona exposed to arsenic levels higher than the EPA limit of 10µg/L in their tap
+            water had elevated arsenic levels in their urine samples (8).
+          </p>
+        </div>
+        <div class="description_one">
+          <p>With the information about the significant arsenic contamination in Arizonan water sources as well as the
+            serious impact of chronic arsenic exposure on human bodies, our team decided that improving our
+            bioremediative algae iGEM design from last year would be a responsible way to improve our community. Last
+            year, our project did not receive community input on the level we’d have preferred due to IRB constraints.
+            This year, we wanted to involve stakeholders to a higher degree. We also wanted to develop a filter design
+            that took into account implementation feasibility for rural communities. Finally, our wet lab team wanted to alter the biomechanics of arsenic uptake using a arsenate reductase gene from the yeast Saccharomyces cerevisiae, which has stronger metabolic similarities with algae. Our wet lab approach this year also took advantage of pre-existing heavy metal sequestration pathways in <em>C. reinhardtii</em> in order to increase the likelihood of our genes of interest being expressed by the algae.
+          </p>
+        </div>
+
+         <div class="description_one">
+          <p>Read about our design process on our Engineering Success page <a href="https://2022.igem.wiki/asu/engineering"
+              style="color: wheat !important;   font-size: 23px;">here</a>.</p>
+        </div>
+
+        <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+          <p>How community stakeholders influenced our design</p>
+        </div>
+        <div class="description_one">
+          <p>Our team decided that the stakeholders of our project fit into two categories: industrial and civil.
+            Industrial stakeholders are those that can provide input to our design process by means of confirming
+            existing mechanical or engineering assumptions. Civic stakeholders are those who could provide information
+            about the larger, human context of arsenic contamination and remediation. After our Human Practices subteam
+            got social-behavioral IRB training and had our IRB paperwork approved, we started reaching out to civic and
+            industrial stakeholders in our community and beyond. We were able to interview 3 of the 9 stakeholder
+            organizations we contacted.</p>
+        </div>
+
+        <div class="sub_heading" style="text-shadow: 2px 2px 2px black;">
+          <p>Industry stakeholders</p>
+        </div>
+        <div class="description_one">
+          <p>We interviewed two industrial stakeholders - MicroBio Engineering, an algae engineering firm, and the
+            Arizona Department of Environmental Quality, a state organization based in Arizona. </p>
+        </div>
+        <div class="description_one">
+          <p>In their interview, ADEQ emphasized that current heavy metal chemical remediation methods are insufficient
+            because they generate a significant amount of byproducts such as waste rock and tailings. This waste must be
+            buried on-site, as much of it does not meet landfill requirements. Thus, the development of bioremediation
+            methods that generate repurposable waste could improve the quality of remediated environments. In our
+            project, the presence of concentrated toxic waste as a byproduct of the water filtration system lends itself
+            to further exploration of how this waste can be detoxified or reused for a different purpose. Clearly
+            defining waste management methods for arsenic-saturated algae could be an important next step for our
+            project. </p>
+        </div>
+        <div class="description_one">
+          <p>ADEQ also emphasized the importance of understanding the culture of the community, such as significant
+            artifacts, people, and places before initiating remediation. Additionally, they mentioned their agency
+            conducted biological and ecological surveys of the surrounding area to generate a comprehensive analysis of
+            their site. ADEQ’s response enhanced the significance of our team’s project - developing a biological system
+            capable of combating heavy metal contamination has the ability to decrease the burden that inorganic
+            contaminants place on the natural environment.</p>
+        </div>
+        <div class="description_one">
+          <p> <strong>The interview with the CTO of MicroBioengineering informed the details of algal growth chambers
+              for the filter team. </strong><span> More specifically, we learned that algae farms have “2-8 day
+              hydraulic residence times in their growth reactors”, a range that we used to estimate how often our growth
+              chamber design would need to be replenished. This was important for the filter design input
+              requirements.</span></p>
+        </div>
+
+        <div class="description_one">
+          <p>View our filter design on our Proposed Implementation <a href="https://2022.igem.wiki/asu/implementation"
+              style="color: wheat !important;   font-size: 23px;">page</a>.</p>
+        </div>
+
+        <div class="sub_heading" style="text-shadow: 2px 2px 2px black;">
+          <p>Civic stakeholders</p>
+        </div>
+        <div class="description_one">
+          <p>From the civic stakeholders side, we interviewed an environmental health scientist from a federal
+            government organization that chose to stay unnamed under the IRB consent process. As an environmental health
+            scientist, their job is to guide communities as they deal with heavy metal exposure by introducing health
+            education and targeted risk-reduction recommendations. The scientist mentioned that their recommendations
+            were often implemented in the affected communities, with the biggest barriers being financial or
+            risk-aversive - communities often seemed hesitant to adopt new practices. What our team took away from this
+            interview was that a well-researched and open relationship between the affected community and the scientists
+            would go a long way in developing trust. If our project were to be implemented in the future, the effort
+            would benefit from doing social and cultural surveys of the community, holding a town hall for questions and
+            feedback about the technology, developing educational materials about genetically modified organisms, and
+            even allowing residents the option to refuse implementation of Chlamydomon[As] in their community if they so
+            choose.</p>
+        </div>
+
+        <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+          <p>How mentors influenced our design </p>
+        </div>
+        <div class="description_one">
+          <p>Our team also engaged with mentors from ASU who have worked in industrial communities.</p>
+        </div>
+        <div class="description_one">
+          <p>From Dr. Taylor Weiss, an ASU associate professor and member of the Arizona Center for Algae Technology and
+            Innovation (AzCATI), our team learned that engineered high-technological design is often not implementable
+            in the real world due to its expense. For example, a disk stack centrifuge, one of the components of our
+            high-tech filter, costs over 10,000 USD. Communities looking to remediate their contaminated water would not
+            find such a cost a feasible alternative to buying bottled water. Dr. Weiss suggested we also look at
+            alternative remediation processes such as algae ponds and analyze an additional population - livestock. In
+            response to Dr. Weiss's advice, we created a design for a simple sedimentation pond structure with an
+            additional clarifier. This low-tech solution, which could be adopted to remove arsenic from water for
+            consumption by cattle and other livestock, allows for the flow of the water stream to help filter out the
+            contaminants naturally instead of requiring high energy inputs.
+          </p>
+        </div>
+        <div class="description_one">
+          <p>We also interviewed another mentor, Dr. Bruce Rittmann, the director of the Biodesign Swette Center for
+            Environmental Biotechnology at ASU. Dr. Rittmann recommended we <strong>implement a kill switch into our
+              algae</strong> so we could ensure control over the organism. Though our lab started with a strain that was
+            dependent on arginine, slow growth made it necessary to switch to a more practical cell wall-deficient strain, CC-400. This was a compromise we needed to make due to the time constraints posed by the competition timeline – however, the same arsenic uptake pathway could be implemented into an arginine auxotrophic strain in long-term projects.</p>
+        </div>
+        <div class="image_selection_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/hpimagetwo.jpg" alt="professor" width="500">
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p><em>Figure 2. Members of the ASU iGEM team meeting with Dr. Bruce Rittmann. (Left to Right: Dr. Bruce
+              Rittmann, Priyati Sharma, Gabriella Cerna, Carol Lu.)</em></p>
+        </div>
+
+        <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+          <p>Conclusion / Reflection </p>
+        </div>
+        <div class="description_one">
+          <p>Through our conversations with academic, civic, and industry stakeholders, our approach towards our project
+            changed significantly, both in the way that we engineered <i>C. reinhardtii</i> and especially in the way we
+            designed our water filtration system. Though our stakeholder interviews were helpful, we were limited by the
+            novelty of our field. Bioremediation is not widely practiced by industry professionals, and relevant
+            academic knowledge is often constrained to the mechanisms of uptake. In the future, it would be prudent to
+            start the IRB process at an earlier stage and heavily research scientists and engineers who have niche
+            knowledge of arsenic or heavy metal bioremediation. The development of our filter would greatly benefit from
+            a deeper, more comprehensive search for such experts. Furthermore, out of the 9 stakeholders we contacted, 3
+            consented to an interview. Starting IRB earlier and allocating more time to research possible interviewees
+            would benefit human practices greatly. </p>
+
+          <p>Working with laboratory organisms in a real-world environment is difficult. Real-world implementations of
+            Chlamydomon[As] would likely necessitate the use of a more robust algal strain to bypass the challenges
+            associated with maintaining the growth of laboratory organisms. Despite the design constraints that exist,
+            going through the process of breaking down each of our decisions and understanding their impact on our user
+            group and other stakeholders was immensely valuable in forming a well-rounded understanding of both the
+            problem we are tackling and the opportunities that exist to devise solutions for it. </p>
+          <p><u>Next Steps</u></p>
+          <ol>
+            <li>Start the IRB process, including researching stakeholders, in January.</li>
+            <li>Connect with professionals who have worked with indigenous and rural communities to gain better insight
+              into the scope of a potential filter design.</li>
+            <li>Connect with professionals who have worked with indigenous and rural communities to understand any
+              preconceived notions or hesitations these groups may have towards the use of GMOs.</li>
+          </ol>
+        </div>
+        <p style="margin-bottom: 3% !important; font-size: 35px; text-shadow: 2px 2px 2px black;">References</p>
+        <div class="col-12" style="margin-bottom: 3% !important; font-size: 18px; color: wheat !important;">
+          <p>
+            [1] David, I. G., Matache, M. L., Tudorache, A., Chisamera, G., Rozylowicz, L., & Radu, G. L. (2012). Food
+            chain biomagnification of heavy metals in samples from the Lower Prut Floodplain Natural Park. Environ Eng
+            Manag J, 11(1), 69-73.</p>
+            <p>[2] Murtaza, G., Shehzad, M. T., Kanwal, S., Farooqi, Z. U. R., & Owens, G. (2022). Biomagnification of
+            potentially toxic elements in animals consuming fodder irrigated with sewage water. Environmental
+            Geochemistry and Health, 1-16.</p>
+            <p>[3] Water Resources, “The quality of our groundwater-progress on a National Survey: U.S. geological survey,”
+            The Quality of Our Groundwater-Progress on a National Survey | U.S. Geological Survey, 02-Apr-2021.
+            [Online]. Available: https://www.usgs.gov/news/quality-our-groundwater-progress-national-survey-0.
+            [Accessed: 11-Oct-2022].</p>
+            <p>[4] “Groundwater Quality in the Colorado Plateaus Aquifers, Western United States,” USGS. [Online].
+            Available: https://pubs.usgs.gov/fs/2021/3012/fs20213012.pdf. [Accessed: 11-Oct-2022].</p>
+            <p>[5] M. C. Jones, J. M. Credo, J. C. Ingram, J. A. Baldwin, R. T. Trotter, and C. R. Propper, “Arsenic
+            concentrations in ground and surface waters across Arizona including Native Lands,” Journal of Contemporary
+            Water Research & Education, vol. 169, no. 1, pp. 44–60, 2020.</p>
+            <p>[6] M. F. Naujokas, B. Anderson, H. Ahsan, H. V. Aposhian, J. H. Graziano, C. Thompson, and W. A. Suk, “The
+            broad scope of health effects from chronic arsenic exposure: Update on a worldwide public health problem,”
+            Environmental Health Perspectives, vol. 121, no. 3, pp. 295–302, 2013.</p>
+            <p>[7] Jones, M. C., Credo, J. M., Ingram, J. C., Baldwin, J. A., Trotter Jr, R. T., & Propper, C. R. (2020).
+            Arsenic concentrations in ground and surface waters across Arizona including native lands. Journal of
+            contemporary water research & education, 169(1), 44-60.</p>
+            <p>[8] Burgess, J. L., Meza, M. M., Josyula, A. B., Poplin, G. S., Kopplin, M. J., McClellen, H. E., ... & Clark
+            Lantz, R. (2007). Environmental arsenic exposure and urinary 8-OHdG in Arizona and Sonora. Clinical
+            Toxicology, 45(5), 490-498.</p>
+            <p>[9] Uhlman, K. (2008). Arsenic in Arizona Ground Water--Source and Transport Characteristics.</p>
+            <p>[10] Ratnaike, R. N. (2003). Acute and chronic arsenic toxicity. Postgraduate medical journal, 79(933),
+            391-396.</p>
+        </div>
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

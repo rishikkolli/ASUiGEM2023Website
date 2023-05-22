@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'notebook.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 collaborations">
+          <p>Notebook</p>
+        </div>
+      </div>
+
+      <div class="row row-one-images align-items-center">
+        <div class="col-4"></div>
+
+        <div class="col-4 text-center important-div">
+          <h1>May/June</h1>
+          <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#june"><img
+              src="https://static.igem.wiki/teams/4455/wiki/junenotebook.png" height="200px"></button>
+        </div>
+
+        <div class="col-4"></div>
+      </div>
+
+      <div class="row row-two-images align-items-center">
+        <div class="col-4 text-center important-div-two">
+          <h1>October</h1>
+          <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#october"><img
+              src="https://static.igem.wiki/teams/4455/wiki/octobernotebook.png" width="225px"></button>
+        </div>
+
+        <div class="col-4"></div>
+
+        <div class="col-4 text-center important-div-three">
+          <h1>July</h1>
+          <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#july"><img
+              class="the-patras-button" src="https://static.igem.wiki/teams/4455/wiki/julynotebook.png"
+              width="175px"></button>
+        </div>
+      </div>
+
+      <div class="row row-two-images align-items-center">
+        <div class="col-2"></div>
+
+        <div class="col-4 text-center important-div-two">
+          <h1>September</h1>
+          <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#september"><img
+              src="https://static.igem.wiki/teams/4455/wiki/septembernotebook.png" width="225px"></button>
+        </div>
+
+        <div class="col-4 text-center important-div-three">
+          <h1>August</h1>
+          <button type="button" class="btn bg-transparent" data-toggle="modal" data-target="#august"><img
+              src="https://static.igem.wiki/teams/4455/wiki/augustnotebook.png" width="225px"></button>
+        </div>
+
+        <div class="col-2"></div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="june" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content" style="border-radius: 25px;">
+          <div class="modal-header text-center border-0 no-border">
+            <p class="modal-title w-100">May/June</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>MAY 1-7</p>
+            <p> - End of recruitment period <BR> - Finalized initial project idea and approach <BR> - Lab safety
+              training with Dr. Bartelle <br> - Established preliminary project deadline <br> - Compiled
+              pre-existing basic lab protocols from 2021 (Western Blot, <i> C. reinhardtii <i> transformation) <br>
+                  - Researched filter prototyping basics</p>
+            <p>MAY 8-14</p>
+            <p> - First official team meeting <br> - Researched genes of interest and began uploading sequences to
+              Benchling <br> - Troubleshot in-silico virtual assemblies of genes of interest <br> - “Work Sessions”
+              to make progress on codon-optimization of genes of interest and running Golden Gate assemblies
+              in-silico <br> - Determined goals for human practices team</p>
+            <p>MAY 15-21</p>
+            <p> - Began brainstorming water filter ideas related to hydrocyclone separation <br> - Purchased lab
+              supplies <br> - Troubleshot construct design <br> - Researched 2A peptide sequences for use in <i> C.
+                reinhardtii <i> </p>
+            <p>MAY 22-28</p>
+            <p> - Delegated human practices tasks based on previously discussed goals <br> - Finalized and ordered
+              constructs</p>
+            <p>MAY 29 - JUNE 4</p>
+            <p> - Researched MoClo kit for <i> C. reinhardtii <i> <br> - Re-ordered constructs after further
+                  troubleshooting <br> - Purchased more reagents and lab supplies <br> - Met with team to discuss
+                  final construct design <br> - Round 1 of sketching out filter designs <br> - Wrote out basic lab
+                  protocols <br> - Collaboration meeting with QGEM <br> - Updated project timeline</p>
+            <p>JUNE 5-11</p>
+            <p> - Researched FRET protocol <br> - Started discussing collaboration with UBCO iGEM <br> - Initial CAD
+              attempts for filter design <br> - Wrote industrial stakeholder profiles to prepare for human practices
+              interviews <br> - Received <i> Chlamydomonas Reinhardtii <i> MoClo Toolkit and prepared cultures for
+                  glycerol stocks as well as minipreps of parts in the kit needed for our project</p>
+            <p>JUNE 12-18</p>
+            <p> - Received vector to be used in our project and prepared a culture for a glycerol stock as well as a
+              miniprep of it First attempt at Golden Gate Assembly of plasmid containing genes of interest was
+              unsuccessful <br> - Second attempt at Golden Gate Assembly of plasmid yielded red colonies resulting
+              from an mScarlet reporter, which were picked and subjected to restriction digestion analysis <br> -
+              Designed variants of potential filter designs <br> - Safety forms <br> - HP stakeholder meeting with
+              Dr. Bruce Rittmann <br> - Collaboration meeting with SBU iGEM <br> - Wrote scientific stakeholder
+              profiles to prepare for human practices interviews <br> - Began planning Phototroph Community with
+              UBCO <br> - Collaboration meeting with iGEM Concordia</p>
+            <p>JUNE 19-25</p>
+            <p>Constructs from the second attempt at Golden Gate assembly which were confirmed by restriction
+              digestion analysis were subjected to an additional one-fragment Golden Gate assembly in which the
+              mScarlet reporter was replaced with a TaV 2A peptide, yielding the final construct <br> - The final
+              construct, named A2, underwent restriction digestion analysis in order to confirm correct assembly
+              <br> - Phototrophs outreach and recruitment <br> - Finished safety forms <br> - QGEM podcast outreach
+              and interview requests <br> - Initial wiki planning and drafts <br> - Filter prototyping and
+              conceptual design sessions
+            </p>
+            <p>JUNE 26 - JULY 2</p>
+            <p> - Our final A2 construct was additionally confirmed as correct by whole-plasmid DNA sequencing <br>
+              - Tested glass bead transformation with unsequenced plasmid containing antibiotic resistance gene <br>
+              - Researched assays to confirm successful transformation for final plasmid <br> - Wrote article for
+              SBU journal collaboration <br> - CAD designs for filter, continued</p>
+          </div>
+          <div class="modal-header text-center border-0 no-border">
+            <button type="button" class="next w-100" data-toggle="modal" data-dismiss="modal"
+              data-target="#july">July></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="october" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content" style="border-radius: 25px;">
+          <div class="modal-header text-center border-0 no-border">
+            <p class="modal-title w-100">October</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>OCTOBER 2-8</p>
+            <p> - The FLAG blot from the last Western Blot trial was reprobed, confirming that the bands apparent on
+              it were background and did not result from the production of the tagged protein of interest <br> -
+              Completed 4-day testing cycle to determine arsenic uptake abilities of mutant strains <br> - Edited
+              phototroph handbook and video protocol submissions</p>
+            <p>OCTOBER 9-12</p>
+            <p> - Wiki writing <br> - Data analysis <br> - Model validation <br> - Podcast editing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="july" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content" style="border-radius: 25px;">
+          <div class="modal-header text-center border-0 no-border">
+            <p class="modal-title w-100">July</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>JULY 3-9</p>
+            <p> - First attempt at glass bead transformation with sequenced plasmid proved unsuccessful <br> -
+              Podcast interview #1 - Dr. Stephen Brown <br> - Began planning modeling strategy <br> Defining and
+              finding samples of parts needed for water filter <br> - Met with UBCO to plan Phototroph Community
+              meetings for the summer <br> - More podcast outreach</p>
+            <p>JULY 10-16</p>
+            <p> - First attempt at transformation via electroporation with sequenced plasmid proved unsuccessful
+              <br> - Researched specific parts needed to maintain algal growth in water filtration system <br> -
+              Podcast Interview #2 - Dr. Arul Varman <br> - Submitted IRB application for approval
+            </p>
+            <p>JULY 17-23</p>
+            <p> - Resolved contamination issue in <i> C. reinhardtii <i> agar plates <br> - Podcast interview #3 -
+                  Dr. Rosy <br> - Received IRB approval <br> - Modeling strategy and meeting with Dr. Andrew Marcus
+                  <br> - Sequencing plasmids <br> - Phototroph community outreach and planning <br> - Visited Dr.
+                  Weiss at ASU’s AzCATI facility <br> - Filter prototyping: researched sedimentation strategy after
+                  rethinking approach</p>
+            <p>JULY 24-30</p>
+            <p> - Continued attempts at transformation of <i> C. reinhardtii <i> with A2 plasmid via the glass bead
+                  protocol <br> - Preparation for first Phototroph Community meeting <br> - Transcribed podcasts for
+                  later editing <br> - Promotional video preparation <br> - Refined modeling approach and researched
+                  existing models of similar systems</p>
+            <p>JULY 31 - AUGUST 6</p>
+            <p> - Planned bioremediation conference with iGEM Patras and iGEM Tec-CEM <br> - Ordered new strains of
+              <i> C. reinhardtii <i> for further testing and troubleshooting <br> - Moved base of operations to Dr.
+                  Redding’s lab <br> - Tested transformation and material preparation <br> - Continued glass bead
+                  transformation trials of <i> C. reinhardtii <i> and established transformation log to track
+                      protocol changes and time required for transformant colonies to appear <br> - iGEM online
+                      meetup hosted by iGEM Worldshaper-HZ
+            </p>
+          </div>
+          <div class="modal-header text-center border-0 no-border">
+            <button type="button" class="next w-100" data-toggle="modal" data-dismiss="modal"
+              data-target="#august">August></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="september" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content" style="border-radius: 25px;">
+          <div class="modal-header text-center border-0 no-border">
+            <p class="modal-title w-100">September</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>SEPTEMBER 4-10</p>
+            <p> - Chlamy maintenance while preparing for assays <br> - First two attempts of colony PCR as described
+              by Nouemssi et al. 2020 on successful CC-400 transformants containing A2 were unsuccessful <br> -
+              Prepared for transformations of 2A peptide test plasmids</p>
+            <p>SEPTEMBER 11-17</p>
+            <p> - First attempt at colony PCR using Promega Wizard Genomic DNA Preparation Kit followed by PCR was
+              successful and indicated three positive transformants <br> - Finished handbook and video protocol
+              contributions to phototroph handbook <br> - Miniprepped plasmids needed for 2A peptide testing <br> -
+              Began coordinating with Dr. Westerhoff’s lab for running ICP-MS on our samples</p>
+            <p>SEPTEMBER 18-24</p>
+            <p> - Completed 15 transformations of 2A peptide test plasmids for FRET testing <br> - Prepared cultures
+              of positive cPCR hits for western blotting <br> - A protein lysate of one of the positive cPCR hits
+              has prepared and a BCA assay was performed <br> - A Western Blot using the protein lysate from the
+              positive cPCR hit was performed yet bands were only apparent for the control, not the tagged proteins
+              of interest</p>
+            <p>SEPTEMBER 25 - OCTOBER 1</p>
+            <p> - Protein lysates were prepared from cultures of all three positive cPCR hits and a BCA assay was
+              performed <br> - A Western Blot using the protein lysate from the positive cPCR hit was performed, and
+              bands were apparent on the FLAG blot as well as the control blot but not the HA blot <br> - Another
+              Western Blot was performed using the same protein lysate samples with a skipped lane between the wild
+              type and transformant <i> C. reinhardtii <i> protein lysate samples to prevent contamination of the
+                  untransformed lane, and additionally, a control was included to confirm the efficacy of the
+                  antibodies used <br> - Transformants of “FRET plasmids” appeared on plates</p>
+          </div>
+          <div class="modal-header text-center border-0 no-border">
+            <button type="button" class="next w-100" data-toggle="modal" data-dismiss="modal"
+              data-target="#october">October></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="august" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content" style="border-radius: 25px">
+          <div class="modal-header text-center border-0 no-border">
+            <p class="modal-title w-100 border-0">August</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>AUGUST 7-13</p>
+            <p> - Recorded promotional video <br> - Podcast outreach for final interviews <br> - Phototroph
+              community meetup 2 preparation <br> - Continued glass bead transformation trials of <i> C. reinhardtii
+                <i> with alterations including testing the Kindle protocol (1990) with SGII media as well as the Kao
+                  and Ng protocol (2017) with polyethylene glycol</p>
+            <p>AUGUST 14-20</p>
+            <p> - Continued glass bead transformation trials of <i> C. reinhardtii <i> using the Kindle protocol
+                  (1990) with SGII media as well as the Kao and Ng protocol (2017) with polyethylene glycol <br> -
+                  Phototroph community meetup 2 preparation <br> - Phototroph community meetup 2 (theme:
+                  troubleshooting) <br> - Outreach for HP stakeholder meetings</p>
+            <p>AUGUST 21-27</p>
+            <p> - Obtained transformants of CC-400 strain of <i> C. reinhardtii <i> and A2 plasmid <br> - HP
+                  stakeholder meeting 1 & 2 <br> - Phototroph community virtual conference preparation <br> -
+                  Started cultures of transformant strains for further testing <br> - Prepared for colony PCR</p>
+            <p>AUGUST 28 - SEPTEMBER 3</p>
+            <p> - Podcast interview #4 - Dr. Sundaram <br> - Began working on handbook and video protocol
+              contributions to phototroph handbook</p>
+          </div>
+          <div class="modal-header text-center border-0 no-border">
+            <button type="button" class="next w-100" data-toggle="modal" data-dismiss="modal"
+              data-target="#september">September></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'experiments.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 collaborations">
+          <p>Experiments</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="container">
+            <div class="accordion" id="accordionExample">
+              <div class="item">
+                <div class="item-header" id="headingOne">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link proofTitleOne" type="button" data-toggle="collapse"
+                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      LB-amp Plates
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                  data-parent="#accordionExample">
+                  <div class="t-p">
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Introduction:</p>
+                        <p style=" margin-bottom: 3% !important;
+  font-size: 22px;">This protocol is for the creation of LB-ampicillin plates for use in cloning with <i> E. coli. </i>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Materials:</p>
+                        <ul style=" margin-bottom: 3% !important;
+  font-size: 22px;">
+                          <li>LB-agar powder</li>
+                          <li>Double-distilled water (ddH2O)</li>
+                          <li>Wooden sticks</li>
+                          <li>Aluminum foil</li>
+                          <li>Ampicillin</li>
+                          <li>Culture plates/petri dishes</li>
+                        </ul>
+
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Procedure:</p>
+                        <ol style=" margin-bottom: 3% !important;
+  font-size: 22px;">
+                          <li>Measure 17-20 g of LB-Agar powder on a scale, and add it to a glass container.</li>
+                          <li>Measure 500 mL of ddH2O, and add it to the same container.</li>
+                          <li>Stir this mixture gently until homogenous.</li>
+                          <li>Place aluminum foil over the lid of the container and label with autoclave tape.</li>
+                          <li>Place the container in the autoclave for 20-30 minutes.</li>
+                          <li>Remove the container from the autoclave and let the mixture cool until it reaches 55 ˚C.
+                          </li>
+                          <li>Add ampicillin to the container (100 µg/mL) and stir gently for 30 seconds.</li>
+                          <li>Pour a thin layer (about 20 mL) of the LB-ampicillin mixture into culture plates.</li>
+                          <li>Let the plates cool for one hour, or until solidified.</li>
+                          <li>Store the plates inverted overnight.</li>
+                          <li>Label the plates with the correct antibiotic and store in plastic bags at 4 ˚C.</li>
+                        </ol>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed proofOfTitleTwo" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      TAP Media
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="t-p">
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Introduction:</p>
+                        <p style=" margin-bottom: 3% !important;
+  font-size: 22px;">Tris-Acetate-Phosphate (TAP) is a rich medium used for the suspension of cultures of
+                          <em>Chlamydomonas reinhardtii</em>. This protocol makes for 1 liter of 1x TAP media.</p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Materials:</p>
+                        <ul style=" margin-bottom: 3% !important;
+  font-size: 22px;">
+                          <li>25 mL of 40x Beij</li>
+                          <li>25 mL of 40x TAP</li>
+                          <li>1 mL of 1000x trace elements</li>
+                          <ul>
+                            <li>EDTA-Na2, 25 mM</li>
+                            <li>(NH4)6Mo7O24, 28.5 µM</li>
+                            <li>Na2SeO3, 0.1 mM</li>
+                            <li>Zn·EDTA, 2.5 mM</li>
+                            <li>Mn·EDTA, 6 mM</li>
+                            <li>Fe·EDTA, 22 mM</li>
+                            <li>Cu·EDTA, 2 mM</li>
+                          </ul>
+                          <li>DI water</li>
+                          <li>Autoclave</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Procedure:</p>
+                        <ol>
+                          <li>Combine all reagents and top up to 1 liter of DI water.</li>
+                          <li>Autoclave for 30 minutes.</li>
+                          <li>Allow to cool before use.</li>
+                        </ol>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingThree">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed proofOfTitleThree" type="button" data-toggle="collapse"
+                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      TAP-paromomycin plates
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="t-p">
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Introduction:</p>
+                        <p>TAP-paromomycin is a rich medium used for the growth of colonies of <em>Chlamydomonas
+                            reinhardtii</em>.</p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Materials:</p>
+                        <ul>
+                          <li>1x TAP media</li>
+                          <li>10 µg/mL Paromomycin</li>
+                          <li>15 g/L Agar powder</li>
+                          <li>Sterile plates</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Procedure:</p>
+                        <ol>
+                          <li>Follow the “TAP Media” protocol but add 15 g/L of agar before autoclaving.</li>
+                          <li>Add 10 µg/mL of Paromomycin after autocalving 1 liter of TAP and letting cool sufficiently
+                            for about 30 minutes.</li>
+                          <li>Pour warm TAP+Paromomycin in a thin layer enough to cover the whole surface of each plate.
+                          </li>
+                          <li>Allow media to solidify before keeping in 4C until use.</li>
+                        </ol>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingFour">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed proofOfTitleFour" type="button" data-toggle="collapse"
+                      data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      Miniprep
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                  <div class="t-p">
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Introduction:</p>
+                        <p>Miniprep kit is used to elute DNA from a sample. The handbook dictates that this protocol is
+                          designed for the purification of up to 20 μg of high-copy plasmid DNA from 1–5 ml overnight
+                          cultures of <i> Escherichia coli </i> in LB medium, but we are using 3mL specifically.</p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Materials:</p>
+                        <ul>
+                          <li>Miniprep kit (QIAprep Spin Miniprep Kit (250) PN: 27106)</li>
+                          <li>LB amp bacterial plate</li>
+                          <li>LB amp liquid media</li>
+                          <li>37°C incubator</li>
+                          <li>37°C shaker incubator</li>
+                          <li>Microcentrifuge</li>
+                          <li>Vortex mixer</li>
+                          <li>100% ethanol</li>
+                          <li>Microcentrifuge tubes 2ml sterile</li>
+                          <li>Microcentrifuge tubes 1.5ml sterile (DNase free)</li>
+                          <li>Pipettes (1000 uL and 200 μL) and tips</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Procedure:</p>
+                        <p><u>Streak out bacterial plate (Day 1)</u></p>
+                        <ol>
+                          <li>Streak out bacteria on LB amp plate using the pattern below with three sterile pipette
+                            tips:</li>
+                        </ol>
+                        <img src="https://static.igem.wiki/teams/4455/wiki/streakoutbacteriaplate.png" width="250px">
+                        <p><u>Start overnight (O/N) culture (Day 2)</u></p>
+                        <ol>
+                          <li>Label culture tube with plasmid names.</li>
+                          <li>Add 6 ml of LB amp media.</li>
+                          <li>Pick a single colony with a pipette tip from a freshly streaked selective plate and drop
+                            the pipette tip into a correspondingly labeled tube.</li>
+                          <li>Incubate for 12–16h/overnight at 37°C on a shaking incubator.</li>
+                        </ol>
+                        <p><u>Collect cell pellet (Day 3)</u></p>
+                        <ol start="5">
+                          <li>Pellet 1.5 ml bacterial culture (not to exceed 15 OD units) by centrifugation at 16,000 x
+                            g (~13,000 RPM) for 30 seconds. Discard supernatants.</li>
+                        </ol>
+                        <p><u>Qiagen Miniprep Kit</u></p>
+                        <p><strong><em>Done once per kit:</em></strong></p>
+                        <p><strong><em>NOTE:</strong> Store Plasmid Neutralization Buffer (B3) at 4°C after opening, as
+                          it contains RNase A.</em></p>
+                        <p><strong><em>NOTE:</strong> Check if precipitate has formed in Lysis Buffer (B2), incubate at
+                          30–37°C, inverting periodically to dissolve.</em></p>
+                        <ol start="6">
+                          <li>Resuspend pellet in 200 μl Plasmid Resuspension Buffer (B1) (pink). Vortex or pipet to
+                            ensure cells are completely resuspended. There should be no visible clumps.</li>
+                          <li>Lyse cells by adding 200 μl Plasmid Lysis Buffer (B2) (blue/green). Invert the tube
+                            immediately and gently 5–6 times until the color changes to dark pink and the solution is
+                            clear and viscous. Do not vortex! Incubate for one minute or less.</li>
+                          <li>Neutralize the lysate by adding 400 μl of Plasmid Neutralization Buffer (B3) (yellow).
+                            Gently invert the tube until color is uniformly yellow and a precipitate forms. Do not
+                            vortex! Incubate for 2 minutes.</li>
+                          <li>Clarify the lysate by spinning for 5 minutes at 16,000 x g.</li>
+                          <li>Carefully transfer supernatant to the spin column and centrifuge for 1 minute. Discard
+                            flow-through.</li>
+                          <li>Re-insert column in the collection tube and add 200 μl of Plasmid Wash Buffer 1. Plasmid
+                            Wash Buffer 1 removes RNA, protein and endotoxin. (Add a 5 minute incubation step before
+                            centrifugation if the DNA will be used in transfection.) Centrifuge for 1 minute.</li>
+                          <li>Add 400 μl of Plasmid Wash Buffer 2 and centrifuge for 1 minute.</li>
+                          <li>Transfer column to a clean 1.5 ml microfuge tube. Use care to ensure that the tip of the
+                            column has not come into contact with the flow-through. If there is any doubt, re-spin the
+                            column for 1 minute before inserting it into the clean microfuge tube.</li>
+                          <li>Add ≥ 30 μl DNA Elution Buffer to the center of the matrix. Wait for 1 minute, then spin
+                            for 1 minute to elute DNA.</li>
+                        </ol>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="item">
+                <div class="item-header" id="headingFive">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed proofOfTitleFive" type="button" data-toggle="collapse"
+                      data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      Golden Gate Assembly
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                  <div class="t-p">
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Introduction:</p>
+                        <p>This protocol is intended for use with the Type IIS restriction enzyme SapI. Golden Gate
+                          Assembly is a method of molecular cloning that can easily combine multiple fragments of DNA
+                          inserts. Using Type IIS restriction enzymes, the resulting product is "scarless" and does not
+                          retain the recognition sites, making it essentially irreversible. This protocol was taken from
+                          the DTU Denmark 2019 iGEM team.</p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Materials:</p>
+                        <ul>
+                          <li>T4 DNA Ligase</li>
+                          <li>10X T4 DNA ligase buffer</li>
+                          <li>SapI Enzyme</li>
+                          <li>Reciever Plasmid</li>
+                          <li>DNA Fragment with SapI Overhangs</li>
+                          <li>ddH2O</li>
+                          <li>PCR Tubes</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Procedure:</p>
+                        <p><u>Reaction Set-Up</u></p>
+                        <ol>
+                          <li>Add the following reagents to a PCR tube:</li>
+                          <ul>
+                            <li> 0.5 uL of T4 DNA ligase</li>
+                            <li>2 uL of 10X T4 DNA ligase buffer</li>
+                            <li>0.5 uL of SapI enzyme</li>
+                            <li>100 ng of receiver plasmid</li>
+                            <li>Equimolar amounts of inserts</li>
+                            <li>ddH2O for a total volume of 20 uL</li>
+                          </ul>
+                          <li>Mix the contents of the PCR tube gently by flicking.</li>
+                          <li>Place the tube in a thermocycler.</li>
+                        </ol>
+                        <p><u>Thermocycler Program</u></p>
+                        <div class="tbl-header">
+                          <table cellpadding="0" cellspacing="0">
+                            <thead>
+                              <tr>
+                                <th>Step</th>
+                                <th>Temperature</th>
+                                <th>Time</th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                        <div class="tbl-content">
+                          <table cellpadding="0" cellspacing="0">
+                            <tbody>
+                              <tr>
+                                <td>1. Activation of Sapl</td>
+                                <td>37°C</td>
+                                <td>5 minutes</td>
+                              </tr>
+                              <tr>
+                                <td>2: Activation of T4 ligase</td>
+                                <td>16°C</td>
+                                <td>5 minutes</td>
+                              </tr>
+                              <tr>
+                                <td>Repeat steps 1 & 2 for 25 cycles</td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>3: Inactivation of SapI</td>
+                                <td>65°C</td>
+                                <td>20 minutes</td>
+                              </tr>
+                              <tr>
+                                <td>4: Inactivation of T4 ligase</td>
+                                <td>85°C</td>
+                                <td>10 minutes</td>
+                              </tr>
+                              <tr>
+                                <td>5: Hold</td>
+                                <td>4°C</td>
+                                <td>Hold</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <ol start="4" style="margin-top: 2%;">
+                          <li>Cleanup any tubes or micropipette tips by disposing in autoclave safe disposable bags and
+                            autoclave according to autoclave brand guidelines but cycle time must be set for a minimum
+                            of 30 minutes @ 121C, 15 psi.</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingSix">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link proofTitleSix" type="button" data-toggle="collapse"
+                      data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                      E. coli Transformation
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseSix" class="collapse show" aria-labelledby="headingSix"
+                  data-parent="#accordionExample">
+                  <div class="t-p">
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Introduction:</p>
+                        <p><em><i>Escherichia coli</i></em> (<em><i>E. coli</i></em>) is an optimal host for
+                          transformation of DNA into cells. Its growth allows for high expression of desired DNA or
+                          genes of interest. The following protocol is from New England BioLabs® High Efficiency
+                          Transformation Protocol using NEB® 10-beta Competent <em><i>E. coli</i></em> (High Efficiency)
+                          (C3019H/C3019I) protocol.</p>
+                      </div>
+
+                      <div class="col-12">
+                        <p class="main-header">Materials:</p>
+                        <ul>
+                          <li>NEB 10-beta Competent <i>E. coli</i> cells</li>
+                          <li>SOC media</li>
+                          <li>LB+ampR plates</li>
+                        </ul>
+                      </div>
+
+                      <div class="col-12">
+                        <p class="main-header">Procedure:</p>
+                        <ol>
+                          <li>Thaw a tube of NEB 10-beta Competent <i> E. coli</i> cells on ice for 10 minutes.</li>
+                          <li>Add 2 µl containing 1 pg-100 ng of plasmid DNA to the cell mixture (25ml). Carefully flick
+                            the tube 4-5 times to mix cells and DNA. Do not vortex.</li>
+                          <li>Place the mixture on ice for 30 minutes. Do not mix.</li>
+                          <li>Heat shock at exactly 42°C for exactly 30 seconds. Do not mix.</li>
+                          <li>Place on ice for 5 minutes. Do not mix.</li>
+                          <li>Pipette 950 µl of room temperature SOC into the mixture.</li>
+                          <li>Place at 37°C for 60 minutes. Shake vigorously (250 rpm) or rotate.</li>
+                          <li>Warm selection plates to 37°C.</li>
+                          <li>Mix the cells thoroughly by flicking the tube and inverting, then perform several 10-fold
+                            serial dilutions in NEB 10-beta/Stable Outgrowth Medium.</li>
+                          <li>Spread 50-100 µl of each dilution onto a selection plate and incubate overnight at 37°C.
+                            Alternatively, incubate at 30°C for 24-36 hours or 25°C for 48 hours.</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingSeven">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link proofTitleSeven" type="button" data-toggle="collapse"
+                      data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                      PCR
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseSeven" class="collapse show" aria-labelledby="headingSeven"
+                  data-parent="#accordionExample">
+                  <div class="t-p">
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Introduction:</p>
+                        <p>This protocol delineates the design of the polymerase reaction and thermal cycles for the
+                          production of many copies of amplified DNA fragments.</p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Materials:</p>
+                        <ul>
+                          <li>Forward/Upstream Primer</li>
+                          <li>Reverse/Downstream Primer</li>
+                          <li>Template DNA</li>
+                          <li>Polymerase Master Mix</li>
+                          <li>Nuclease Free Water</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Procedure:</p>
+                        <p style="margin-top: 2%;">PCR Reaction Mix</p>
+                        <ol>
+                          <li>Determine size of region of interest</li>
+                          <ol type="a">
+                            <li>Identify gene of interest and record sequence in Benchling including any modifications
+                              (i.e., terminator sequence)</li>
+                            <li>Determine primer size and location including any modifications (i.e., homology regions
+                              or restriction sites)</li>
+                            <li>Add the gene of interest fragment size and primer fragment sizes together to estimate
+                              total length (or just use benchling tool)</li>
+                          </ol>
+                        </ol>
+                        <ol start="2">
+                          <li>Pick a polymerase; Taq polymerase for non-cloning amplification, or high fidelity
+                            polymerase for cloning</li>
+                          <ol type="a">
+                            <li>Different polymerases have different temperature ranges and times for the reaction.</li>
+                          </ol>
+                        </ol>
+                        <ol start="3">
+                          <li>Set up reaction mixture in PCR tube with template DNA, upstream and downstream primers,
+                            polymerase master mix and nuclease free water</li>
+                          <ol type="a">
+                            <li>Ex. Taq 2x Quick Load PCR Components</li>
+                          </ol>
+                        </ol>
+                        <div class="tbl-header">
+                          <table cellpadding="0" cellspacing="0">
+                            <thead>
+                              <tr>
+                                <th>Component</th>
+                                <th>25 µl reaction</th>
+                                <th>50 µl reaction</th>
+                                <th>Final Conc.</th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                        <div class="tbl-content">
+                          <table cellpadding="0" cellspacing="0">
+                            <tbody>
+                              <tr>
+                                <td>10 µM Forward Primer</td>
+                                <td>0.5 µl</td>
+                                <td>1 µl</td>
+                                <td>0.2 µM (0.05–1 µM)</td>
+                              </tr>
+                              <tr>
+                                <td>10 µM Reverse Primer</td>
+                                <td>0.5 µl</td>
+                                <td>1 µl</td>
+                                <td>0.2 µM (0.05–1 µM)</td>
+                              </tr>
+                              <tr>
+                                <td>Template DNA</td>
+                                <td>variable</td>
+                                <td>variable</td>
+                                <td>
+                                  < 1,000 ng</td>
+                              </tr>
+                              <tr>
+                                <td>Taq 2X Master Mix</td>
+                                <td>12.5 µl</td>
+                                <td>25 µl</td>
+                                <td>1X</td>
+                              </tr>
+                              <tr>
+                                <td>Nuclease-free water</td>
+                                <td>to 25 µl</td>
+                                <td>to 50 µl</td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <p style="margin-top: 2%;"><u>PCR Reaction Mix</u></p>
+                        <ol>
+                          <li>Calculate annealing temperature and extension times and determine thermal cycles</li>
+                          <ol>
+                            <li>Determine GC content and primer concentration to calculate annealing temperature
+                              (https://tmcalculator.neb.com/#!/main)</li>
+                            <li>For extension time, add approximately 30-60 seconds of time per kilobase in amplified
+                              region of interest</li>
+                            <li>For all other times, use higher recommended time</li>
+                            <li>Ex. Taq 2x thermal cycler conditions</li>
+                          </ol>
+                        </ol>
+                        <div class="tbl-header">
+                          <table cellpadding="0" cellspacing="0">
+                            <thead>
+                              <tr>
+                                <th>Step</th>
+                                <th>Temp</th>
+                                <th>Time</th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                        <div class="tbl-content">
+                          <table cellpadding="0" cellspacing="0">
+                            <tbody>
+                              <tr>
+                                <td>Initial Denaturation</td>
+                                <td>95°C</td>
+                                <td>3 minutes</td>
+                              </tr>
+                              <tr>
+                                <td>30 cycles</td>
+                                <td>95°C (Denature)</td>
+                                <td>15-30 seconds 15-60 seconds 1 minutes per kb</td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>45-68°C (Annealing)</td>
+                                <td>15-60 seconds</td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>68°C (Extension)</td>
+                                <td>1 minute per kb</td>
+                              </tr>
+                              <tr>
+                                <td>Final Extension</td>
+                                <td>68°C</td>
+                                <td>5 minutes</td>
+                              </tr>
+                              <tr>
+                                <td>Hold</td>
+                                <td>4-10°C</td>
+                                <td>Can stay as long as necessary. Store in 4°C fridge or -20°C for long-term</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <p style="margin-top: 2%;"><u>Thermal Cycler Conditions</u></p>
+                        <ol>
+                          <li>Store samples in 4C fridge or freeze in -20C firdge for long-term</li>
+                          <li>Add loading dye to sample and run on .7% - 1% agarose gel to confirm amplification</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingEight">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link proofTitleEight" type="button" data-toggle="collapse"
+                      data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+                      Glass Bead Transformation
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseEight" class="collapse show" aria-labelledby="headingEight"
+                  data-parent="#accordionExample">
+                  <div class="t-p">
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Introduction:</p>
+                        <p>To genetically engineer <em>C. reinhardtii</em>, we used the glass bead transformation
+                          method, which has been well-documented as being successful in transforming genes into the
+                          <em>C. reinhardtii</em> nuclear genome. Multiple variations of this protocol exist in the
+                          literature, but the protocol below is a mixture of two protocols that gave our team many
+                          transformants.</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Procedure:</p>
+                        <ol>
+                          <li>Right before transformation, prepare linearized plasmid DNA via restriction enzyme digest
+                            using EcoRI to allow for greater chances of transformation in comparison to using circular
+                            plasmid.</li>
+                          <li>Grow C. reinhardtii (strain CC-400, cw-) cell cultures in a baffled Erlenmeyer flask (60
+                            mL of TAP medium in 125 mL flasks) for 4-6 days prior to transformation or until the cell
+                            count reaches around 3 x 10^6 cells/mL.</li>
+                          <li>Transfer 30-50 mL of cells in TAP into 50 mL falcon tubes and centrifuge them at 3500 x g
+                            for 10 minutes. The resulting pellet should be easily visible and fully condensed to the
+                            bottom of the falcon tube.</li>
+                          <li>After centrifugation, discard the resulting supernatant in a waste beaker. A dark green
+                            pellet of C. reinhardtii cells should remain at the bottom of the tube.</li>
+                          <li>Re-suspended the pellet with 1/100 volume of TAP gently (if using 50 mL of cells,
+                            resuspend in 500 microliters TAP = 0.5 milliliters TAP). Avoid excessively agitating the
+                            cells by slowly pipetting up and down.</li>
+                          <li>In pre-autoclaved glass tubes with 300 mg of sterilized glass beads (425-600 micrometers
+                            in diameter), add the following in order:</li>
+                          <ol type="a">
+                            <li>2 micrograms of linearized plasmid DNA.</li>
+                            <li>The previously resuspended 500 microliters of cells.</li>
+                            <li>5% wt/vol of 20% PEG (polyethylene glycol) (this is ~25 uL if using 50 mL of cells).
+                            </li>
+                          </ol>
+                          <li>Add the PEG immediately before vortexing.</li>
+                          <li>Vortex the tube at the highest speed for 15 seconds.</li>
+                          <li>Transfer the vortexed cells to a 125 mL flask containing 30 mL of TAP medium. Ensure that
+                            no glass beads are taken up alongside the transformed cells.</li>
+                          <li>Place the flask on a shaker at room temperature for 24 hours in the dark to allow the
+                            cells to recover post-transformation.</li>
+                          <li>After the 24 hour cell recovery period, centrifuge the contents of the shaking flask down
+                            into a pellet.</li>
+                          <li>Resuspend the pellet with 50 uL of TAP and spread onto a TAP agar plate with paromomycin
+                            (or other antibiotic selection marker).</li>
+                          <li>Place the plates under direct light. Colonies should appear within 5-14 days
+                            post-transformation.</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingNine">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link proofTitleNine" type="button" data-toggle="collapse"
+                      data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                      C. reinhardtii Colony PCR
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseNine" class="collapse show" aria-labelledby="headingNine"
+                  data-parent="#accordionExample">
+                  <div class="t-p">
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Introduction:</p>
+                        <p>This protocol allows for making many copies of the amplified and transformed <em>C.
+                            Reinhardtii</em> colonies.</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Materials:</p>
+                        <p><u>Chelex-100 Solutions Preparation</u></p>
+                        <p>To prepare 5 mL of 5% Chelex-100 Solution:</p>
+                        <ul>
+                          <li>Measure out 5 mL water</li>
+                          <li>Add 0.25 g Chelex-100</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Procedure:</p>
+                        <ol>
+                          <li>Label PCR tubes (individual, 8-strip, or 96-well plate depending on throughput) with
+                            serial numbers corresponding to the colonies being tested.</li>
+                          <li>Dispense 50 µL of the prepared 5% Chelex-100 solution into each of the PCR tubes.</li>
+                          <li>Touch each transformant colony with a pipette tip and resuspend it in its respective PCR
+                            tube.</li>
+                          <li>Vigorously vortex the mixture for 10s.</li>
+                          <li>Incubate the mixture at 95 °C (in the PCR thermocycler) for 10 min.</li>
+                          <li>Cool the plate on ice for 1 minute.</li>
+                          <li>Vigorously vortex the mixture for 10s.
+                          <li>Centrifuge the mixture at 3500× g for 5 min at room temperature.</li>
+                          <li>Nanodrop supernatant.</li>
+                          <li>Perform a PCR reaction (using OneTaq/GoTaq) using 2 µL of the supernatant as the DNA
+                            template.</li>
+                        </ol>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="item">
+                <div class="item-header" id="headingTen">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link proofTitleTen" type="button" data-toggle="collapse"
+                      data-target="#collapseTen" aria-expanded="true" aria-controls="collapseTen">
+                      Western Blot
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTen" class="collapse show" aria-labelledby="headingTen"
+                  data-parent="#accordionExample">
+                  <div class="t-p">
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Introduction:</p>
+                        <p>Part of the process of purifying recombinant proteins, Western Blot checks the tagged
+                          constructs to verify expression of our target genes.</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Materials:</p>
+                        <ul>
+                          <li>50 mL falcon tubes</li>
+                          <li>Wash buffer (1 -10 mL)</li>
+                          <ul>
+                            <li>50mM Tris-HCL pH 7.5</li>
+                            <li>10mM EDTA</li>
+                          </ul>
+                          <li>10x Protease Inhibitors (PI)</li>
+                          <ul>
+                            <li>100mM EDTA</li>
+                            <li>10mM benzzmidine- HCl</li>
+                            <li>500 ug/ml pepstatin A</li>
+                            <li>200 ug/ml leupeptin</li>
+                            <li>100 uM E64</li>
+                            <li>100 mM e-amino caproic acid, freeze</li>
+                          </ul>
+                          <li>XCell SureLock Mini-Cell chamber</li>
+                          <li>Pre-Cast Nupage 4-12% gel</li>
+                          <li>1x MES-TBST Buffer</li>
+                          <li>CAPS Transfer buffer</li>
+                          <ul>
+                            <li>200 mL of ethanol</li>
+                            <li>4.43 g CAPS</li>
+                            <li>0.84 g sodium hydroxide pellets</li>
+                            <li>Up to 2 L with DI Water</li>
+                          </ul>
+                          <li>Owl VEP-2 Electrotransfer Chamber</li>
+                          <ul>
+                            <li>Sandwich + Clip + Sponges</li>
+                          </ul>
+                          <li>Immobilin-P transfer membrane (0.2um)</li>
+                          <li>Whatman paper</li>
+                          <li>Spatula to crack open pre-cast gel case</li>
+                          <li>Orbital Shaker</li>
+                          <li>5% Milk</li>
+                          <ul>
+                            <li>100 mL 1XTBST</li>
+                            <li>5 g powdered milk</li>
+                          </ul>
+                          <li>5% Milk and 0.02% Sodium Azide</li>
+                          <ul>
+                            <li>10mL 5% milk</li>
+                            <li>40 uL Sodium Azide</li>
+                          </ul>
+                          <li>Primary Antibodies</li>
+                          <ul>
+                            <li>Dilute into sodium azide solution at appropriate conccentration</li>
+                            <li>Can be re-used</li>
+                          </ul>
+                          <li>Secondary Antibodies</li>
+                          <ul>
+                            <li>Dilute in 5% milk/TBST solution to appropriate concentration</li>
+                            <li>Cannot be re-used</li>
+                          </ul>
+                          <li>Film Development Room:</li>
+                          <ul>
+                            <li>Red light</li>
+                            <li>Developer machine</li>
+                          </ul>
+                          <li>Saran wrap</li>
+                          <li>Film (Do NOT open box in the light)</li>
+                          <li>Film Cassette</li>
+                          <li>WesternBright Sirius HRP Substrate Kit</li>
+                          <ul>
+                            <li>WesternBright SiriusTMLuminol/enhancer solution</li>
+                            <li>WesternBright Peroxide Chemiluminescent Detection Reagent</li>
+                          </ul>
+                          <li>Scissors</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="main-header">Procedure:</p>
+                        <ol type="A">
+                          <li>Inocluate a Culture of C. reinhardtii</li>
+                          <ol type="a">
+                            <li>Fill a beaker with 40 mL of TAP.</li>
+                            <li>User a sterile toothpick to smear a few colonies.</li>
+                            <li>Wet the side of the beaker by gently sloshing the TAP, and spin the stick against the
+                              wet side of the beaker to transfer the colonies into the media.</li>
+                            <li>Gently stir and allow to shake at 200 rpm with light until it reaches confluency.</li>
+                          </ol>
+                          <li>Total Cell Lystate</li>
+                          <ol type="a">
+                            <li>Transfer 40 mL of cells into a falcon tube.</li>
+                            <li>Spin cells down for 5 minutes at 5000 rpm.</li>
+                            <li>Resuspend cells in 1 mL wash buffer.</li>
+                            <li>Spin the cells again for 5 minutes in a microcentrifuge tube at 4C.</li>
+                            <li>Aspirate the supernatant, removing as much as possible.</li>
+                            <li>Resuspend cells to around 10^8 cells/mL with fresh 1x PI. Keep on ice.</li>
+                            <li>Freeze in liquid nitrogen overnight.</li>
+                            <li>Thaw samples the next day on ice.</li>
+                            <li>BCA ASSAY</li>
+                            <li>Add 1 volume (=volume of cells in 1x PI) of 2x Laemmli gel sample buffer. Keep on ice
+                              until all are resuspended.</li>
+                            <li>Use pipet tip and then vortex. It will be viscous.</li>
+                            <li>Heat at 40C for 30 minutes.</li>
+                            <li>Vortex and spin for 5 minutes at full speed in microfuge.</li>
+                            <li>Transfer the supernatant to a fresh tube and discard the pellet. Keep on ice until ready
+                              to load on a gel.</li>
+                          </ol>
+                          <li>Western Blot - Gels</li>
+                          <ol type="a">
+                            <li>Rinse XCell SureLock Mini-Cell chamber with DI water.</li>
+                            <li>Rinse pre-cast gel (Nupage 4-12%) with DI water prior to taking it out of the bag.</li>
+                            <li>Once pre-cast gel is taken out of the bag, make sure to take the tape off.</li>
+                            <li>Place gel into buffer core slot with the front side facing forward.</li>
+                            <li>Labeling should be in readable orientation.</li>
+                            <li>If not running two gels, place dummy gel or remove slot for second gel.</li>
+                            <li>Lock buffer core using gel tension wedge.</li>
+                            <li>Fill buffer core with 1X MES-SDS buffer.</li>
+                            <ol type="i">
+                              <li>Wait for ~30 seconds to make sure that gel box is locked properly and buffer is not
+                                leaking.</li>
+                              <li>Continue to fill lower chamber until it is half full.</li>
+                            </ol>
+                            <li>Take out comb from pre-cast gel.</li>
+                            <li>Wash out wells using p200 (~100 ul)</li>
+                            <li>Load ladder using gel-loading 200 uL pipette tips</li>
+                            <ol type="i">
+                              <li>Load 7-15 ul of sample using gel-loading 200 uL pipette tips</li>
+                              <li>Do not leave empy wells next to samples: Fill with Laemmli</li>
+                              <li>Only load 7ul of ladder and Laemmli, can load more of sample based on concentration of
+                                protein (~7 ug)</li>
+                              <li>Be careful with the final dispensing bubble</li>
+                            </ol>
+                            <li>Run gel at 120 V *buffer should fill up the core and cover the electrodes outside of the
+                              core</li>
+                            <ol type="i">
+                              <li>When starting the electrophoresis, ensure that there are no bubbles</li>
+                              <li>Make sure the gel actually starts running</li>
+                            </ol>
+                            <li>Stop the gel once the samples have moved sufficiently down gel (~45 mins. Less if
+                              smaller proteins)</li>
+                            <li>While Gel is Running:</li>
+                            <li>Make 2 L of transfer buffer</li>
+                            <ol type="i">
+                              <li>200 mL ethanol</li>
+                              <li>4.43 g CAPS</li>
+                              <li>0.84 g sodium hydroxide pellets</li>
+                              <li>DI water up to 2L</li>
+                              <li>Mix using a stir bar</li>
+                            </ol>
+                            <li>After Gel is done running: Rinse Owl VEP-2 and sandwich with DI water</li>
+                            <li>Fill Owl VEP-2 with transfer buffer (CAPS)</li>
+                            <li>Cut Immobilin-P transfer membrane to appropriate size</li>
+                            <li>Cut Whatman paper to appropriate size</li>
+                            <li>Fill a bin with transfer buffer to soak both sides of the sandwich</li>
+                            <li>Fill a bin with ethanol (large petri dish)</li>
+                            <li>When electrophoresis is done, unlock buffer core</li>
+                            <li>Remove pre-cast gel from buffer core</li>
+                            <li>Rinse pre-cast gel with DI water</li>
+                            <li>Use spatula to crack open pre-cast gel case</li>
+                            <li>Cut off excess gel (bottom of gel, sides, and top)</li>
+                            <li>Set Up Sandwich as follows:</li>
+                            <ol type="i">
+                              <li>1. Lay down Sandwich with BLACK on bottom</li>
+                              <li>2. Sponge</li>
+                              <li>3. whatman paper</li>
+                              <ul>
+                                <li> (1) Roll out whatman paper with serological pipet so that there are no bubbles</li>
+                              </ul>
+                              <li>Place gel (already cut) so that PROTEINS FACE RED.</li>
+                              <li>Place transfer membrane on gel, facing proteins.</li>
+                              <ul>
+                                <li> (1) Activate transfer membrane prior to using by soaking it in ethanol for ~10
+                                  seconds.</li>
+                                <li> (2) Use non-serrated forceps to handle transfer membrane</li>
+                                <li> (3) Make sure it is evenly coated and there are no bubbles (roll out0.</li>
+                              </ul>
+                              <li>Equilibrate transfer membrane with the transfer buffer in the Owl VEP-2</li>
+                              <li>Whatman paper</li>
+                              <ul>
+                                <li> (1) Roll out whatman paper with serological pipet so that there are no bubbles</li>
+                                <li> (2) Add some buffer to wet paper</li>
+                              </ul>
+                              <li>Sponge</li>
+                              <li>RED on top</li>
+                            </ol>
+                            <li>Lock Sandwich with plastic clip</li>
+                            <li>Place sandwich in Owl VEP-2</li>
+                            <ol type="i">
+                              <li>Rubber clip should be facing the top</li>
+                              <li>Black side of the sandwich should be facing forward when the electrodes are on the
+                                right (black side of the sandwich should align with the black elecrtodue, red should
+                                face red electrode).</li>
+                              <li>If possible, place sandwich as close to positive electrode.</li>
+                            </ol>
+                            <li>Top off Owl VEP-2 with transfer buffer</li>
+                            <li>Run the electrotransfer at 45 V for 3 hours at 4 C.</li>
+                            <li>Remove the sandwich and membrane from sandwich</li>
+                            <li>Equilibrate the membrane by placing it in dish with 1X TBST on orbital shaker at 40 rpm
+                              for ~5 min.</li>
+                            <li>Make 5% milk.</li>
+                            <ol type="i">
+                              <li>100 mL TBST</li>
+                              <li>5 g milk</li>
+                            </ol>
+                            <li>Western Blot - Blocking and Tagging</li>
+                            <ol type="a">
+                              <li>Transport samples to film developer room, and bring the following:</li>
+                              <ol type="i">
+                                <li>waste container</li>
+                                <li>saran wrap</li>
+                                <li>film</li>
+                                <li>cassette</li>
+                                <li>1.5 mL or 5 mL microcentrifuge tubes</li>
+                                <li>WesternBright Sirius HRP Substrate Kit</li>
+                                <ul>
+                                  <li> (1) WesternBright SiriusTMLuminol/enhancer solution</li>
+                                  <li> (2) WesternBright Peroxide Chemiluminescent Detection Reagent</li>
+                                </ul>
+                                <li>p1000</li>
+                                <li>scissors</li>
+                                <li>timer</li>
+                                <li>1X TBST</li>
+                                <li>Marker</li>
+                              </ol>
+                              <li>Turn on developer (should take ~15 minutes to be ready to use)</li>
+                              <ol type="i">
+                                <li>Wait until red "ready" light illuminates</li>
+                                <li>When ready to use, place used film in developer to wet rollers</li>
+                              </ol>
+                              <li>Change out 1X TBST and let sit for 5 minutes (second wash)</li>
+                              <li>Change out 1x TBST and let sit for 5 minutes (third wash)</li>
+                              <li>Prepare enough HRP substrate (1:1) to cover samples.</li>
+                              <li>Place membrane on saran wrap and cover samples with HRP substrate for 1 minute.</li>
+                              <li>Place membrane on cassette (protein side up).</li>
+                              <li>IN THE DARK:</li>
+                              <ol type="i">
+                                <li>cut film in half</li>
+                                <li>Cut one corner off of film piece: place this corner in the corner of the cassette
+                                </li>
+                                <li>Place film in cassette</li>
+                                <li>do not shift film once placed, place directlyh on top</li>
+                                <li>close cassette for appropriate time according to antibody used</li>
+                                <li>place in developer</li>
+                                <li>Wait until film is entirely done going through developer</li>
+                                <li>TURN LIGHTS BACK ON</li>
+                              </ol>
+                              <li>Mark film</li>
+                              <ol type="i">
+                                <li>Membrane edges</li>
+                                <li>Relevant ladder bands</li>
+                                <li>Date</li>
+                              </ol>
+                            </ol>
+                            <li>Stripping/Re-Blocking/Re-Tagging</li>
+                            <ol type="a">
+                              <li>Rinse Membrane 3x in TBST for approx 5 mins each rinse</li>
+                              <li>Cover membrane in small amount of antibody stripping solution</li>
+                              <li>Place on shaker @ 40 rpm for 5 mins</li>
+                              <li>Pour off stripping solution</li>
+                              <li>Re-rinse membrane 3 times in TBST for approx 5 mins each rinse</li>
+                              <li>Re-block exposing to 5% milk in TBST solution for 1hr or overnight</li>
+                              <li>Repeat blocking/tagging section of protocol</li>
+                            </ol>
+                          </ol>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="item-header" id="headingEleven">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link proofTitleEleven" type="button" data-toggle="collapse"
+                      data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
+                      ICP-MS
+                      <i class="bi bi-caret-down"></i>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseEleven" class="collapse show" aria-labelledby="headingEleven"
+                  data-parent="#accordionExample">
+                  <div class="t-p">
+                    <p class="main-header">Introduction:</p>
+                    <p>Inductively coupled plasma mass spectrometry allows for the analysis and quantification of
+                      elements, and in this case arsenic, at trace levels in biological samples.</p>
+
+                    <p class="main-header">Materials:</p>
+                    <ul>
+                      <li>7.5% sodium bicarbonate solution</li>
+                      <ul>
+                        <li>3 g sodium bicardonate</li>
+                        <li>37 mL DI water</li>
+                        <li>Filtered to sterlize resulting solution</li>
+                      </ul>
+                      <li>1000x Arsenic stock solution</li>
+                      <ul>
+                        <li>4.16 g sodium arsenate dibasic heptahydrate</li>
+                        <li>900 mL DI water</li>
+                        <li>Mixed to produce resulting solution</li>
+                        <li>To be made in chemical fume hood</li>
+                      </ul>
+                    </ul>
+                    <li>Cultures of (3) mutant strains (8622.1.1, 8622.1.2, 8622.3.10) and control CC-400 control strain
+                    </li>
+                    <li>Orbital shaker</li>
+                    <li>Hemocytometer</li>
+                    <li>50 mL falcon tubes</li>
+                    <li>15 mL falcon tubes</li>
+                    <li>TP media</li>
+                    <li>125 mL baffled flasks</li>
+
+                    <p class="main-header">Procedure:</p>
+                    <p><u>Sample Preparation and Day 0 collection</u></p>
+                    <ol style="margin-bottom: 2%;">
+                      <li>Gather cultures of three mutant strains (8622.1.1, 8622.1.2, 8622.3.10) and CC-400 control
+                        strain.</li>
+                      <li>Count cells in each culture using a hemocytometer.</li>
+                      <li>Normalize each culture to have a standard cell density of 106 cells/mL.</li>
+                      <li>Add 50 mL of culture to 4 50-mL falcon tubes each (label the corresponding strain on each
+                        tube).</li>
+                      <li>Spin down cultures at 7100 rpm for 5 minutes at room temperature (21˚C).</li>
+                      <li>Discard the supernatant and resuspend the pelleted cells in 1 mL of TP media.</li>
+                      <li>Assemble the 12 cultures in 125 mL baffled flasks as follows (there should be 4 samples at
+                        each arsenic concentration, one for each strain tested):</li>
+                    </ol>
+
+                    <div class="tbl-header">
+                      <table cellpadding="0" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th>Sample concentration (ppb Arsenic)</th>
+                            <th>Culture added (mL)</th>
+                            <th>TP added (mL)</th>
+                            <th>Bicarbonate added (mL)</th>
+                            <th>1000 x Arsenic stock solution added (uL)</th>
+                            <th>Total volume (mL)</th>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+
+                    <div>
+                      <table cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td>50 ppb</td>
+                            <td>1 mL</td>
+                            <td>43.2 mL</td>
+                            <td>0.8 mL</td>
+                            <td>2 uL</td>
+                            <td>45 mL</td>
+                          </tr>
+                          <tr>
+                            <td>250 ppb</td>
+                            <td>1 mL</td>
+                            <td>43.2 mL</td>
+                            <td>0.8 mL</td>
+                            <td>10 uL</td>
+                            <td>45 mL</td>
+                          </tr>
+                          <tr>
+                            <td>500 ppb</td>
+                            <td>1 mL</td>
+                            <td>43.2 mL</td>
+                            <td>0.8 mL</td>
+                            <td>20 uL</td>
+                            <td>45 mL</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <ol start="8" style="margin-top: 4%; margin-bottom: 4%;">
+                      <li>The cultures should be labeled as follows:</li>
+                    </ol>
+
+                    <div>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>CC-400 (50 ppb)</td>
+                            <td>CC-400 (250 ppb)</td>
+                            <td>CC-400 (500 ppb)</td>
+                          </tr>
+                          <tr>
+                            <td>8622.1.1 (50 ppb)</td>
+                            <td>8622.1.1 (250 ppb)</td>
+                            <td>8622.1.1 (500 ppb)</td>
+                          </tr>
+                          <tr>
+                            <td>8622.1.2 (50 ppb)</td>
+                            <td>8622.1.2 (250 ppb)</td>
+                            <td>8622.1.2 (500 ppb)</td>
+                          </tr>
+                          <tr>
+                            <td>8622.3.10 (50 ppb)</td>
+                            <td>8622.3.10 (250 ppb)</td>
+                            <td>8622.3.10 (500 ppb)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <ol start="9" style="margin-top: 3%;">
+                      <li>Immediately aliquot 10 mL of solution from each of the samples into 15 mL falcon tubes to
+                        obtain arsenic uptake levels at t=0.</li>
+                      <li>Record the time at which these samples were removed from culture.</li>
+                      <li>Count cells in each of these samples using a hemocytometer and record cell densities.</li>
+                      <li>Spin down the 10 mL samples in a centrifuge at 7100 rpm for 5 minutes at room temperature.
+                      </li>
+                      <li>Decant the supernatant into a separate, clearly labeled falcon tube and store safely at room
+                        temperature.</li>
+                    </ol>
+
+                    <p><u>Day 1 Collection</u></p>
+                    <ol>
+                      <li>24 hours after collecting t=0 samples, aliquot 10 mL of solution from each of the samples into
+                        15 mL falcon tubes to obtain arsenic uptake levels at t=24 hr.</li>
+                      <li>Record the time at which these samples were removed from culture.</li>
+                      <li>Count cells in each of these samples using a hemocytometer and record cell densities.</li>
+                      <li>Spin down the 10 mL samples in a centrifuge at 7100 rpm for 5 minutes at room temperature.
+                      </li>
+                      <li>Decant the supernatant into a separate, clearly labeled falcon tube and store safely at room
+                        temperature.</li>
+                      <li>Repeat these steps for day 2 and 3 collection.</li>
+                    </ol>
+
+                    <p><u>Safety and Decontamination</u></p>
+                    <ol>
+                      <li>Arsenic stock solution creation will be done in the Bartelle lab chemical fume hood. </li>
+                      <li>All flasks will be thoroughly cleaned and sterilized to remove any residual arsenic
+                        contamination. </li>
+                      <li>All falcon tubes and other disposables that came in contact with arsenic will be disposed of
+                        in a clearly labeled bin for arsenic waste. </li>
+                    </ol>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

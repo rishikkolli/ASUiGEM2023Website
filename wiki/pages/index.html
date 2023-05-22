@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+
+      <div class="row">
+        <div class="col-12 waveanim center">
+          CHLAMYDOMON[As]
+          <h2>CHLAMYDOMON[As]</h2>
+          <h2>CHLAMYDOMON[As]</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 center-block theVideo">
+          <iframe title="ASU: Chlamydomon[As] (2022) - Project Promotion [English]" width="560" height="315" src="https://video.igem.org/videos/embed/9e077a9f-3b5c-4568-9b34-74abe7506f12" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- First Heading -->
+        <div class="col-12 the-sub-sections" <p>The Problem: Water Contamination</p>
+        </div>
+
+        <div class="col-12 another-description" <p>Water is a basic need that people in our state of Arizona still
+          struggle to access due to the state’s long history of water scarcity and contamination. The water that is
+          available in these parts, however, is contaminated with arsenic and other heavy metals due to decades-long
+          unregulated mining activity. Arsenic contamination in water threatens the health and well-being of rural
+          Arizonans who rely on these water sources.</p>
+        </div>
+
+        <div class="another-description-image">
+          <img src="https://static.igem.wiki/teams/4455/wiki/homepageimageone.png" alt="Panelist" width="450">
+        </div>
+
+        <div class="col-12 the-sub-sections">
+          <p>The Solution: Chlamydomon[As]</p>
+        </div>
+
+        <div class="col-12 another-description" <p>Our team has developed an engineered microalgae capable of
+          bioremediating arsenic from contaminated water by improving the heavy metal binding capabilities of the
+          microalga <i>Chlamydomonas reinhardtii</i> via engineering its nuclear genome. This solution is practical,
+          accessible, and has the potential to revolutionize bioremediation technologies to help Arizona and regions
+          around the world solve the issue of arsenic contamination in water.</p>
+        </div>
+
+        <div class="col-12 another-description">
+          <p>Read more <a href="{{ url_for('pages', page='description') }}" class="important-links">here</a>, on our
+            Project Description page.</p>
+        </div>
+
+        <div class="col-12 the-sub-sections">
+          <p>Proposed Implementation</p>
+        </div>
+
+        <div class="col-12 another-description">
+          <p>Our solution is designed to exist within a larger water filtration system to remove all contaminants and
+            provide potable water to rural communities. We’ve designed two versions of water purification systems that
+            are adaptable to the community’s needs.</p>
+        </div>
+
+        <div class="col-12 the-sub-sections">
+          <p>Multicistronic Gene Expression in <i>C. Reinhardtii</i> with 2A Peptides</p>
+        </div>
+
+        <div class="col-12 another-description">
+          <p>Engineering the <i>C. reinhardtii</i> nucleus to accept a multicistronic plasmid involves the use of 2A
+            self-cleaving peptides, of which only a handful have been characterized for use in <i>Chlamydomonas</i>. We
+            tested a total of 6 different 2A peptides to determine which had the highest cleaving efficiency, and
+            developed a template plasmid that can accommodate up to three genes of interest using this 2A peptide system
+            for future teams to use.</p>
+        </div>
+
+        <div class="col-12 another-description-image">
+          <img src="https://static.igem.wiki/teams/4455/wiki/homepageimagetwo.png" alt="White" width="400">
+        </div>
+
+        <div class="col-12 another-description">
+          <p>For more information on this, click <a href="{{ url_for('pages', page='implementation') }}"
+              class="important-links">here</a> to be redirected to our Proposed Implementation page.</p>
+        </div>
+
+        <div class="the-sub-sections col-12">
+          <p>Human Practices</p>
+        </div>
+
+        <div class="another-description col-12">
+          <p>Our team engaged in several conversations with civic, industry, and academic stakeholders in order to gain
+            insight into the deeper context surrounding our project and its aims. The insights we gained from these
+            conversations directly informed the design and scope of our project.</p>
+        </div>
+        <div class="another-description col-12">
+          <p>Want to know more about our integrated Human Practice efforts? Click <a
+              href="{{ url_for('pages', page='human-practices') }}" class="important-links">here!</a></p>
+        </div>
+
+        <div class="the-sub-sections col-12">
+          <p>iGEM Phototroph Community 2022</p>
+        </div>
+
+        <div class="col-12 another-description">
+          <p>We partnered with UBCO iGEM to carry on the iGEM Phototroph Community started by the Marburg and Bielefeld
+            teams in 2021 to continue giving iGEM teams working with phototrophic chassis a platform to connect and get
+            tailored insights on their projects. We also created Volume II of the Phototroph Community handbook, now
+            including more information on cloning and transformation, detailed protocols, and video tutorials to further
+            assist future teams working with phototrophs.
+          </p>
+        </div>
+
+        <div class="another-description-image col-12">
+          <img src="https://static.igem.wiki/teams/4455/wiki/homepageimagethree.png" alt="Picture" width="670">
+        </div>
+
+        <div class="col-12 another-description">
+          <p>Click <a href="{{ url_for('pages', page='collaborations') }}" class="important-links">here</a> to see all
+            the teams we collaborated with for the 2022 iGEM competition on our Collaborations page, and/or click <a
+              href="{{ url_for('pages', page='partnership') }}" class="important-links">here</a> to see our official
+            Partnerships (Including the 2022 iGEM Phototroph Community) </p>
+        </div>
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

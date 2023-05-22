@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'parts.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 collaborations">
+          <div class="element">
+            <div class="part-title">
+              <p>Part</p>
+            </div>
+          </div>
+          <div class="element">
+            <div class="s-title">
+              <p>s</p>
+            </div>
+          </div>
+          <div class="element">
+            <div class="crane-image">
+              &nbsp;<img src="https://static.igem.wiki/teams/4455/wiki/cranefinalshadow.png">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Part</th>
+                  <th>Type</th>
+                  <th>Part Number</th>
+                  <th colspan="2">Link</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <div>
+            <table cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td>TaV</td>
+                  <td>Basic</td>
+                  <td>BBa_K2074015</td>
+                  <td colspan="2"><a class="the-link"
+                      href="http://parts.igem.org/Part:BBa_K2074015">http://parts.igem.org/Part:BBa_K2074015</a></td>
+                </tr>
+                <tr>
+                  <td>TME-GD7</td>
+                  <td>Basic</td>
+                  <td>BBa_K4455000</td>
+                  <td colspan="2"><a class="the-link"
+                      href="http://parts.igem.org/Part:BBa_K4455000">http://parts.igem.org/Part:BBa_K4455000</a></td>
+                </tr>
+                <tr>
+                  <td>DrosC</td>
+                  <td>Basic</td>
+                  <td>BBa_K4455001</td>
+                  <td colspan="2"><a class="the-link"
+                      href="http://parts.igem.org/Part:BBa_K4455001">http://parts.igem.org/Part:BBa_K4455001</a></td>
+                </tr>
+                <tr>
+                  <td>HuRV</td>
+                  <td>Basic</td>
+                  <td>BBa_K4455002</td>
+                  <td colspan="2"><a class="the-link"
+                      href="http://parts.igem.org/Part:BBa_K4455002">http://parts.igem.org/Part:BBa_K4455002</a></td>
+                </tr>
+                <tr>
+                  <td>IFV</td>
+                  <td>Basic</td>
+                  <td>BBa_K4455003</td>
+                  <td colspan="2"><a class="the-link"
+                      href="http://parts.igem.org/Part:BBa_K4455003">http://parts.igem.org/Part:BBa_K4455003</a></td>
+                </tr>
+                <tr>
+                  <td>FMDV 2A</td>
+                  <td>Composite</td>
+                  <td>BBa_K4455005</td>
+                  <td colspan="2"><a class="the-link"
+                      href="http://parts.igem.org/Part:BBa_K4455005">http://parts.igem.org/Part:BBa_K4455005</a></td>
+                </tr>
+                <tr>
+                  <td>PCS</td>
+                  <td>Basic</td>
+                  <td>BBa_K4455006</td>
+                  <td colspan="2"><a class="the-link"
+                      href="http://parts.igem.org/Part:BBa_K4455006">http://parts.igem.org/Part:BBa_K4455006</a></td>
+                </tr>
+                <tr>
+                  <td>ACR2p</td>
+                  <td>Basic</td>
+                  <td>BBa_K4455007</td>
+                  <td colspan="2"><a class="the-link"
+                      href="http://parts.igem.org/Part:BBa_K4455007">http://parts.igem.org/Part:BBa_K4455007</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

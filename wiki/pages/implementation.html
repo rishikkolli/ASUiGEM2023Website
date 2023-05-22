@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'proposedImplementation.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 collaborations">
+          <p>Proposed Implementation</p>
+        </div>
+      </div>
+
+      <!-- First Heading -->
+      <div class="main_tittle_one">
+        <div class="description_one">
+          <p>Our project considered two possible solutions for limiting human exposure to arsenic. Our first design, a
+            high-tech filter, utilizes the team’s strain of <i>C. reinhardtii</i> to remove arsenic from drinking water. This
+            design is costly to construct and maintain, however, so we also created a second solution that achieves a
+            similar result. The low-tech filter design, which was designed after implementing the feedback of various stakeholders, limits the arsenic in the water supplies of livestock. By greatly reducing the biomagnification of arsenic through the food chain, this filter protects human health in a more economically-feasible manner. Both designs are detailed below.</p>
+        </div>
+      </div>
+
+      <!-- First Heading -->
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p style="margin-bottom: 3% !important;
+  font-size: 35px;
+  text-shadow: 2px 2px 2px black;">High-tech Filter for Clean Drinking Water</p>
+        </div>
+        <div class="sub_heading">
+          <p style="margin-bottom: 3% !important;
+  font-size: 30px; text-shadow: 2px 2px 2px black;"><u>Design Rationale</u></p>
+        </div>
+        <div class="description_one">
+          <p>Many water sources in Arizona have arsenic levels too high for human consumption. More specifically,
+            although there is little data for arsenic contamination in tribal areas of the state, many of the ground-
+            and surface water sources in rural areas were found to have arsenic levels above 10 ppb [1,2]. The high-tech
+            filter design explored how our algae could be used to remove arsenic from these water sources to provide
+            clean drinking water for human consumption.</p>
+        </div>
+        <div class="image_selection_one" style="text-align: center;">
+          <img src="https://static.igem.wiki/teams/4455/wiki/hightech1.png" alt="First" width="500">
+        </div>
+
+        <div class="sub_heading">
+          <p style="margin-bottom: 3% !important;
+  font-size: 30px; text-shadow: 2px 2px 2px black;"><u>Mode of Operation</u></p>
+        </div>
+        <div class="description_one">
+          <p>Our team designed a high-tech filtration system that utilizes our strain of <i>Chlamydomonas reinhardtii</i> to
+            remove arsenic as part of a total water treatment system. The photobioreactor is designed to be constantly
+            growing a supply of algae, which is then moved to the filtration tank. In the filtration tank, a sample of
+            algae is consistently mixed with a large batch of algae to maintain growth of the culture and uptake the
+            arsenic. The solution is then put through a centrifuge to separate the algae from the now-filtered water.
+            This algae is stored until safe disposal is coordinated with third-party toxic waste management personnel.
+            After arsenic removal, the water is filtered through a carbon cartridge to remove other contaminants.
+            (Depending on the quality of the water source, additional treatment might be required.) This water is then
+            transported to a storage tank for human consumption.</p>
+        </div>
+        <div class="description_one">
+          <p>In order to maintain a healthy environment for the algae, the entire treatment system is enclosed in a
+            greenhouse to maintain a lower temperature in the Arizona heat while still allowing light to enter. TAP
+            media is delivered to the algae to optimize growth. The transportation system between the photobioreactor
+            and filtration tank is designed specifically to ensure that the algal cells do not get ruptured or damaged
+            before they are able to sequester arsenic from the water.</p>
+        </div>
+        <div class="image_selection_one" style="text-align: center;">
+          <iframe title="High Tech Filter Video (1)" width="650" height="400"
+            src="https://video.igem.org/videos/embed/fc259cbb-4329-46d1-9b92-6651c7632165" frameborder="0"
+            allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <p>Figure 1. A 3D model of the high-tech filter design devised by ASU iGEM.</p>
+        </div>
+
+        <div class="sub_heading">
+          <p style="margin-bottom: 3% !important;
+  font-size: 30px; text-shadow: 2px 2px 2px black;"><u>Safety Considerations</u></p>
+        </div>
+        <div class="description_one">
+          <p>This system produces biowaste in the form of used algae and concentrated toxic waste. The algae must be
+            recovered from the water to ensure safety and to prevent humans from digesting the algae. This is the
+            importance of the centrifuge, which collects the algal waste. The chamber to the centrifuge, along with
+            varying filters, can be used to remove and dispose of the waste. If this system were implemented, biosafety
+            training would be included in the instructions for how to run the water treatment system. Additionally, auxotrophic strains of algae (such as CC-1618, an arginine auxotroph) can be used in real-world implementations of Chlamydomon[As] to further decrease the risk of our engineered algae escaping the filter.</p>
+        </div>
+
+        <div class="sub_heading">
+          <p style="margin-bottom: 3% !important;
+  font-size: 30px; text-shadow: 2px 2px 2px black;">Challenges</p>
+        </div>
+        <div class="description_one">
+          <p>The largest constraint in the design is the conditions necessary to make the algae survive. The CC-400
+            strain of <i>C. reinhardtii</i> used in our experimentation is a laboratory strain and is therefore very sensitive
+            to any unknown external stressors. Unfortunately, Arizona heat can antagonize algal growth due to extreme
+            temperatures, with temperatures reaching 42.33 ℃ during the summer of 2021 [3]. As such, the design features a greenhouse to reduce extreme temperatures, but a strain of algae better suited for desert climates such as <i>C. ohadii</i> may be a better chassis for our arsenic sequestration efforts [4]. and further research will focus on identifying algal strains that would thrive in the system’s conditions.</p>
+        </div>
+        <div class="description_one">
+          <p>While this design provides an investigation of possible uses of arsenic-uptaking algae, overall, it would
+            be an incredibly expensive system. There are other water treatment technologies that are more accessible and
+            practical. For our end users – Arizona residents with extreme arsenic levels in their water supplies–current
+            technology would be more economical.</p>
+        </div>
+
+        <div class="tittle_one">
+          <p style="margin-bottom: 3% !important;
+  font-size: 35px;
+  text-shadow: 2px 2px 2px black;">Low-tech Filter for Clean Drinking Water</p>
+        </div>
+
+        <div class="sub_heading">
+          <p style="margin-bottom: 3% !important;
+  font-size: 30px; text-shadow: 2px 2px 2px black;">Design Rationale</p>
+        </div>
+        <div class="description_one">
+          <p>While the high-tech filtration system addresses the intended goal of reducing arsenic contamination in well
+            water, the design is relatively complex and expensive – it would cost tens of thousands of dollars to
+            implement and maintain a greenhouse, photobioreactor, and centrifuge in the desert. While the technology
+            exists to create such a design, scaling it up for humans to safely drink from is likely unfeasible at the
+            moment. As such, a low-tech filtration system was devised as an alternative device, shown below in Figure 2.
+          </p>
+        </div>
+        <div class="description_one" style="text-align: center;">
+          <img src="https://static.igem.wiki/teams/4455/wiki/lowtech1.png" width="450px" />
+          <p>Figure 2. A 3D model of the low-tech filter design devised by ASU iGEM.</p>
+        </div>
+        <div class="description_one">
+          <p>In contrast to the high-tech design, the low-tech filtration system is designed for farm or ranch
+            livestock, who have a higher threshold of acceptable arsenic consumption than humans. As a result, the
+            low-tech filter does not need to meet the strict design considerations that made the high-tech filter so
+            expensive and complicated.</p>
+        </div>
+        <div class="description_one">
+          <p>As such, the low tech filter is estimated to cost a few thousand dollars to cover the costs of the tanks
+            and associated piping, which is vastly more economical than the high-tech filter. Furthermore, the low-tech
+            filter is designed to be low maintenance and easily implementable, given that many ranches and farms in
+            Arizona already have a pump or source of water and trough for the livestock to drink out of.</p>
+        </div>
+
+        <div>
+          <p style="margin-bottom: 3% !important;
+  font-size: 30px; text-shadow: 2px 2px 2px black;">Mode of Operation</p>
+        </div>
+        <div class="description_one">
+          <p>The low-tech filter design is based on the principles of a settling basin or sedimentation pond. First,
+            arsenic-contaminated water is pumped into the algae-sediment bioreactor tank, where the algae will uptake
+            arsenic under agitation from the impeller. Once the period for filtration has passed, the impeller will be
+            stopped, allowing for the exhausted algae (algae that has bioaccumulated the maximum amount of arsenic) to
+            settle down into the sedimentation layer, leaving a relatively clean supernatant free of arsenic and algae.
+            To ensure no algae is left, the supernatant goes through a second filtration step via a continuous flow
+            settling basin. The clean, algae-free water is skimmed from the top of the tank and directed to the
+            livestock trough for the animals to drink.</p>
+        </div>
+        <div class="description_one">
+          <p>Operation and maintenance of the low-tech filter design is minimal due in part to the minimal number of
+            moving parts. The rancher would only be responsible for four tasks: <br>
+            1. Filling the tank with their usual arsenic-contaminated water supply <br>
+            2. Switching off the impeller <br>
+            3. Opening the valve for allowing water into the settling basin <br>
+            4. Removing the waste sludge from either tank. <br>
+          </p>
+        </div>
+
+        <div style="text-align: center;">
+        <iframe title="ASU iGEM 2022 - Low-Tech Filter Video" width="560" height="315"
+          src="https://video.igem.org/videos/embed/4d629d17-eebf-48b1-b2b9-36a132ea2cd3" frameborder="0"
+          allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+        </div>
+
+        <div class="sub_heading">
+          <p style="margin-bottom: 3% !important;
+  font-size: 30px; text-shadow: 2px 2px 2px black;">Safety Considerations</p>
+        </div>
+        <div class="description_one">
+          <p>To limit the algae or waste from escaping into the environment, the tanks will contain the sludge until
+            ready for disposal. To ensure algae-free water is piped to the livestock, the water goes through two
+            separation phases. The first phase occurs in the main bioreactor tank, where the algae settle to the bottom
+            of the tank and are filtered out by the mesh covering the valve. The second phase occurs in the
+            sedimentation basin tank, where any remaining algae that managed to get through the main tank and mesh are
+            separated from the water. </p>
+        </div>
+
+        <div class="sub_heading">
+          <p style="margin-bottom: 3% !important;
+  font-size: 30px; text-shadow: 2px 2px 2px black;">Challenges and Future Steps</p>
+        </div>
+        <div class="description_one">
+          <p>As was discussed in the high-tech filter design, the key challenge lies in maintaining the appropriate
+            conditions for <i>Chlamydomonas reinhardtii</i> to survive in the filter. To cope with the risk of overheating in
+            the Arizona heat, the bioreactor tank is exposed to the air to allow for evaporative cooling. To prevent
+            foreign materials from entering the tank while still accommodating evaporative cooling, a mesh is placed at
+            the opening.</p>
+        </div>
+        <div class="description_one">
+          <p>One unknown about the filter’s effectiveness is the amount of time needed to filter one “batch” of water.
+            The two primary rate determining steps in the full filtration process are the 1) the bioaccumulation of
+            arsenic in the main bioreactor tank and 2) sedimentation of algae. The first step is dependent on several
+            factors, including the cell-specific arsenic uptake rate, temperature, concentration of arsenic and algae in
+            the mixture, and concentration of TAP media. However, the data we received from our mathematical model
+            provides insight into the kinetics of <i>C. reinhardtii’s</i> phytochelatin synthesis pathway as it responds to
+            heavy metals, which can be used to make assumptions about the rate of arsenic uptake in certain
+            environmental conditions. </p>
+        </div>
+        <div class="description_one">
+          <p>The second step is dependent on the specific density of exhausted algae, which is likely to vary from cell
+            to cell. All these unknown variables make it difficult to estimate the length of time the filter needs to
+            process one “batch.” Further experiments investigating these variables would likely yield data that would
+            help us estimate time for batch filtration.</p>
+        </div>
+        <div class="description_one">
+          <p>One limitation of this design is the potential presence of TAP media, which is toxic to livestock and
+            humans, in the final filtrate. TAP media is needed in the main bioreactor tank to support <i>C. reinhardtii</i>
+            growth and arsenic uptake. Currently, there are no simple, scalable, and low-cost methods of filtering TAP
+            media out of solution as is needed in our low-tech design. This would be solved in future research by
+            identifying alternative algae strains that are not solely dependent on TAP media like the CC-400 strain we
+            used. A possible solution would be to engineer algae native to Arizona that already live in the region’s
+            current conditions. Any nutrients or chemicals lacking in the contaminated water can be added in as
+            supplements to support algal growth without having to rely on TAP media. Future research would need to
+            examine arsenic contaminated farm water and understand its biochemical composition in relation to a local
+            strain of algae’s growth needs. </p>
+        </div>
+        <p style="margin-bottom: 3% !important; font-size: 35px; text-shadow: 2px 2px 2px black;">References</p>
+        <div class="col-12" style="margin-bottom: 3% !important; font-size: 18px; color: wheat !important;">
+          <p>[1] M. C. Jones, J. M. Credo, J. C. Ingram, J. A. Baldwin, R. T. Trotter, and C. R. Propper, “Arsenic
+            concentrations in ground and surface waters across Arizona including Native Lands,” Journal of Contemporary
+            Water Research & Education, vol. 169, no. 1, pp. 44–60, 2020.</p>
+            <p>[2] “Chemical Contaminant Rules | U.S. EPA,” EPA. [Online]. Available:
+            https://www.epa.gov/dwreginfo/chemical-contaminant-rules#:~:text=EPA%20set%20the%20arsenic%20standard,term%2C%20chronic%20exposure%20to%20arsenic.
+            [Accessed: 11-Oct-2022].</p>
+            <p>[3] O. Munson, “June 2021 breaks record for Hottest June on record in Phoenix, and the trend could
+            continue,” The Arizona Republic, 01-Jul-2021. [Online]. Available:
+            https://www.azcentral.com/story/news/local/phoenix-weather/2021/07/01/june-2021-breaks-record-hottest-june-record-phoenix/7829100002/.
+            [Accessed: 11-Oct-2022].</p>
+            <p>[4] G. Levin, S. Kulikovsky, V. Liveanu, B. Eichenbaum, A. Meir, T. Isaacson, Y. Tadmor, N. Adir, and G. Schuster, “The desert green algae chlorella ohadii thrives at excessively high light intensities by exceptionally enhancing the mechanisms that protect photosynthesis from photoinhibition,” The Plant Journal, vol. 106, no. 5, pp. 1260–1277, 2021.</p>
+        </div>
+
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

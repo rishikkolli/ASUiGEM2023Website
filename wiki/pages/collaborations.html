@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename = 'collaborations.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+    <title>ASU iGEM 2022</title>
+    <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+    .modal {
+    background:rgba(55,55,55,.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="index">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+    </g>
+    </svg>
+  </div>
+
+<style>
+  .modal {
+  background:rgba(55,55,55,.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+  <div class="container-fluid top-notch">
+        <div class="content">
+            <div class="row">
+                <div class="col-12 collaborations">
+                    <p>Partnerships / Collaborations</p>
+                </div>
+            </div>
+
+            <div class = "main_tittle_one">
+              <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+                <p>UBCO iGEM: Phototroph Community 2022</p>
+              </div>
+              <div class = "description_one">
+                <p>We had the opportunity to connect with UBCO over a shared interest in iGEM’s phototroph teams and wanting to make a lasting impact on the community. As a result, we took on leadership of the iGEM Phototroph Community started by iGEM Marburg and iGEM Bielefeld in 2021. The Phototroph Community was established to be a space for iGEM teams working with phototrophic chassis – who represent a small portion of teams taking part in the competition – to get advice and feedback on their projects and create useful resources for future teams to be able to work with phototrophs in a more accessible way than they have in the past. Together, we recruited 10 iGEM teams working with phototrophic chassis to participate in online meetups to hear from guest speakers, practice pitching their project, learn about iGEM's Plant Subcommittee, and troubleshoot their projects with professors. The community culminated in a final conference attended by industry and academic professionals including Dr. Jake Wintermute and a handbook detailing a number of protocols and background information on all types of phototrophic chassis with accompanying video protocols.
+                </p>
+              </div>
+              <div class = "image_selection_one">
+                <img src="https://static.igem.wiki/teams/4455/wiki/collabzoomscreenshotasuigem.png" alt="Water" width="600">
+              </div>
+            </div>
+
+
+            <div class = "main_tittle_one">
+              <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+                <p>QGEM: H2bio Podcast</p>
+              </div>
+              <div class = "description_one">
+                <p>Our team was introduced to QGEM through iGEM’s global Slack workspace, where we discussed how we, as teams working on water remediation projects, could help bring public awareness to the ability of synthetic biology to combat this challenge. Not long after, we created the H2bio podcast, an 4-episode series where we interviewed a number of academic professionals with backgrounds in synthetic biology and water research to give lay audiences an understanding of the basics of synthetic biology and how it can be used to combat water quality issues.
+                </p>
+              </div>
+              <div class="lower_part">
+                <p>Read more about partnerships with other teams <a href="{{ url_for('pages', page='partnership') }}" style="color: wheat !important">here</a>, and listen to our four episode podcast <a href="{{ url_for('pages', page='communication') }}" style="color: wheat !important">here</a>.</p>
+              </div>
+              <div class = "image_selection_one">
+                <img src="https://static.igem.wiki/teams/4455/wiki/h2bioasuigempodcast.png" alt="Water" width="600">
+              </div>
+            </div>
+
+            <!-- First Heading -->
+            <div class = "main_tittle_one">
+              <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+                <p>iGEM SBU: Synthetic Biology Review, A Global Journal</p>
+              </div>
+              <div class = "description_one">
+                <p>Our team spoke with iGEM SBU (Stony Brook University, NY) in the early months of the competition to discuss a collaboration, and we were able to write a short article for their journal titled “A Complicated History of Heavy Metal Contamination in Arizona Groundwater.” The journal ultimately had 30 submissions from iGEM teams around the world, and turned out incredibly well. Thank you to Lori and the rest of the team at iGEM SBU for making this happen!
+                </p>
+              </div>
+              <div class = "image_selection_one">
+                <img src="https://static.igem.wiki/teams/4455/wiki/watercontaminationasuigem.png" alt="Water" width="600">
+              </div>
+            </div>
+
+            <!-- Second Heading -->
+            <div class = "main_tittle_one">
+              <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+                <p>iGEM Patras and iGEM Tec-CEM: International Water Bioremediation Conference</p>
+              </div>
+              <div class = "description_one">
+                <p>ASU iGEM worked with iGEM Patras and iGEM Tec-CEM to put together iGEM’s first-ever International Water Bioremediation Conference, a day-long event where students, guest speakers, and bioremediation enthusiasts come together to discuss some current water bioremediation efforts and upcoming research in the field. The 2022 International Water Bioremediation Conference took place on Friday, September 23rd, and featured guest speakers Kelly Hermanson (Arizona Department of Environmental Quality), Arooj Khan (Balochistan University of Information Technology), Itzany De la Cruz Salazar (Chemical Engineering and Extractive Industries of the National Polytechnic Institute (IPN)), and Dr. Martín Esteban González López (Tecnológico de Monterrey). Thank you to Liz, Avery, Katerina, our guest speakers, iGEM Patras and Tec-CEM, and everyone who attended the event for your support!</p>
+              </div>
+              <div class = "image_selection_one" style="text-align: center;">
+                <img src="https://static.igem.wiki/teams/4455/wiki/fourimagesintoone.png" alt="Option" width="600">
+              </div>
+            </div>
+
+            <!-- Third Heading -->
+            <div class = "main_tittle_one">
+              <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+                <p>iGEM Patras: Video Series</p>
+              </div>
+              <div class = "description_one">
+                <p>We had the opportunity to connect with iGEM Patras multiple times throughout the competition, and it was a pleasure working with them each time. Over the summer, we helped iGEM Patras make a series of videos introducing the basics of iGEM for students who are new to the competition or interested in joining a team. We hope that these videos are helpful to future iGEMers! Thank you Marina, Ioanna, Katerina, and the rest of the iGEM Patras team!</p>
+              </div>
+            </div>
+
+            <!-- Fourth Heading -->
+            <div class = "main_tittle_one">
+              <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+                <p>Synbio: The Art Journal, Presented by ASU iGEM</p>
+              </div>
+              <div class = "description_one">
+                <p>Alongside our more scientific endeavors, our team also wanted to organize a project that allowed participants to express themselves and their perspectives towards synthetic biology in a creative way. After receiving contributions from ABOA iGEM, iGEM Estonia TUIT, iGEM IISER Mohali, iGEM Patras Medicine, and iGEM-RUM, we put together a journal that compiles all of the unique and imaginative pieces we received. Thank you to everyone who contributed! </p>
+              </div>
+            </div>
+
+            <!-- Lower Part -->
+            <div class="lower_part">
+              <p>View the complete journal <a href="https://static.igem.wiki/teams/4455/wiki/synbio-art-journal-asu-igem-2022.pdf" style="color: wheat !important;" download>here.</a></p>
+            </div>
+
+            <!-- Fifth Heading -->
+            <div class = "main_tittle_one">
+              <div style="font-size: 50px; text-align: center; font-family: 'Poppins Regular', sans-serif; margin-top: -2% !important; text-shadow: 2px 2px 2px black; color: white !important;">
+                <p>Engaging with Other iGEM Teams</p>
+              </div>
+              <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+                <p>iGEM Patras: Podcast</p>
+              </div>
+              <div class = "description_one">
+                <p>Another one of our interactions with iGEM Patras involved having a discussion with them about our project for their podcast. Our discussion involved breaking down the rationale behind our project and the deep water quality issues that exist throughout rural Arizona, how our project tackles the UN’s Sustainable Development Goals, and how our solution to arsenic contamination can be scaled to fit needs beyond rural communities. Thank you for having us!
+                </p>
+
+                <p>Listen to the episodes on <a href="{{ url_for('pages', page='communication') }}"
+                  style="color: wheat !important;">our education and communication page.</a></p>
+              </div>
+              <div class = "image_selection_one">
+                <img src="https://static.igem.wiki/teams/4455/wiki/igempatrasasuigempodcast.png" alt="patras" width="600">
+              </div>
+            </div>
+
+            <!-- Sixth Heading -->
+            <div class = "main_tittle_one">
+              <div class="tittle_one" style="text-shadow: 2px 2px 2px black;">
+                <p>iGEM Worldshaper-HZ: Global Meetup</p>
+              </div>
+              <div class = "description_one">
+                <p>In early August, our team also had the opportunity to attend iGEM Worldshaper-HZ’s global meetup, where 20 teams, online and in-person, came together to share information about their projects for this competition season. This event also let us hear some project pitches from a number of other iGEM teams that we hadn’t met or interacted with yet. Thank you to Bolin and the rest of the team at iGEM Worldshaper-HZ for inviting us!</p>
+              </div>
+              <div class = "image_selection_one">
+                <img src="https://static.igem.wiki/teams/4455/wiki/2022igembrochure.png" alt="china" width="600" height="700">
+              </div>
+            </div>
+          </div>
+
+          {% include "footer.html" %}
+    </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+</html>

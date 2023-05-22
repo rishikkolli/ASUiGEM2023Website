@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'contribution.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 contributions">
+          <p style="margin-bottom: 5%;">Contribution</p>
+        </div>
+        <p style="margin-bottom: 3% !important;
+  font-size: 35px;
+  text-shadow: 2px 2px 2px black;"><u>Contribution to C. reinhardtii Glass Bead Transformation Protocol</u></p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Our team used a glass bead transformation protocol detailed by Pei-Hsun Kao and I-Son Ng to
+          transform our plasmid into <em>C. reinhardtii</em> <sup>[5]</sup>. The glass bead transformation method was
+          chosen because of its previously cited success in nuclear transformation, and also because our team did not
+          have access to the proper resources to be able to follow electroporation protocols for <em>C. reinhardtii</em>
+          cells. However, we had little success in our early transformations using the glass bead protocol. Our
+          troubleshooting efforts are detailed below:</p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Firstly, our initial attempts at transformations were not uniform in the number of cells that were
+          being used. Although many of the glass bead protocols in the literature do not specify a cell density value,
+          our trial and error found that a cell density of 10<sup>6</sup> cells/mL is ideal for transformation, such
+          that after resuspension, the resulting cell density is 10<sup>8</sup> cells/mL. Our 60 mL cultures of <em>C.
+            reinhardtii</em> strain CC-400 generally reached 10<sup>6</sup> cells/mL 5 to 6 days post-inoculation. These
+          numbers are validated by the protocols in Kindle et al. (1990) and the Erb Lab at MPI-Marburg <sup>[6]</sup>.
+        </p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Another unintentional factor that may reduce transformation efficiency is using circular DNA in the
+          transformation rather than linearized DNA. Both approaches have the potential to result in transformants, but
+          our team saw much higher success rates when using a linearized plasmid. To linearize the DNA, assess the
+          plasmid using a visualization platform like Benchling or SnapGene to find an enzyme that has a singular cut
+          site in the entire plasmid. Use this enzyme to perform a restriction digest. Use 1 ng of DNA, and the total
+          reaction volume should balance to 25 uL.</p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Another crucial step in the transformation process is allowing the algal cells to recover for 24
+          hours post-transformation. This should be done after vortexing by transferring the cells, PEG, and DNA mixture
+          to a flask containing 30 mL of TAP medium. The flask should be located in a dark area of the lab, or at least
+          one that receives no direct sunlight. After shaking for 24 hours, centrifuge the 30 mL volume down and
+          resuspend in 1/100 volume of TAP media.</p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">To further optimize transformation efficiency, polyethylene glycol (PEG) was added to the glass
+          bead tube before vortexing, and linearized DNA was used in the transformation. </p>
+
+        <div style="margin-bottom: 1% !important;
+  text-align: center;">
+          <img src="https://static.igem.wiki/teams/4455/wiki/contributionimage.png" width="700px">
+        </div>
+        <p style="margin-bottom: 3% !important;
+  text-align: center;"><em>Figure 1. (a) Transformants visible after following Kao and Ng Protocol (b) Transformants
+            visible after following Kao and Ng Protocol with the addition of 20% polyethylene glycol (PEG) to the cells
+            prior to vortexing.</em></p>
+
+        <p style="margin-bottom: 3% !important;
+  font-size: 22px;">Our glass bead transformation protocol is also available on our <a
+            href="{{ url_for('pages', page='experiments') }}"
+            style="color: wheat !important; font-size: 23px;">Experiments page</a> and in the <a
+            href="{{ url_for('pages', page='partnership') }}"
+            style="color: wheat !important; font-size: 23px;">Phototroph Community Handbook</a>. A video guide made by
+          our team for this protocol is available below:</p>
+
+        <iframe title="ASU iGEM 2022 - Protocol for the Transformation of c. reinhardtii" width="560" height="650"
+          src="https://video.igem.org/videos/embed/32345e3b-6935-4e53-972d-0f150a8c048a" frameborder="0"
+          allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+
+        <p style="margin-bottom: 3% !important; font-size: 35px; text-shadow: 2px 2px 2px black; margin-top: 50px;">References</p>
+        <div class="col-12" style="margin-bottom: 3% !important; font-size: 18px; color: wheat !important;">
+          <p>[1] Liu, Z., Chen, O., Wall, J.B.J. et al. Systematic comparison of 2A peptides for cloning multi-genes in
+            a polycistronic vector. Sci Rep 7, 2193 (2017). https://doi.org/10.1038/s41598-017-02460-2.</p>
+          <p>[2] G. Trichas, J. Begbie, and S. Srinivas, “Use of the viral 2A peptide for bicistronic expression in
+            transgenic mice,” BMC Biology, vol. 6, no. 1, 2008. https://doi.org/10.1186/1741-7007-6-40</p>
+          <p>[3] T. M. Plucinak, K. M. Horken, W. Jiang, J. Fostvedt, S. T. Nguyen, and D. P. Weeks, “Improved and
+            versatile viral 2 a platforms for dependable and inducible high‐level expression of dicistronic nuclear
+            genes in cHlamydomonas Reinhardtii ,” The Plant Journal, vol. 82, no. 4, pp. 717–729, 2015.
+            https://doi.org/10.1111/tpj.12844</p>
+          <p>[4] H. Feng, “BBa_K2074015,” Part:BBa_K2074015 | TaV 2A for Chlamydomonas reinhardtii, 11-Oct-2016.
+            [Online]. Available: http://parts.igem.org/Part:BBa_K2074015. [Accessed: 11-Oct-2022].</p>
+          <p>[5] P.-H. Kao and I.-S. Ng, “CRISPRI mediated phosphoenolpyruvate carboxylase regulation to enhance the
+            production of lipid in Chlamydomonas reinhardtii,” Bioresource Technology, vol. 245, pp. 1527–1537, 2017.
+          </p>
+          <p>[6] K. L. Kindle, “High-frequency nuclear transformation of Chlamydomonas reinhardtii.,” Proceedings of the National Academy of Sciences, vol. 87, no. 3, pp. 1228–1232, 1990.</p>
+        </div>
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>

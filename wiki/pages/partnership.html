@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'phototroph-community.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+  <title>ASU iGEM 2022</title>
+  <link href="{{ url_for('static', filename = 'bootstrap-icons.css') }}" rel="stylesheet" type="text/css"/>
+
+    <link rel="icon" type="image/png" href="https://static.igem.wiki/teams/4455/wiki/single-line-white-copy-10.png">
+</head>
+
+<style>
+  .modal {
+    background: rgba(55, 55, 55, .6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">
+      <img src="https://static.igem.wiki/teams/4455/wiki/logonotext.png" alt="ASU iGEM logo" height="50" width="50">
+    </a>
+    <a class="navbar-brand" href="{{ url_for('pages', page='index') }}">ASU iGEM 2022</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle team" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Team
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions<a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle project" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Project
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering Success</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of Concept</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Modeling</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='implementation') }}">Proposed Implementation</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown lab">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Lab
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Engagement
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Education</a>
+            <a class="dropdown-item" href="{{ url_for('pages', page='collaborations') }}">Collaborations</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown human-practices">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Partnership
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ url_for('pages', page='partnership') }}">Partnerships</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">&nbsp;&nbsp;</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero-image">
+    <div class="hero-text">
+    </div>
+  </div>
+
+  <div class="section-two">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(45, 207, 255, 0.75)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(45, 207, 255, 0.95)" />
+      </g>
+    </svg>
+  </div>
+
+
+  <div class="container-fluid top-notch">
+    <div class="content">
+      <div class="row">
+        <div class="col-12 collaborations">
+          <p>iGEM Phototroph Community 2022</p>
+        </div>
+      </div>
+
+      <!-- First Heading -->
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p>Background & Community History</p>
+        </div>
+        <img src="https://static.igem.wiki/teams/4455/wiki/logo-big.png" alt="Green" width="300" style="float: left;" />
+        <div class="description_one">
+          <p>The iGEM Phototroph Community was conceptualized and founded by iGEM teams Marburg (overgrad grand prize
+            winners ‘21) and Bielefeld (top 10 rank ‘21) in 2021. Both teams were some of the few that chose to work
+            with plants. Their vision was to provide iGEM teams working with phototrophic chassis – microalgae,
+            cyanobacteria, and higher plants – a space to connect to one another, speak with experts in the field to get
+            advice and troubleshoot their projects, and to create resources that would be valuable for iGEM teams
+            wanting to work with phototrophs in the years ahead. </p>
+        </div>
+        <div class="description_one">
+          <p>Phototrophic organisms are an unpopular chassis to work with in the iGEM competition because they grow
+            slowly compared to bacterial species and require specialized protocols for cloning and transformation, many
+            of which have yet to be standardized in the literature. In order to make it easier for teams to work with
+            phototrophs, the iGEM Phototroph Community has been dedicated to creating a standardized set of protocols
+            that is annually reviewed and expanded upon in the form of the Phototroph Community handbook. The first
+            edition of the handbook, written in 2021, was 160 pages long and included contributions from 11 iGEM teams
+            (including ASU iGEM 2021) from around the world. </p>
+
+            <p>View the Phototroph Community handbook <a href="https://static.igem.wiki/teams/4455/wiki/igem-phototroph-handbook.pdf"
+              style="color: wheat !important;">here.</a></p>
+        </div>
+      </div>
+
+      <!-- Second Heading -->
+      <div class="main_tittle_second">
+        <div class="tittle_second">
+          <p>Vision for 2022</p>
+        </div>
+        <div class="description_second">
+          <p>Due to Bielefeld and Marburg’s choice to not participate in the 2022 competition cycle, there was a clear
+            need for iGEM teams to maintain the community. Because of ASU iGEM’s involvement in the community in 2021,
+            we were aware of the community and the great opportunity it presented to teams to collaborate and gain
+            useful insight into their projects.</p>
+        </div>
+        <div class="description_second">
+          <img src="https://static.igem.wiki/teams/4455/wiki/biocord.png" alt="BI" width="250" style="float: left; margin: 20px;" />
+          <img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-10-13-at-7-10-38-pm.png" alt="Community" width="400" style="float: right; margin: 20px;" />
+          <p>Our connection to the community in 2022 began when we spoke with Finn Wieland, an iGEM Marburg 2021 team
+            member and one of the administrators of Biocord, the largest Discord server for bio-enthusiasts to date.
+            Finn mentioned that the UBCO team was interested in reviving the Phototroph community for the 2022
+            competition cycle, and suggested that we work with them to spearhead the community and host an event on
+            Biocord. After meeting with the UBCO team, we set up our goals for what we wanted to accomplish with the
+            community this year, and thus began a close partnership that would last throughout the competition season.
+          </p>
+        </div>
+        <div class="description_second">
+          <p>The plan for the 2022 Phototroph Community was to 1) revive the Slack workspace by inviting new teams and
+            experts to join and discuss their projects, 2) host 2 meetups over the summer for teams to present their
+            project pitches and get some troubleshooting help from experts, 3) host a final conference for industry and
+            academic professionals to discuss their research and for iGEM teams to get feedback on their project
+            presentations from those professionals.</p>
+        </div>
+      </div>
+
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p>Meetups and Conference</p>
+        </div>
+        <div class="description_one">
+          <p>Our first online meetup was hosted on July 30, 2022. Cedric Brinkmann (iGEM Marburg 2021) started off the
+            event by detailing a brief history of the Phototroph community and an overview of OpenPlast, iGEM Marburg’s
+            project from 2021. We also had René Inckemann (iGEM Marburg Instructor 2021) from the iGEM Plant SynBio
+            Subcommittee talk about how the group can support teams working with phototrophic chassis. René also led a
+            group discussion to get feedback from teams on what other services the Plant Subcommittee can provide.
+            Afterwards, the teams in attendance gave 5-7 minute project pitches, followed by Q&A sessions to answer
+            questions from other attendees. Lastly, we had another group discussion to determine which teams were
+            interested in contributing to this large-scale handbook and video protocol collaboration, and what those
+            contributions would look like</p>
+        </div>
+
+        <!-- Image Section -->
+        <div class="hello">
+          <img src="https://static.igem.wiki/teams/4455/wiki/collabzoomscreenshotasuigem.png" alt="Green" width="600">
+          <img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-10-13-at-7-11-13-pm.png" alt="Partner" width="350" height="400">
+        </div>
+
+        <div class="description_one">
+          <p> <br> The second online meetup happened on August 20, 2022, and was designed to be a troubleshooting event
+            where teams could get specific advice related to their needs. This event was scheduled to be in late August,
+            as this is often the point in the competition where teams begin to face issues in getting expected lab
+            results. The event began with introductory talks from guest speakers Dr. Luis De Stefano (UPCH, Plant
+            specialist) and Dr. Mitra Tabatabaee (UBCO), who gave inspiring talks on how to deal with various roadblocks
+            in research and strategies to overcome them. We also had guest experts to assist with more specific issues:
+            Dr. Everett Eustance (ASU, Algae specialist) and Santiago Ochoa (ASU, Cloning specialist). These experts
+            provided feedback to teams in troubleshooting breakout sessions. After the troubleshooting session, we
+            regrouped to discuss the guidelines and deadlines associated with the handbook and video protocol additions.
+          </p>
+        </div>
+
+        <div class="image_selection_two">
+          <img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-10-13-at-7-13-05-pm.png" alt="Expert" width="600">
+        </div>
+
+        <div class="description_one">
+          <p>Our final event, the Phototroph Community Virtual Conference, was held on August 27, 2022. While the actual
+            conference was held over Zoom, we collaborated with Biocord to stream this event on their platform as well
+            for non-iGEMers to watch. The special event featured talks from experts in academia and industry
+            specializing in synthetic biology with plants, microalgae, cyanobacteria and more! Guest speakers included
+            Dr. Jake Wintermute (Ginkgo Bioworks), Dr. Moritz Koch (BASF), and Dr. Henrik Toft Simonsen (DTU). After the
+            series of guest talks, attending iGEM teams had the chance to showcase their 2022 projects to our speakers
+            in order to receive feedback on their work and prepare for their presentations at the Grand Jamboree. Over
+            the course of the five-hour event, we hosted a total of almost 60 attendees from Biocord and Zoom.
+          </p>
+        </div>
+
+        <div class="hello">
+          <img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-10-13-at-7-13-36-pm.png" alt="Happy" width="650" height="300">
+          <img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-10-13-at-7-13-46-pm.png" alt="Building" width="650" height="300">
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p>Outcomes: Handbook Volume II and Video Protocols</p>
+        </div>
+        <div class="description_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/screen-shot-2022-10-13-at-7-14-43-pm.png" alt="handbook" width="350" height="400" style="float: right; margin-left: 25px;" />
+          <p>Alongside the personal benefits that teams saw from being part of the Phototroph Community, they also had
+            the chance to give back by preparing protocols and other informational chapters for future teams to learn
+            from. These contributions came in the form of written chapters, that were integrated directly into the
+            existing written handbook, as well as in videos, which are available for viewing on the community’s YouTube
+            page, and are linked within online copies of the handbook as well. </p>
+        </div>
+        <div class="description_one">
+          <p>The Phototroph Community Handbook is an incredibly valuable resource for teams because it is a living
+            document of background information, protocols, and experimental procedures compiled from iGEM teams all over
+            the world. In 2022, 8 teams helped contribute to volume II of the handbook, adding a total of almost 40
+            pages worth of information to the initial document created in 2021. These contributions expanded on the
+            cultivation of cyanobacteria and plants, the transformation of microalgae and higher plants, the evolution
+            of phototrophic organisms and other novel cloning methods, including Golden Braid 2.0.</p>
+        </div>
+      </div>
+
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p>Phototroph Community Badges</p>
+        </div>
+        <div class="description_one">
+          <p>In 2021, iGEM Marburg and iGEM Bielefeld created the Phototroph Badges as a means of recognizing the
+            efforts made by Phototroph teams and having their contributions easily visible on their Wiki pages. For the
+            2022 season, UBCO and ASU re-designed these four badges to reflect the contributions made by the teams, as
+            well as to be more inclusive for teams working with non-plant phototrophs.</p>
+        </div>
+        <div class="description_one">
+          <p>The four badges we distributed this year are the Community, Presentation, Handbook and Organization badges.
+            The Community badge was earned by joining the Phototroph Community workspace on Slack. The Presentation
+            badge was earned by teams who presented their project at the Virtual Conference. The Handbook badge was
+            earned by the teams who helped write the Phototroph Handbook, passing on their knowledge and experience to
+            future iGEM teams. The Organization badge is exclusive to ASU iGEM and UBCO iGEM for leading the community,
+            planning the meetups and conference, managing the Slack workspace, and compiling additions to the community
+            handbook.</p>
+        </div>
+
+        <div class="hello">
+          <img src="https://static.igem.wiki/teams/4455/wiki/pinkgear.png" alt="Pink" width="300">
+          <img src="https://static.igem.wiki/teams/4455/wiki/bluegear.png" alt="Blue" width="300">
+          <img src="https://static.igem.wiki/teams/4455/wiki/greengear.png" alt="bluish" width="300">
+          <img src="https://static.igem.wiki/teams/4455/wiki/yellowgear.png" alt="Yello" width="300">
+        </div>
+
+      </div>
+
+      <br />
+      <br />
+
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p>The Future of the Community</p>
+        </div>
+        <div class="description_one">
+          <p>In 2022, ASU and UBCO were able to successfully expand on the initial efforts of the Phototroph Community
+            put forth by Marburg and Bielefeld. For the 2023 competition, we plan to pass on leadership of the community
+            to two more phototroph teams to ensure that this space is maintained for future iGEMers to benefit from.</p>
+        </div>
+        <div class="description_one">
+          <p>We hope that our work this year – hosting events, maintaining an active discourse via Slack, and writing
+            the second volume of the Phototroph Community Handbook – give future iGEM teams the ability to choose to
+            work with phototrophic chassis without fear of feeling unsupported or lost during the competition cycle. We
+            plan to remain active on the Phototroph Community Slack workspace as needed to provide insight and advice!
+            We also plan to have volume II of the community handbook posted on the iGEM Plant Subcommittee’s website to
+            increase its visibility among new iGEM teams.</p>
+        </div>
+        <div class="description_one">
+          <p>Most importantly, we look forward to supporting future iterations of the Phototroph Community as it
+            continues to grow and flourish!</p>
+        </div>
+      </div>
+
+      <div class="main_tittle_four">
+        <div class="tittle_four">
+          <p>H<sub>2</sub>bio Podcast</p>
+        </div>
+      </div>
+
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p>Ideation</p>
+        </div>
+        <div class="description_one">
+          <p>Our partnership with QGEM (team Queens_Canada) began early in the competition cycle when we connected with
+            them over Slack after noticing that both of our teams were dedicated to solving water quality issues in
+            rural and indigenous communities. Because our projects attempted to tackle that issue in vastly different
+            ways, there unfortunately wasn’t much room for a productive wet lab collaboration between our teams.
+            However, we both shared interest in science communication and educating the public about the water
+            contamination issues that often go unnoticed in these communities. </p>
+        </div>
+        <div class="description_one">
+          <p>In Arizona, much of the heavy metal contamination in water is seen in areas with historic mining activity,
+            which also happens to be where many indigenous communities like the Navajo Nation reside. Our team was
+            unfortunately unable to communicate directly with this portion of our target population due to existing
+            institutional restrictions on who can interface with indigenous groups. Because we could not speak to those
+            who live in the communities impacted by water contamination, we decided to create a podcast where we could
+            discuss the science behind bioremediation for a larger public audience to educate them on water quality
+            issues.</p>
+        </div>
+      </div>
+
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p>Interviewing Process</p>
+        </div>
+        <div class="description_one">
+          <p>We decided to reach out to academic professionals in synthetic biology, metabolic engineering, water
+            quality processing, and bioethics in order to present a comprehensive set of information to our listeners.
+            Our first interview was with Dr. Stephen Brown of Queen’s University, whose research concerns organic
+            particle detection in water sources through specifically-designed instruments and biochemical assays. We
+            wanted to speak with Dr. Brown because his experience in water sample analysis and decontamination
+            strategies was particularly relevant to our topic, and his answers to our questions were incredibly
+            insightful!</p>
+        </div>
+        <div class="description_one">
+          <p>We also had the chance to speak to Dr. Arul Varman, a professor at ASU’s chemical engineering department
+            who works on engineering microorganisms to sustainably produce chemicals and biofuels. Though Dr. Varman’s
+            research is not directly related to bioremediation, his work heavily involves metabolic engineering and
+            synbio. His ability to explain how and why organisms are engineered to gain new functions alongside
+            potential solutions these organisms can provide was very valuable to us.</p>
+        </div>
+        <div class="description_one">
+          <p>Another one of the guests we were able to speak with was Dr. Rosa Krajmalnik-Brown (who also goes by Dr.
+            Rosy), a professor in civil and environmental engineering at ASU. Dr. Rosy’s research encompasses many
+            topics, but we spoke to her to gain a better understanding of her research in the biodegradation of water
+            contaminants and her approach towards using synbio vs. traditional environmental engineering techniques to
+            solve problems. </p>
+        </div>
+        <div class="description_one">
+          <p>Our final guest on the podcast was Dr. Lalitha Sundaram, a research associate at Cambridge University
+            whose work focuses on the concept of biological risk – that is, assessing the potential risks that
+            accompany new and emerging biotechnologies. While her perspectives on bioethics were especially important
+            in our discussions of synbio and bioremediation, Dr. Sundaram had also worked on a project with the
+            University of Cambridge and Edinburgh to develop a novel arsenic biosensor for people living in regions
+            with contaminated water sources to test their water quality before consumption. This was extremely
+            relevant to our own iGEM project this year, and we were happy to hear more details of her endeavors during
+            the interview.
+          </p>
+        </div>
+      </div>
+
+      <div class="main_tittle_one">
+        <div class="tittle_one">
+          <p>Outcomes: A 4-Episode Learning Experience</p>
+        </div>
+        <div class="description_one">
+          <img src="https://static.igem.wiki/teams/4455/wiki/h2bioasuigempodcast.png" alt="iGEM" width="250" style="float: left; margin: 0px 25px 25px 0px;" />
+          <p>The interviews conducted with Dr. Brown, Dr. Varman, Dr. Rosy, and Dr. Sundaram were compiled and organized into a series of episodes that discuss a myriad of topics, ranging from how organisms are engineered to the bioethical considerations of bioremediation and everything in between.
+          </p>
+        </div>
+        <div class="description_one">
+          <p>The episodes each provide a unique perspective into a different aspect of water bioremediation, allowing listeners to fully understand how synbio can be used as a powerful means of solving water quality issues.
+          </p>
+
+          <p>
+            We hope that this introduction serves as a resource that sparks interest in listeners with little science background, and inspires future iGEMers to take on the challenge of working on projects related to bioremediation.
+          </p>
+
+          <p>Listen to the episodes on our education and communication page <a href="{{ url_for('pages', page='communication') }}"
+            style="color: wheat !important;">here.</a></p>
+        </div>
+      </div>
+    </div>
+    {% include "footer.html" %}
+  </div>
+
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'jquery-3.3.1.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'bootstrap.min.js') }}"></script>
+</body>
+
+</html>
